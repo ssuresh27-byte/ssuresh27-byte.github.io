@@ -50,7 +50,17 @@
     </section>
 
     <section id="publications">
-      <h2>Publications</h2>
+      <h2>Publications &amp; software</h2>
+
+      <div class="entry" id="pyencode">
+        <h3>PyEncode: An Open-Source Library for Structured Quantum State Preparation</h3>
+        <p class="panel-tag">Open-source library &middot; Python &middot; Qiskit</p>
+        <p class="panel-authors">K. Suresh, S. Suresh</p>
+        <p>Loading a classical vector into a quantum state is the hidden bottleneck behind algorithms like HHL and QSVT &mdash; general state preparation costs <em>O</em>(2&#7504;) gates and erases any quantum speedup. PyEncode exploits the structure scientific vectors actually have (sinusoids, polynomials, distributions, &hellip;): you declare the pattern and it returns a verified Qiskit circuit that prepares the state in poly(<em>m</em>) gates, with no materialization or approximation &mdash; one function, eleven encoding patterns.</p>
+        <div class="entry-links">
+          <a href="https://github.com/UW-ERSL/PyEncode" target="_blank" class="panel-link">GitHub &rarr;</a>
+        </div>
+      </div>
 
       <div class="entry" id="sparse-inverse">
         <h3>Computing a Sparse Approximate Inverse on Quantum Annealing Machines</h3>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;}catch(e){}})();</script>
+  <title>Science Bowl Writer &mdash; Sanjay Suresh</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav>
+      <a href="../index.html" class="site-name">Sanjay Suresh</a>
+      <div class="nav-right">
+        <a href="../research.html">Research</a>
+        <a href="../sciencebowl.html">Science Bowl</a>
+        <a href="../music.html">Music</a>
+        <a href="../projects.html" class="active">Projects</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../notes.html">Notes</a>
+        <a href="../resume.html">Resume</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <a href="../projects.html" class="back-link">&larr; All projects</a>
+
+    <div class="project-hero">
+      <div class="project-hero-text">
+        <h1>Science Bowl Writer</h1>
+        <p class="project-tagline">An AI question writer &amp; practice tool for Stanford Science Bowl</p>
+        <p class="project-desc">A local PDF reader that writes Stanford Science Bowl&ndash;style questions for whatever page you're viewing, stores them, and lets you practice them. Generation follows the SSB writing guide &mdash; innovative flavor text, ideal buzz points, tossup vs. bonus distinction, W/X/Y/Z multiple choice, ANSWER/ACCEPT short answer, and category + difficulty tagging. You can also write your own questions into the same mix.</p>
+        <div class="project-meta-row">
+          <span class="project-tech-tag">Python</span>
+          <span class="project-tech-tag">FastAPI</span>
+          <span class="project-tech-tag">OpenAI</span>
+          <span class="project-tech-tag">pypdf</span>
+          <span class="project-tech-tag">SQLite</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <h2>How it works</h2>
+      <p class="project-desc"><strong>Reader.</strong> Upload a PDF and flip through it page by page.</p>
+      <p class="project-desc"><strong>Generate.</strong> On any page, hit Generate to turn that page's text into questions &mdash; set the count, categories, and tossup/bonus mix. Tossups are quick-recall reflex questions; bonuses allow multi-step reasoning or calculation.</p>
+      <p class="project-desc"><strong>Practice.</strong> Filter your question bank by PDF, category, or type, then run a session: reveal answers and self-grade. Everything is stored locally in SQLite.</p>
+    </div>
+  </main>
+
+  <footer style="max-width:var(--max-width);margin:0 auto;padding:1.5rem 2rem 3rem;font-family:var(--font-body);font-size:0.75rem;color:var(--text-3);">&copy; 2026 Sanjay Suresh</footer>
+
+  <script>
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+    function toggleTheme() {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  </script>
+  <script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a||a.target==="_blank")return;if(a.pathname===location.pathname&&a.search===location.search&&!a.hash)e.preventDefault();},true);</script>
+</body>
+</html>
