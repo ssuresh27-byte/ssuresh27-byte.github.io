@@ -345,6 +345,14 @@ h1, h2, h3, h4 {
   overflow: hidden;
   border: 1px solid var(--border);
 }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.video-grid .panel-video { margin: 0; }
 .panel-video iframe {
   position: absolute;
   top: 0; left: 0;
