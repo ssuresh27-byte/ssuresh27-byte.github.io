@@ -1,8 +1,8 @@
 /* ───── Blog Post Page ───── */
 .blog-post {
-  max-width: 680px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 3rem 2rem 5rem;
+  padding: 2.5rem 2rem 4rem;
 }
 
 .post-header {

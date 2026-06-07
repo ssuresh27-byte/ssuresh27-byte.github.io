@@ -11,7 +11,7 @@
   --font-mono:    'Courier New', Courier, monospace;
   --sidebar-w:    56px;
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --max-width:    840px;
+  --max-width:    760px;
   --transition:   var(--t);
 }
 
@@ -394,8 +394,8 @@ h1, h2, h3, h4 {
 .hero-text { width: 100%; }
 
 .hero-photo {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   object-position: center 25%;
   border-radius: 50%;
@@ -430,7 +430,7 @@ h1, h2, h3, h4 {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.04;
@@ -480,19 +480,17 @@ h1, h2, h3, h4 {
 
 /* ───── Sections ───── */
 .section {
-  padding: 2rem 0;
+  padding: 2.5rem 0;
 }
 
 .section h2 {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: lowercase;
   color: var(--text-3);
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
 }
 
 /* ───── Item Rows ───── */
@@ -510,7 +508,7 @@ h1, h2, h3, h4 {
   width: 100%;
   background: none;
   border: none;
-  padding: 0.5rem 0;
+  padding: 0.72rem 0;
   cursor: pointer;
   text-align: left;
   text-decoration: none;
@@ -518,7 +516,7 @@ h1, h2, h3, h4 {
   font-size: 1rem;
   color: var(--text);
   border-bottom: 1px solid transparent;
-  transition: color var(--t);
+  transition: color var(--t), padding-left var(--t);
   position: relative;
 }
 
@@ -530,11 +528,11 @@ h1, h2, h3, h4 {
   right: 0;
   height: 1px;
   background: var(--border);
-  opacity: 0.5;
 }
 
 .item-row:hover {
   color: var(--accent);
+  padding-left: 0.5rem;
 }
 
 .item-row.active {
@@ -543,15 +541,8 @@ h1, h2, h3, h4 {
 
 .item-title {
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.16rem;
   letter-spacing: -0.01em;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 1px;
-  transition: border-color var(--t);
-}
-
-.item-row:hover .item-title {
-  border-color: var(--accent);
 }
 
 .item-sub {
@@ -1031,6 +1022,7 @@ footer .theme-toggle {
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.01em;
+  text-transform: lowercase;
   color: var(--text-3);
   text-decoration: none;
   display: inline-block;
@@ -1114,6 +1106,22 @@ footer .theme-toggle {
   color: var(--text-3);
   background: var(--accent-soft);
   border-radius: 0 8px 8px 0;
+}
+.prose blockquote p { margin: 0; }
+.prose pre {
+  background: var(--bg-alt);
+  padding: 1.1rem 1.4rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+.prose pre code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  background: none;
+  padding: 0;
 }
 
 /* Stacked content entries (publications, posts, resume blocks) */
