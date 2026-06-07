@@ -1,0 +1,209 @@
+/* ───── Project Detail Page ───── */
+.project-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+/* .back-link is defined in style.css (shared) */
+
+/* Project hero */
+.project-hero {
+  margin-bottom: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-hero h1 {
+  font-family: var(--font-display);
+  font-size: 2.9rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  margin-bottom: 0.5rem;
+}
+
+.project-tagline {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.project-desc {
+  font-size: 1rem;
+  color: var(--text-soft);
+  line-height: 1.8;
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+
+.project-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tech-tag {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+}
+
+.project-github {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--link);
+  transition: color var(--transition);
+}
+
+.project-github:hover {
+  color: var(--link-hover);
+  text-decoration-color: var(--link-hover);
+}
+
+/* Gallery */
+.gallery {
+  margin-bottom: 3rem;
+}
+
+.gallery h2 {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  margin-bottom: 1.25rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.gallery-item {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.gallery-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .gallery-item:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+
+.gallery-item figcaption {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
+/* ───── Lightbox ───── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+
+.lightbox-close:hover { opacity: 1; }
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  padding: 1rem;
+  line-height: 1;
+}
+
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+.lightbox-prev:hover,
+.lightbox-next:hover { opacity: 1; }
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  text-align: center;
+  max-width: 500px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .project-page { padding: 1.5rem 1.25rem 3rem; }
+  .project-hero h1 { font-size: 2rem; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .lightbox-prev, .lightbox-next { font-size: 2rem; }
+}

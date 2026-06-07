@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;}catch(e){}})();</script>
+  <title>Notes &mdash; Sanjay Suresh</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav>
+      <a href="index.html" class="site-name">Sanjay Suresh</a>
+      <div class="nav-right">
+        <a href="projects.html">Projects</a>
+        <a href="research.html">Research</a>
+        <a href="sciencebowl.html">Science Bowl</a>
+        <a href="music.html">Music</a>
+        <a href="writing.html">Writing</a>
+        <a href="notes.html" class="active">Notes</a>
+        <a href="resume.html">Resume</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <a href="index.html" class="back-link">&larr; Home</a>
+
+    <div class="page-header">
+      <h1>Notes</h1>
+      <p>Short notes-to-self across whatever I'm thinking about &mdash; quantum computing, math, building software, and music. Grouped by subject; more of a scratchpad than a blog.</p>
+    </div>
+
+    <section class="notes-group">
+      <h2 class="notes-subject">Quantum Computing</h2>
+      <div class="item-list">
+        <a class="item-row" href="notes/surface-code-distance.html">
+          <span class="item-title">Reading off a surface-code distance</span>
+          <span class="item-sub">May 2026</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+        <a class="item-row" href="notes/qubo-penalties.html">
+          <span class="item-title">Inequality constraints in QUBO</span>
+          <span class="item-sub">Apr 2026</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes-group">
+      <h2 class="notes-subject">Mathematics</h2>
+      <div class="item-list">
+        <a class="item-row" href="notes/spectral-theorem.html">
+          <span class="item-title">The spectral theorem, intuitively</span>
+          <span class="item-sub">Feb 2026</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes-group">
+      <h2 class="notes-subject">Software</h2>
+      <div class="item-list">
+        <a class="item-row" href="notes/convex-actions.html">
+          <span class="item-title">Keep AI calls out of Convex mutations</span>
+          <span class="item-sub">Mar 2026</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes-group">
+      <h2 class="notes-subject">Music</h2>
+      <div class="item-list">
+        <a class="item-row" href="notes/gamakas-notation.html">
+          <span class="item-title">Why gamakas resist notation</span>
+          <span class="item-sub">Jan 2026</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="max-width:var(--max-width);margin:0 auto;padding:1.5rem 2rem 3rem;font-family:var(--font-body);font-size:0.75rem;color:var(--text-3);">&copy; 2026 Sanjay Suresh</footer>
+
+  <script>
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+    function toggleTheme() {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  </script>
+
+  <script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a||a.target==="_blank")return;if(a.pathname===location.pathname&&a.search===location.search&&!a.hash)e.preventDefault();},true);</script>
+</body>
+</html>

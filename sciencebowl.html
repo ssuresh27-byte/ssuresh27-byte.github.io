@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;}catch(e){}})();</script>
+  <title>Science Bowl &mdash; Sanjay Suresh</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav>
+      <a href="index.html" class="site-name">Sanjay Suresh</a>
+      <div class="nav-right">
+        <a href="projects.html">Projects</a>
+        <a href="research.html">Research</a>
+        <a href="sciencebowl.html" class="active">Science Bowl</a>
+        <a href="music.html">Music</a>
+        <a href="writing.html">Writing</a>
+        <a href="notes.html">Notes</a>
+        <a href="resume.html">Resume</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page prose">
+    <a href="index.html" class="back-link">&larr; Home</a>
+
+    <div class="page-header">
+      <h1>Science Bowl</h1>
+      <p>Of everything I did in high school, the National Science Bowl shaped me the most. I served as president and captain of my team, and ranked 2nd nationally among individual competitors.</p>
+    </div>
+
+    <section id="experience">
+      <h2>The buzzer</h2>
+      <p>Science Bowl is a fast, buzzer-based quiz competition spanning physics, chemistry, biology, math, earth science, and energy. A question is read, and the first person to recall &mdash; and commit &mdash; wins the points. You learn to hold a huge amount of material at your fingertips and to make a decision in the half-second before someone else does.</p>
+      <p>I loved that pressure. It rewarded genuine understanding and quick pattern recognition in equal measure, and it pushed me to go deep across every science at once rather than picking a single lane. A lot of my comfort with physics &mdash; and eventually quantum computing &mdash; started here, with a buzzer in my hand.</p>
+    </section>
+
+    <section id="leadership">
+      <h2>Building a community around it</h2>
+      <p>As captain, the part I'm proudest of wasn't my own scores &mdash; it was getting other people into it. I built practice platforms and ran sessions that ended up engaging more than 2,000 students, trying to make the on-ramp into competitive science as welcoming as possible. Watching someone go from intimidated to obsessed was the best part.</p>
+    </section>
+
+    <section id="impact">
+      <h2>How it shaped my life</h2>
+      <p>Science Bowl is the thread that connects most of what I do now. The thrill of fast recall and the urge to make practice better is exactly why I keep building learning tools &mdash; <a href="projects/eloquizzer.html">Eloquizzer</a>, <a href="projects/pdfquizzer.html">PDFQuizzer</a>, and a Science Bowl practice app are all, in a sense, attempts to bottle that experience for other students.</p>
+      <p>It also taught me how to lead a team, how to teach, and how to lose a close match and come back the next round. The friendships and the habits of curiosity I picked up have outlasted any single answer I ever buzzed in.</p>
+    </section>
+  </main>
+
+  <footer style="max-width:var(--max-width);margin:0 auto;padding:1.5rem 2rem 3rem;font-family:var(--font-body);font-size:0.75rem;color:var(--text-3);">&copy; 2026 Sanjay Suresh</footer>
+
+  <script>
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+    function toggleTheme() {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  </script>
+
+</body>
+</html>

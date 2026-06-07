@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;}catch(e){}})();</script>
+  <title>Eloquizzer &mdash; Sanjay Suresh</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav>
+      <a href="../index.html" class="site-name">Sanjay Suresh</a>
+      <div class="nav-right">
+        <a href="../projects.html" class="active">Projects</a>
+        <a href="../research.html">Research</a>
+        <a href="../sciencebowl.html">Science Bowl</a>
+        <a href="../music.html">Music</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../notes.html">Notes</a>
+        <a href="../resume.html">Resume</a>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <a href="../projects.html" class="back-link">&larr; All projects</a>
+
+    <div class="project-hero">
+      <div class="project-hero-text">
+        <h1>Eloquizzer</h1>
+        <p class="project-tagline">Competitive quiz platform with Elo-based skill tracking</p>
+        <p class="project-desc">A competitive quiz and learning platform with Elo-based skill tracking. Features adaptive difficulty, multiplayer quiz matches with real-time spectating, and personalized lesson generation.</p>
+        <div class="project-meta-row">
+          <span class="project-tech-tag">Next.js</span>
+          <span class="project-tech-tag">TypeScript</span>
+          <span class="project-tech-tag">Convex</span>
+          <span class="project-tech-tag">Anthropic</span>
+          <span class="project-tech-tag">React 19</span>
+          <span class="project-tech-tag">Tailwind</span>
+        </div>
+        <a href="https://github.com/ssuresh27-byte" target="_blank" class="project-github">View on GitHub &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Screenshot Gallery -->
+    <div class="gallery">
+      <h2>Screenshots</h2>
+      <div class="gallery-grid">
+        <figure class="gallery-item" onclick="openLightbox(0)">
+          <img src="../images/eloquizzer-1.png" alt="Eloquizzer play view" />
+          <figcaption>Play view &mdash; Elo score and subject grid</figcaption>
+        </figure>
+        <figure class="gallery-item" onclick="openLightbox(1)">
+          <img src="../images/eloquizzer-2.png" alt="Eloquizzer quiz question" />
+          <figcaption>Quiz question &mdash; drag-to-order interface</figcaption>
+        </figure>
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-prev" onclick="prevSlide()">&#8249;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <button class="lightbox-next" onclick="nextSlide()">&#8250;</button>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <footer>
+    <div class="footer-left"><p>&copy; 2026 Sanjay Suresh</p></div>
+    <div class="footer-right">
+      <a href="https://github.com/ssuresh27-byte" target="_blank">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="mailto:ssuresh27@wisc.edu">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    // Theme
+    const toggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+    toggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Lightbox
+    const images = document.querySelectorAll('.gallery-item img');
+    const captions = document.querySelectorAll('.gallery-item figcaption');
+    let current = 0;
+
+    function openLightbox(i) {
+      current = i;
+      document.getElementById('lightbox-img').src = images[i].src;
+      document.getElementById('lightbox-caption').textContent = captions[i].textContent;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function nextSlide() {
+      current = (current + 1) % images.length;
+      document.getElementById('lightbox-img').src = images[current].src;
+      document.getElementById('lightbox-caption').textContent = captions[current].textContent;
+    }
+
+    function prevSlide() {
+      current = (current - 1 + images.length) % images.length;
+      document.getElementById('lightbox-img').src = images[current].src;
+      document.getElementById('lightbox-caption').textContent = captions[current].textContent;
+    }
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+
+  <script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a||a.target==="_blank")return;if(a.pathname===location.pathname&&a.search===location.search&&!a.hash)e.preventDefault();},true);</script>
+</body>
+</html>
