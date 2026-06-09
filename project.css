@@ -2,7 +2,7 @@
 .project-page {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem 2rem 4rem;
+  padding: 2.75rem 2rem 4rem;
 }
 
 /* .back-link is defined in style.css (shared) */
@@ -10,16 +10,16 @@
 /* Project hero */
 .project-hero {
   margin-bottom: 2.5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
 
 .project-hero h1 {
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 2.2rem;
+  font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 1.05;
+  line-height: 1.08;
   margin-bottom: 0.35rem;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .project-desc {
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--text-soft);
   line-height: 1.75;
   max-width: 60ch;

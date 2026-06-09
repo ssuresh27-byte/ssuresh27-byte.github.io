@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;}catch(e){}})();</script>
   <title>Resume &mdash; Sanjay Suresh</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=optional" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=25" />
+  <style>
+    /* Resume spacing: clear section breaks, grouped entries, dates that hug their entry */
+    main.prose section h2 { margin-top: 3rem; }
+    main.prose section:first-of-type h2 { margin-top: 0.75rem; }
+    main.prose section h2 + h3 { margin-top: 0.4rem; }
+    main.prose section h3 { margin-top: 1.85rem; }
+    main.prose section .panel-tag { margin-bottom: 0.3rem; }
+    main.prose section ul { margin-top: 0.5rem; }
+    .resume-download { margin-top: 1.25rem; }
+  </style>
 </head>
 <body>
 
   <header class="site-header">
     <nav>
-      <a href="index.html" class="site-name">Sanjay Suresh</a>
+      <a href="index.html" class="site-name">sanjaysuresh.me</a>
       <div class="nav-right">
         <a href="research.html">Research</a>
         <a href="sciencebowl.html">Science Bowl</a>
@@ -26,13 +37,12 @@
   </header>
 
   <main class="page prose">
-    <a href="index.html" class="back-link">&larr; Home</a>
+    <nav class="breadcrumb"><a href="index.html" class="bc-home" aria-label="Home"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></a> <span class="sep">/</span> <span class="current">Resume</span></nav>
 
     <div class="page-header">
       <h1>Resume</h1>
-      <p>Quantum computing researcher and full-stack builder.
-        <a href="SanjayResume.pdf" download class="resume-download" style="margin-top:1rem;">Download PDF &rarr;</a>
-      </p>
+      <p>Quantum computing researcher and full-stack builder.</p>
+      <a href="SanjayResume.pdf" download class="resume-download">Download PDF &rarr;</a>
     </div>
 
     <section id="education">
@@ -47,22 +57,13 @@
       <h2>Research Experience</h2>
       <h3>Argonne National Laboratory</h3>
       <p class="panel-tag">2025 &ndash; Present &middot; Lemont, IL</p>
-      <p><strong>Quantum Computing Research Assistant &mdash; Distributed Quantum Computing</strong><br/>Advised by Dr. Rajkumar Kettimuthu.</p>
-      <ul>
-        <li>Enhanced ANL's SeQUeNCe library to enable distributed quantum computing simulation, implementing partitioning and scheduling algorithms to distribute logical circuits across arbitrary network topologies.</li>
-        <li>Demonstrated 100% accuracy on a distributed three-qubit Grover's algorithm across simulated networked quantum nodes.</li>
-        <li>Created applications for simulating quantum teleportation and remote gate operations; presented results at the 2025 Chicago Quantum Summit.</li>
-      </ul>
+      <p><strong>Quantum Computing Research Assistant &mdash; Distributed Quantum Computing</strong>, advised by Dr. Rajkumar Kettimuthu.</p>
+      <p>I extended ANL's SeQUeNCe library to support distributed quantum computing simulation, implementing partitioning and scheduling algorithms that spread a single logical circuit across arbitrary network topologies. With it I demonstrated 100% accuracy on a distributed three-qubit Grover's algorithm across simulated networked nodes, and built applications that model quantum teleportation and remote gate operations &mdash; work I presented at the 2025 Chicago Quantum Summit.</p>
 
       <h3>University of Wisconsin&ndash;Madison</h3>
       <p class="panel-tag">Summer 2023 &ndash; 2025 &middot; Madison, WI</p>
-      <p><strong>Quantum Computing Research Assistant &mdash; Benchmarking <span class="amp">&amp;</span> Quantum Annealing</strong><br/>Advised by Prof. Swamit Tannu and Prof. Krishnan Suresh.</p>
-      <ul>
-        <li>Developed benchmark suites with novel metrics for predicting resource expenditure and error rates on fault-tolerant quantum hardware.</li>
-        <li>Leveraged variational autoencoders to investigate correlations between classically simulable metrics and actual quantum hardware performance.</li>
-        <li>Adapted quantum annealing algorithms for inequality-constrained optimization with applications to finance portfolio problems; improved linear system solving efficiency by 30&ndash;40%.</li>
-        <li>Applied methods to 2D-Poisson, thermal, and topology optimization problems; presented results at WCCM Vancouver 2024.</li>
-      </ul>
+      <p><strong>Quantum Computing Research Assistant &mdash; Benchmarking <span class="amp">&amp;</span> Quantum Annealing</strong>, advised by Prof. Swamit Tannu and Prof. Krishnan Suresh.</p>
+      <p>I developed benchmark suites with novel metrics for predicting resource expenditure and error rates on fault-tolerant hardware, using variational autoencoders to probe how classically-simulable metrics correlate with real device performance. On the annealing side, I adapted quantum annealing algorithms for inequality-constrained optimization &mdash; with applications to finance portfolio problems &mdash; improving linear-system solving efficiency by 30&ndash;40% and applying the methods to 2D-Poisson, thermal, and topology optimization problems, presented at WCCM Vancouver 2024.</p>
     </section>
 
     <section id="awards">

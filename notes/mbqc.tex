@@ -1,0 +1,235 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+
+% ----- bra-ket macros -----
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\bra}[1]{\left\langle#1\right|}
+\newcommand{\braket}[2]{\left\langle#1\middle|#2\right\rangle}
+\newcommand{\Tr}{\operatorname{Tr}}
+\DeclareMathOperator{\diag}{diag}
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{conjecture*}{Conjecture}
+
+\title{\textbf{Measurement-Based Quantum Computation}\\[0.3em]
+  \large A synopsis of Jozsa's \emph{An Introduction to Measurement Based Quantum Computation}}
+\author{Sanjay Suresh}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent In the circuit model, computation is unitary evolution and measurement happens
+only at the end. Measurement-based quantum computation (MBQC) inverts this: one begins with
+a large fixed entangled state and computes by measuring qubits one at a time, choosing later
+measurement bases according to earlier outcomes. Two models realize this idea --- teleportation
+quantum computation (TQC) and the one-way / cluster-state quantum computer (1WQC). These notes
+synthesize R.\ Jozsa's introduction (\href{https://arxiv.org/abs/quant-ph/0508124}{quant-ph/0508124}):
+how each model works, why each is universal, the three senses in which they are the same model,
+and what MBQC reveals about computational complexity.
+\end{abstract}
+
+\section{Notation}
+Pauli operators $I, X, Z$ with $iY = ZX$, and $\oplus$ is addition modulo $2$. The two-qubit
+gates are
+\[ CX\,\ket{i}\ket{j} = \ket{i}\ket{i\oplus j}, \qquad CZ\,\ket{i}\ket{j} = (-1)^{ij}\,\ket{i}\ket{j}, \]
+with $H=\tfrac{1}{\sqrt2}\left(\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right)$ and
+$\ket{\pm}=\tfrac{1}{\sqrt2}(\ket{0}\pm\ket{1})$. Unlike $CX$, $CZ$ is symmetric in its two inputs.
+The Bell basis is generated from $\ket{B_{00}}=\tfrac{1}{\sqrt2}(\ket{00}+\ket{11})$ by Paulis on one half,
+\[ \ket{B_{cd}} = (Z^c X^d \otimes I)\,\ket{B_{00}}, \]
+and a useful maximally entangled state mixing the standard and Hadamard bases is
+\[ \ket{H} = \tfrac{1}{\sqrt2}\big(\ket{0}\ket{+} + \ket{1}\ket{-}\big) = CZ\,\ket{+}\ket{+}. \]
+
+\section{Gate teleportation: the heart of TQC}
+Standard teleportation sends $\ket{\alpha}$ from qubit $1$ to qubit $3$ using a Bell pair on
+$2$--$3$ and a Bell measurement on $1$--$2$; outcome $\ket{B_{cd}}$ leaves qubit $3$ in
+$X^d Z^c\ket{\alpha}$. Gottesman and Chuang's insight is to measure in a \emph{rotated} Bell basis.
+For any one-qubit gate $U$, define
+\[ \ket{B(U)_{cd}} = (U^\dagger \otimes I)\,\ket{B_{cd}}. \]
+Measuring $1$--$2$ in this basis teleports \emph{and} applies the gate at once: qubit $3$ is left
+in $X^d Z^c U\,\ket{\psi}$. A gate is realized purely by a choice of measurement.
+
+The clean statement: for any maximally entangled $\ket{\phi}=\tfrac{1}{\sqrt d}\sum_{i}\ket{i}\ket{i}$
+in dimension $d$, projecting $\ket{\alpha}_1\ket{\phi}_{23}$ onto $\ket{\phi}_{12}$ yields
+$\tfrac1d\ket{\alpha}_3$.
+
+\begin{lemma}
+The projection of $\ket{\alpha}_1\ket{\phi}_{23}$ onto $\ket{\phi}_{12}$ leaves qubit $3$ in
+$\tfrac1d\ket{\alpha}_3$.
+\end{lemma}
+
+Replacing $\ket{\phi}$ by the rotated state $\ket{\phi(U)} = (U^\dagger \otimes I)\,\ket{\phi}$
+gives $\tfrac1d\,U\ket{\alpha}_3$.
+
+\begin{lemma}
+The projection of $\ket{\alpha}_1\ket{\phi}_{23}$ onto $\ket{\phi(U)}_{12}$ leaves qubit $3$ in
+$\tfrac1d\,U\ket{\alpha}_3$.
+\end{lemma}
+
+Reading these projections as outcomes of a measurement means choosing $d^2$ unitaries $U_i$ so
+that $\{\ket{\phi(U_i)}\}$ is an orthonormal basis --- equivalently $\{U_i\}$ is a
+\emph{unitary operator basis}, $\Tr(U_i U_j^\dagger)=d\,\delta_{ij}$. One may go further and use
+$n\ge d^2$ operators forming a POVM,
+\[ \sum_{i=1}^{n} k_i\,\ket{\phi(U_i)}\bra{\phi(U_i)} = I_d \otimes I_d, \]
+so the Bell measurement can even be replaced by a (generally non-projective) POVM. Two-qubit gates
+such as $CZ$ come from the same lemmas in dimension $d=4$ (a $16$-dimensional measurement), or, more
+cleverly, from smaller measurements on a small entangled gadget.
+
+\section{Byproducts and adaptive measurements}
+The catch: teleporting a gate never gives $U\ket{\psi}$ exactly, but $P\,U\ket{\psi}$ with a random
+Pauli $P$ fixed by the outcome. Chaining gates $\dots U_3 U_2 U_1\ket{\psi}$ produces
+$\dots P_3 U_3 P_2 U_2 P_1 U_1\ket{\psi}$ --- Paulis interleaved everywhere. The fix is to commute the
+Paulis to the end and absorb the damage by adapting later measurement bases.
+
+For rotations $R_x(\theta)=e^{-i\theta X}$, $R_z(\theta)=e^{-i\theta Z}$ the propagation rules are
+\begin{align*}
+R_x(\theta)X &= X R_x(\theta), & R_x(\theta)Z &= Z R_x(-\theta),\\
+R_z(\theta)X &= X R_z(-\theta), & R_z(\theta)Z &= Z R_z(\theta).
+\end{align*}
+Pushing a byproduct $Z^aX^b$ past the next rotation only flips the sign of its angle (by $(-1)^b$).
+So if the previous outcome was $b$, one measures for $R_z\big((-1)^b\beta\big)$ instead of
+$R_z(\beta)$ --- an \emph{adaptive} basis choice that cancels the byproduct and reinstates the
+intended gate. Iterating, the computation yields
+\[ \dots X_2^{m_2} Z_2^{n_2} X_1^{m_1} Z_1^{n_1}\, U\,\ket{\psi}, \]
+with exponents $m_i, n_i$ bit-sums (mod $2$) of measurement outcomes. The final readout is a
+$Z$-basis measurement; a leftover $X^{m}$ just flips the interpretation of that bit
+($k_i \mapsto k_i\oplus m_i$) and a leftover $Z^{n}$ does nothing. A striking consequence: these
+final $Z$ measurements are never adaptive, so they may be performed \emph{first} --- the output can
+be measured before the computation that determines its meaning has run.
+
+\section{Clifford gates parallelize}
+The Pauli group $\mathcal P_n$ is generated by tensor products of $\pm I, \pm iI, X, Z$. A unitary
+$C$ is a \emph{Clifford operation} if it normalizes the Paulis,
+\[ C\,\mathcal P_n\, C^\dagger = \mathcal P_n, \]
+i.e.\ Paulis propagate across $C$ while $C$ itself stays fixed --- no adaptation needed. $CZ$,
+$H$ ($HX=ZH$, $HZ=XH$) and the $\pi/4$ phase gate are Clifford, and the whole Clifford group on
+$n$ qubits is generated by $Z, H, P_{\pi/4}, CX$. Since no measurement depends on another, an entire
+array of Clifford gates can be done in \emph{one parallel layer of measurements}; the byproduct
+exponents are then computed as bit-sums, a purely classical $O(\log)$-depth task.
+
+This sharpens the Knill--Gottesman theorem (Clifford circuits are classically simulable in
+polynomial time, even in log depth): MBQC shows the genuinely quantum content of a Clifford array
+can be \emph{compressed into constant quantum depth} plus classical post-processing --- a structural
+statement the classical-simulation result does not provide.
+
+\section{The one-way quantum computer}
+The 1WQC starts from a \emph{cluster state}: lay qubits in $\ket{+}$ on a 2D grid and apply $CZ$ to
+every neighbouring pair. All the $CZ$s commute, so the resource is built in \emph{constant} quantum
+depth regardless of size. Computation uses only single-qubit measurements in the bases
+\[ M_z = \{\ket{0},\ket{1}\}, \qquad M(\theta) = \{\,\ket{0} \pm e^{i\theta}\ket{1}\,\}, \]
+($\theta=0$ is an $X$-measurement); outcomes are uniformly random. As in TQC, gates appear only up to
+Pauli corrections $X^aZ^b$, so bases are again adaptive. The name ``one-way'' reflects that the
+pristine cluster is irreversibly consumed as the layers of measurement proceed.
+
+A single-qubit $U=R_x(\zeta)R_z(\eta)R_x(\xi)$ is implemented on a five-qubit line: place
+$\ket{\psi}$, append four $\ket{+}$, entangle, and measure qubits $1$--$4$ adaptively in bases set by
+the Euler angles. The output qubit $5$ holds $X^{s_2+s_4}Z^{s_1+s_3}U\ket{\psi}$. The atomic step is
+one $M(\theta)$ measurement, which realizes the gate
+\[ W(\theta) = \tfrac{1}{\sqrt2}\begin{pmatrix} 1 & e^{i\theta} \\ 1 & -e^{i\theta}\end{pmatrix}
+   = H\,P(\theta), \qquad P(\theta)=\diag(1, e^{i\theta}), \]
+leaving the next qubit in $X^{s}W(-\theta)\ket{\psi}$. Since any one-qubit gate factors as
+$U=W(0)W(\theta_1)W(\theta_2)W(\theta_3)$, repeating this step along a wire builds any single-qubit
+unitary; $\{CZ, W(\theta)\}$ and $\{CZ, R_x(\theta), R_z(\theta)\}$ are universal. Input states can be
+eliminated by starting every wire in $\ket{+}$, so the whole resource is a standard cluster state.
+Two-qubit gates use the second grid dimension: an explicit pattern realizes $CZ$ on a small 2D block,
+and $CZ$ with single-qubit gates suffices for universality.
+
+\subsection*{$Z$-measurements delete qubits}
+Because a general circuit maps onto an irregular region of a large rectangular cluster, unused sites
+must be removed. Measuring a site $A$ in the $Z$ basis (outcome $k_A$) deletes it from the graph: it
+disconnects $A$ from its neighbours and leaves only an extra $Z^{k_A}$ byproduct on each former
+neighbour. These deletions are non-adaptive, so they too can be done first, carving the desired graph
+out of the cluster before any real computation.
+
+\section{Why one-dimensional clusters fail}
+2D clusters are universal; 1D clusters are not. A 1D cluster state has the ladder structure of a
+matrix-product state, and any sequence of single-qubit measurements on it --- even adaptive ones ---
+can be classically simulated in polynomial time. The argument sweeps the chain holding only one or two
+sites' reduced states at a time, applying a measurement projector at measured sites and a partial trace
+at unmeasured ones, computing each outcome probability
+\[ P(k' \mid a',b',\dots) = \frac{P(a',b',\dots,k',\dots)}{P(a',b',\dots)} \]
+by passing through the ladder $n$ times. If a 1D model were universal, quantum computation would
+collapse to classical polynomial time --- so genuine speedup needs the 2D entanglement structure.
+
+\section{Three bridges between TQC and 1WQC}
+The models look different --- TQC uses multi-qubit Bell measurements on bipartite pairs, 1WQC uses
+single-qubit measurements on a multipartite cluster --- but they are three views of one idea.
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Pairing measurements (Aliferis--Leung).} Since $CX\ket{B_{ij}} = \ket{(-1)^j}\ket{i}$
+  (first ket in the $\pm$ basis), a Bell measurement factors into an entangling $CX$ plus single-qubit
+  measurements. Special \emph{pairs} of consecutive 1WQC measurements fuse into one Bell measurement,
+  recovering TQC.
+  \item \textbf{One-bit teleportation (Childs et al.; Jorrand--Perdrix).} Teleportation decomposes into
+  two identical primitive steps ``adjoin $\ket{+}$, entangle with $CZ$, measure one qubit.'' Using the
+  $\ket{H}$ resource with Bell basis $\{(P\otimes I)\ket{H}\}$ --- which $CZ$ maps to
+  $\{\ket{\pm}\ket{\pm}\}$ --- makes the two steps symmetric. This shared ``one-bit teleportation'' is
+  the common atom of both models.
+  \item \textbf{Matrix-product / valence-bond states (Verstraete--Cirac).} Take a grid of $\ket{H}$
+  bonds and at each site project onto the two-dimensional code subspace with
+  \[ \Pi = \ket{\bar 0}\bra{0\cdots 0} + \ket{\bar 1}\bra{1\cdots 1}. \]
+  The projected state is exactly the 1WQC cluster state, and a cluster-state $M(\theta)$ measurement
+  is precisely a full teleportation ``cut down'' by $\Pi$: the rotated Bell states
+  \[ \ket{a{=}0} = \tfrac{1}{\sqrt2}(\ket{00} + e^{i\theta}\ket{11}),\qquad
+     \ket{a{=}1} = \tfrac{1}{\sqrt2}(\ket{00} - e^{i\theta}\ket{11}) \]
+  lie inside the $\Pi$-subspace and reproduce the $M(\theta)=\{\ket{\bar0}\pm e^{i\theta}\ket{\bar1}\}$
+  measurement. Each 1WQC ingredient is a descendant, under $\Pi$, of a teleportation on the
+  valence-bond grid.
+\end{enumerate}
+
+\section{Complexity and the classical/quantum split}
+Both MBQC models are polynomial-time equivalent to the circuit model, with only linear overhead in
+either direction (a circuit measurement is simulated by an ancilla and a $CX$; a 1WQC pattern is
+simulated by building the cluster and adding a basis-rotation gate per measurement). So they compute
+the same class of problems.
+
+What changes is structure. MBQC exposes parallelism the circuit model hides: non-adaptive measurements
+commute, so Clifford arrays finish in one layer, and any polynomial-size circuit maps to a polynomial
+number of measurement layers. More deeply, MBQC gives a natural way to separate an algorithm into
+\emph{quantum layers} (depth-$1$ bursts of measurement) and \emph{classical layers} (the adaptive
+bookkeeping between them) --- a separation with no analogue in classical complexity, and a fitting home
+for the heavy classical post-processing in algorithms like Shor's. This motivates Jozsa's conjecture.
+
+\begin{conjecture*}
+Any polynomial-time quantum algorithm can be implemented with only $O(\log n)$ quantum layers
+interspersed with polynomial-time classical computation.
+\end{conjecture*}
+
+\noindent It would mean polynomial-time classical computation needs only a thin sliver of ``quantum
+assistance'' to reach the full power of quantum computation. It is open in general but known to hold
+for Shor's algorithm (Cleve--Watrous).
+
+\section*{Takeaways}
+\begin{itemize}[leftmargin=*]
+  \item Universal computation is possible with measurements alone, on a fixed entangled resource.
+  \item Randomness of outcomes is tamed by Pauli propagation and adaptive bases; what survives is a
+  final Pauli that only relabels the answer.
+  \item Clifford operations need no adaptation, so they parallelize to constant quantum depth.
+  \item 2D cluster entanglement is essential --- 1D is classically simulable.
+  \item TQC and 1WQC are the same model seen through teleportation, one-bit teleportation, or
+  matrix-product states.
+  \item MBQC's real payoff is conceptual: a clean quantum/classical separation and new questions about
+  how little ``quantum'' a quantum algorithm really needs.
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{jozsa} R.\ Jozsa, \emph{An introduction to measurement based quantum computation},
+  arXiv:quant-ph/0508124 (2005).
+\bibitem{gc} D.\ Gottesman and I.\ Chuang, \emph{Quantum teleportation as a universal computational
+  primitive}, Nature \textbf{402}, 390--393 (1999); arXiv:quant-ph/9908010.
+\bibitem{rb} R.\ Raussendorf and H.\ J.\ Briegel, \emph{A one-way quantum computer},
+  Phys.\ Rev.\ Lett.\ \textbf{86}, 5188--5191 (2001); arXiv:quant-ph/0010033.
+\bibitem{rbb} R.\ Raussendorf, D.\ E.\ Browne, and H.\ J.\ Briegel, \emph{Measurement-based quantum
+  computation with cluster states}, Phys.\ Rev.\ A \textbf{68}, 022312 (2003); arXiv:quant-ph/0301052.
+\bibitem{vc} F.\ Verstraete and J.\ I.\ Cirac, \emph{Valence bond solids for quantum computation},
+  Phys.\ Rev.\ A \textbf{70}, 060302(R) (2004); arXiv:quant-ph/0311130.
+\end{thebibliography}
+
+\end{document}

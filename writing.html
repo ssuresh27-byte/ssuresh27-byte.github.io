@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;}catch(e){}})();</script>
   <title>Writing &mdash; Sanjay Suresh</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=optional" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=25" />
 </head>
 <body>
 
   <header class="site-header">
     <nav>
-      <a href="index.html" class="site-name">Sanjay Suresh</a>
+      <a href="index.html" class="site-name">sanjaysuresh.me</a>
       <div class="nav-right">
         <a href="research.html">Research</a>
         <a href="sciencebowl.html">Science Bowl</a>
@@ -26,18 +27,61 @@
   </header>
 
   <main class="page">
-    <a href="index.html" class="back-link">&larr; Home</a>
+    <nav class="breadcrumb"><a href="index.html" class="bc-home" aria-label="Home"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></a> <span class="sep">/</span> <span class="current">Writing</span></nav>
 
     <div class="page-header">
       <h1>Writing</h1>
       <p>Notes on quantum computing, AI, music, and whatever else is on my mind.</p>
     </div>
 
-    <div class="entry">
-      <h2><a href="blog/sample-post.html">Welcome to my blog</a></h2>
-      <p class="panel-tag">March 15, 2026</p>
-      <p>A first post &mdash; what this space is for and how I keep it simple: just HTML and CSS, no build tools.</p>
-    </div>
+    <section class="notes-group">
+      <h2 class="notes-subject">June 2026</h2>
+      <div class="item-list">
+        <a class="item-row" href="blog/sample-post.html">
+          <span class="item-title">What I learned building a quantum decoder visualizer</span>
+          <span class="item-sub">Turning surface-code decoding into something watchable</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes-group">
+      <h2 class="notes-subject">May 2026</h2>
+      <div class="item-list">
+        <a class="item-row" href="blog/sample-post.html">
+          <span class="item-title">Why I keep rebuilding the same quiz app</span>
+          <span class="item-sub">On Eloquizzer, PDFQuizzer, and better practice</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes-group">
+      <h2 class="notes-subject">April 2026</h2>
+      <div class="item-list">
+        <a class="item-row" href="blog/sample-post.html">
+          <span class="item-title">Notes from the Chicago Quantum Summit</span>
+          <span class="item-sub">Distributed quantum computing this year</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+        <a class="item-row" href="blog/sample-post.html">
+          <span class="item-title">Practicing for a concert and a deadline in the same week</span>
+          <span class="item-sub">Balancing the violin and the lab</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes-group">
+      <h2 class="notes-subject">March 2026</h2>
+      <div class="item-list">
+        <a class="item-row" href="blog/sample-post.html">
+          <span class="item-title">Welcome to my blog</span>
+          <span class="item-sub">What this space is for</span>
+          <span class="item-arrow">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer style="max-width:var(--max-width);margin:0 auto;padding:1.5rem 2rem 3rem;font-family:var(--font-body);font-size:0.75rem;color:var(--text-3);">&copy; 2026 Sanjay Suresh</footer>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;}catch(e){}})();</script>
+  <title>Measurement-based quantum computation &mdash; Notes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=optional" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css?v=25" />
+  <style>
+    .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+    .prose .katex { font-size: 1.04em; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav>
+      <a href="../index.html" class="site-name">sanjaysuresh.me</a>
+      <div class="nav-right">
+        <a href="../research.html">Research</a>
+        <a href="../sciencebowl.html">Science Bowl</a>
+        <a href="../music.html">Music</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../notes.html" class="active">Notes</a>
+        <a href="../resume.html">Resume</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page prose">
+    <nav class="breadcrumb"><a href="../index.html" class="bc-home" aria-label="Home"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></a> <span class="sep">/</span> <a href="../notes.html">Notes</a> <span class="sep">/</span> <span class="current">Measurement-based quantum computation</span></nav>
+
+    <div class="page-header">
+      <h1>Measurement-based quantum computation</h1>
+      <p class="panel-tag">Quantum Computing &middot; June 2026 &middot; after R. Jozsa, <a href="https://arxiv.org/abs/quant-ph/0508124" target="_blank">quant-ph/0508124</a></p>
+      <p class="entry-links" style="margin-top:0.6rem;">
+        <a href="mbqc.pdf" class="panel-link" download>Download PDF &darr;</a>
+        <a href="mbqc.tex" class="panel-link" download>LaTeX source &darr;</a>
+      </p>
+    </div>
+
+    <p>In the circuit model, computation is unitary evolution and measurement happens only at the very end. Measurement-based quantum computation (MBQC) inverts this: you start from a large fixed entangled state and compute <em>by measuring qubits one at a time</em>, choosing later measurement bases based on earlier outcomes. Measurement &mdash; normally irreversible and destructive &mdash; becomes the engine of computation. Two models do this: <strong>teleportation quantum computation (TQC)</strong> and the <strong>one-way / cluster-state quantum computer (1WQC)</strong>. These notes synthesize Jozsa's introduction: how each works, why each is universal, the three ways they are really the same model, and what MBQC says about complexity.</p>
+
+    <h2>Notation</h2>
+    <p>Pauli operators \(I, X, Z\) with \(iY = ZX\); \(\oplus\) is addition mod 2. The two-qubit gates are</p>
+    \[ CX\,|i\rangle|j\rangle = |i\rangle|i\oplus j\rangle, \qquad CZ\,|i\rangle|j\rangle = (-1)^{ij}\,|i\rangle|j\rangle, \]
+    <p>with \(H=\tfrac{1}{\sqrt2}\left(\begin{smallmatrix}1&amp;1\\1&amp;-1\end{smallmatrix}\right)\) and \(|\pm\rangle=\tfrac{1}{\sqrt2}(|0\rangle\pm|1\rangle)\). Unlike \(CX\), \(CZ\) is symmetric in its two inputs. The Bell basis is generated from \(|B_{00}\rangle=\tfrac{1}{\sqrt2}(|00\rangle+|11\rangle)\) by Paulis on one half,</p>
+    \[ |B_{cd}\rangle = (Z^c X^d \otimes I)\,|B_{00}\rangle, \]
+    <p>and a useful maximally entangled state mixing the standard and Hadamard bases is</p>
+    \[ |H\rangle = \tfrac{1}{\sqrt2}\big(|0\rangle|{+}\rangle + |1\rangle|{-}\rangle\big) = CZ\,|{+}\rangle|{+}\rangle. \]
+
+    <h2>Gate teleportation: the heart of TQC</h2>
+    <p>Standard teleportation sends \(|\alpha\rangle\) from qubit 1 to qubit 3 using a Bell pair on 2&ndash;3 and a Bell measurement on 1&ndash;2; outcome \(|B_{cd}\rangle\) leaves qubit 3 in \(X^d Z^c|\alpha\rangle\). Gottesman and Chuang's insight: measure in a <em>rotated</em> Bell basis instead. For any one-qubit gate \(U\), define</p>
+    \[ |B(U)_{cd}\rangle = (U^\dagger \otimes I)\,|B_{cd}\rangle. \]
+    <p>Measuring 1&ndash;2 in this basis teleports <em>and applies the gate at once</em>: qubit 3 is left in \(X^d Z^c U\,|\psi\rangle\). So a gate is realized purely by a choice of measurement.</p>
+    <p>The clean way to see it: for any maximally entangled \(|\phi\rangle=\tfrac{1}{\sqrt d}\sum_{i}|i\rangle|i\rangle\) in dimension \(d\), projecting \(|\alpha\rangle_1|\phi\rangle_{23}\) onto \(|\phi\rangle_{12}\) yields \(\tfrac1d|\alpha\rangle_3\) (Lemma 1). Replacing \(|\phi\rangle\) by the rotated state</p>
+    \[ |\phi(U)\rangle = (U^\dagger \otimes I)\,|\phi\rangle \]
+    <p>gives \(\tfrac1d\,U|\alpha\rangle_3\) (Lemma 2). Reading these projections as outcomes of a measurement means choosing \(d^2\) unitaries \(U_i\) so that \(\{|\phi(U_i)\rangle\}\) is an orthonormal basis &mdash; equivalently \(\{U_i\}\) is a <em>unitary operator basis</em>, \(\mathrm{Tr}(U_i U_j^\dagger)=d\,\delta_{ij}\). One may go further and use \(n\ge d^2\) operators forming a POVM,</p>
+    \[ \sum_{i=1}^{n} k_i\,|\phi(U_i)\rangle\langle\phi(U_i)| = I_d \otimes I_d, \]
+    <p>so the Bell measurement can even be replaced by a (generally non-projective) POVM. Two-qubit gates such as \(CZ\) come from the same lemmas in dimension \(d=4\) (a 16-dimensional measurement), or, more cleverly, from smaller measurements on a small entangled gadget.</p>
+
+    <h2>Byproducts and adaptive measurements</h2>
+    <p>The catch: teleporting a gate never gives \(U|\psi\rangle\) exactly, but \(P\,U|\psi\rangle\) with a random Pauli \(P\) fixed by the outcome. Chaining gates \( \dots U_3 U_2 U_1|\psi\rangle\) therefore produces \( \dots P_3 U_3 P_2 U_2 P_1 U_1|\psi\rangle\) &mdash; Paulis interleaved everywhere. The fix is to <em>commute the Paulis to the end</em> and absorb the damage by adapting later measurement bases.</p>
+    <p>For rotations \(R_x(\theta)=e^{-i\theta X}\), \(R_z(\theta)=e^{-i\theta Z}\) the propagation rules are</p>
+    \[ R_x(\theta)X = X R_x(\theta),\quad R_x(\theta)Z = Z R_x(-\theta),\quad R_z(\theta)X = X R_z(-\theta),\quad R_z(\theta)Z = Z R_z(\theta). \]
+    <p>Pushing a byproduct \(Z^aX^b\) past the next rotation only flips the sign of its angle (by \((-1)^b\)). So if the previous outcome was \(b\), you simply measure for \(R_z\big((-1)^b\beta\big)\) instead of \(R_z(\beta)\) &mdash; an <strong>adaptive</strong> basis choice that cancels the byproduct and reinstates the intended gate. Iterating, the whole computation yields</p>
+    \[ \dots X_2^{m_2} Z_2^{n_2} X_1^{m_1} Z_1^{n_1}\, U\,|\psi\rangle, \]
+    <p>with the exponents \(m_i, n_i\) bit-sums (mod 2) of measurement outcomes. The final readout is a \(Z\)-basis measurement; a leftover \(X^{m}\) just flips the interpretation of that bit (\(k_i \mapsto k_i\oplus m_i\)) and a leftover \(Z^{n}\) does nothing. A striking consequence: these final \(Z\) measurements are <em>never adaptive</em>, so they can be performed <em>first</em> &mdash; the output can be measured before the computation that determines its meaning has even run.</p>
+
+    <h2>Clifford gates parallelize</h2>
+    <p>The Pauli group \(\mathcal P_n\) is generated by tensor products of \(\pm I, \pm iI, X, Z\). A unitary \(C\) is a <strong>Clifford operation</strong> if it normalizes the Paulis,</p>
+    \[ C\,\mathcal P_n\, C^\dagger = \mathcal P_n, \]
+    <p>i.e. Paulis propagate across \(C\) while \(C\) itself stays fixed &mdash; <em>no adaptation needed</em>. \(CZ\), \(H\) (\(HX=ZH\), \(HZ=XH\)) and the \(\pi/4\) phase gate are Clifford, and the whole Clifford group on \(n\) qubits is generated by \(Z, H, P_{\pi/4}, CX\). Because no measurement here depends on another, an entire array of Clifford gates can be done in <strong>one parallel layer of measurements</strong>: the byproduct exponents are computed afterward as bit-sums, a purely classical \(O(\log)\)-depth job.</p>
+    <p>This sharpens the Knill&ndash;Gottesman theorem (Clifford circuits are classically simulable in poly time, even in log depth): MBQC shows the genuinely quantum content of a Clifford array can be <em>compressed into constant quantum depth</em> plus classical post-processing &mdash; a structural statement the classical-simulation result does not give.</p>
+
+    <h2>The one-way quantum computer</h2>
+    <p>The 1WQC starts from a <strong>cluster state</strong>: lay qubits in \(|{+}\rangle\) on a 2D grid and apply \(CZ\) to every neighbouring pair. All the \(CZ\)s commute, so the resource is built in <em>constant</em> quantum depth regardless of size. Computation then uses only single-qubit measurements in the bases</p>
+    \[ M_z = \{|0\rangle,|1\rangle\}, \qquad M(\theta) = \{\,|0\rangle \pm e^{i\theta}|1\rangle\,\}, \]
+    <p>(\(\theta=0\) is an \(X\)-measurement). Outcomes are uniformly random \(0/1\). As in TQC, gates appear only up to Pauli corrections \(X^aZ^b\) (here called bi-product operators), so measurement bases are again adaptive. The name "one-way" reflects that the pristine cluster is irreversibly consumed as the layers of measurement proceed.</p>
+    <p>A single-qubit \(U=R_x(\zeta)R_z(\eta)R_x(\xi)\) is implemented on a 5-qubit line: place \(|\psi\rangle\), append four \(|{+}\rangle\), entangle, and measure qubits 1&ndash;4 adaptively in bases set by the Euler angles. The output qubit 5 holds \(X^{s_2+s_4}Z^{s_1+s_3}U|\psi\rangle\). The atomic step is one \(M(\theta)\) measurement, which realizes the gate</p>
+    \[ W(\theta) = \tfrac{1}{\sqrt2}\begin{pmatrix} 1 &amp; e^{i\theta} \\ 1 &amp; -e^{i\theta}\end{pmatrix} = H\,P(\theta),\qquad P(\theta)=\begin{pmatrix}1&amp;0\\0&amp;e^{i\theta}\end{pmatrix}, \]
+    <p>leaving the next qubit in \(X^{s}W(-\theta)|\psi\rangle\). Since any one-qubit gate factors as \(U=W(0)W(\theta_1)W(\theta_2)W(\theta_3)\), repeating this step along a wire builds any single-qubit unitary; \(\{CZ, W(\theta)\}\) and \(\{CZ, R_x(\theta), R_z(\theta)\}\) are universal sets. Input states can even be eliminated by starting every wire in \(|{+}\rangle\) and prepending a pattern that prepares \(|\psi\rangle\), so the whole resource is a standard cluster state.</p>
+    <p>Two-qubit gates need the second grid dimension: there is an explicit measurement pattern realizing \(CZ\) on a small 2D block, and \(CZ\) plus single-qubit gates suffice for universality.</p>
+
+    <h3>Z-measurements delete qubits</h3>
+    <p>Because a general circuit maps onto an irregular region of a big rectangular cluster, unused sites must be removed. Measuring a site \(A\) in the \(Z\) basis (outcome \(k_A\)) <em>deletes it from the graph</em>: it disconnects \(A\) from its neighbours and leaves behind only an extra \(Z^{k_A}\) byproduct on each former neighbour. These deletion measurements are non-adaptive (like the final readout), so they too can be done first, carving the desired graph out of the cluster before any real computation.</p>
+
+    <h2>Why one-dimensional clusters fail</h2>
+    <p>2D clusters are universal; 1D clusters are not. A 1D cluster state has the ladder structure of a matrix-product state, and any sequence of single-qubit measurements on it &mdash; even adaptive ones &mdash; can be <em>classically simulated in poly time</em>. The argument sweeps the chain holding only one or two sites' reduced states at a time, applying a measurement projector at measured sites and a partial trace at unmeasured ones, computing each outcome probability</p>
+    \[ P(k' \mid a',b',\dots) = \frac{P(a',b',\dots,k',\dots)}{P(a',b',\dots)} \]
+    <p>by passing through the ladder \(n\) times. If a 1D model were universal, quantum computation would collapse to classical poly time &mdash; so genuine quantum speedup needs the 2D entanglement structure.</p>
+
+    <h2>Three bridges between TQC and 1WQC</h2>
+    <p>The models look different &mdash; TQC uses multi-qubit Bell measurements on bipartite pairs, 1WQC uses single-qubit measurements on a multipartite cluster &mdash; but they are three views of one idea.</p>
+    <ol>
+      <li><strong>Pairing measurements (Aliferis&ndash;Leung).</strong> Since \(CX|B_{ij}\rangle = |(-1)^j\rangle|i\rangle\) (first ket in the \(\pm\) basis), a Bell measurement factors into an entangling \(CX\) plus single-qubit measurements. Special <em>pairs</em> of consecutive 1WQC measurements fuse into one Bell measurement, recovering TQC.</li>
+      <li><strong>One-bit teleportation (Childs et al.; Jorrand&ndash;Perdrix).</strong> Teleportation decomposes into two identical primitive steps "adjoin \(|{+}\rangle\), entangle with \(CZ\), measure one qubit." Using the \(|H\rangle\) resource with Bell basis \(\{(P\otimes I)|H\rangle\}\) &mdash; which \(CZ\) maps to \(\{|{\pm}\rangle|{\pm}\rangle\}\) &mdash; makes the two steps symmetric. This shared "one-bit teleportation" is the common atom of both models.</li>
+      <li><strong>Matrix-product / valence-bond states (Verstraete&ndash;Cirac).</strong> Take a grid of \(|H\rangle\) bonds and at each site project onto the two-dimensional code subspace with</li>
+    </ol>
+    \[ \Pi = |\bar 0\rangle\langle 0\cdots 0| + |\bar 1\rangle\langle 1\cdots 1|. \]
+    <p>The projected state is exactly the 1WQC cluster state, and a cluster-state \(M(\theta)\) measurement is precisely a full teleportation that has been "cut down" by \(\Pi\): the rotated Bell states</p>
+    \[ |a{=}0\rangle = \tfrac{1}{\sqrt2}(|00\rangle + e^{i\theta}|11\rangle),\qquad |a{=}1\rangle = \tfrac{1}{\sqrt2}(|00\rangle - e^{i\theta}|11\rangle) \]
+    <p>lie inside the \(\Pi\)-subspace and reproduce the \(M(\theta)=\{|\bar0\rangle\pm e^{i\theta}|\bar1\rangle\}\) measurement. Each 1WQC ingredient is a descendant, under \(\Pi\), of a teleportation on the valence-bond grid.</p>
+
+    <h2>Complexity and the classical/quantum split</h2>
+    <p>Both MBQC models are <em>polynomial-time equivalent</em> to the circuit model, with only linear overhead in either direction (a circuit measurement is simulated by an ancilla + \(CX\); a 1WQC pattern is simulated by building the cluster and adding a basis-rotation gate per measurement). So they compute the same class of problems.</p>
+    <p>What changes is structure. MBQC exposes parallelism the circuit model hides: non-adaptive measurements all commute, so Clifford arrays finish in one layer, and any poly-size circuit maps to a poly number of measurement layers. More deeply, MBQC gives a natural way to separate an algorithm into <em>quantum layers</em> (depth-1 bursts of measurement) and <em>classical layers</em> (the adaptive bookkeeping between them) &mdash; a separation with no analogue in classical complexity, and a fitting home for the heavy classical post-processing in algorithms like Shor's. This motivates Jozsa's conjecture:</p>
+    <blockquote>Any polynomial-time quantum algorithm can be implemented with only \(O(\log n)\) quantum layers interspersed with polynomial-time classical computation.</blockquote>
+    <p>It would mean polynomial-time classical computation needs only a thin sliver of "quantum assistance" to reach the full power of quantum computation. It is open in general but known to hold for Shor's algorithm (Cleve&ndash;Watrous).</p>
+
+    <h2>Takeaways</h2>
+    <ul>
+      <li>Universal computation is possible with measurements alone, on a fixed entangled resource.</li>
+      <li>Randomness of outcomes is tamed by Pauli propagation and adaptive bases; what survives is a final Pauli that only relabels the answer.</li>
+      <li>Clifford operations need no adaptation, so they parallelize to constant quantum depth.</li>
+      <li>2D cluster entanglement is essential &mdash; 1D is classically simulable.</li>
+      <li>TQC and 1WQC are the same model seen through teleportation, one-bit teleportation, or matrix-product states.</li>
+      <li>MBQC's real payoff is conceptual: a clean quantum/classical separation and new questions about how little "quantum" a quantum algorithm really needs.</li>
+    </ul>
+  </main>
+
+  <footer style="max-width:var(--max-width);margin:0 auto;padding:1.5rem 2rem 3rem;font-family:var(--font-body);font-size:0.75rem;color:var(--text-3);">&copy; 2026 Sanjay Suresh</footer>
+
+  <script>
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+    function toggleTheme() {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  </script>
+  <script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a||a.target==="_blank")return;if(a.pathname===location.pathname&&a.search===location.search&&!a.hash)e.preventDefault();},true);</script>
+</body>
+</html>
