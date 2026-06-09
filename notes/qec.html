@@ -77,13 +77,36 @@
     <p>A matching quantum Gilbert&ndash;Varshamov bound guarantees codes <em>exist</em> when an analogous sum up to \(d-1\) holds. The five-qubit \([[5,1,3]]\) code saturates the Singleton bound, so it is the smallest code correcting one arbitrary error; the nine-qubit code is \([[9,1,3]]\).</p>
 
     <h2>4. The stabilizer formalism</h2>
-    <p>Return to the nine-qubit code: the corrective parity checks are exactly measurements of commuting Pauli operators like \(Z_1Z_2\) and \(X_1\cdots X_6\). The group they generate is the <strong>stabilizer</strong> \(S\) &mdash; an Abelian subgroup of \(\mathcal P_n\) with \(-1\notin S\), defined so that</p>
-    \[ M\ket{\psi}=\ket{\psi}\quad\text{for all } M\in S,\ \ket{\psi}\in C. \]
-    <p>The magic is in the syndrome: if an error \(E\) anticommutes with a generator \(M\), then</p>
-    \[ M\,(E\ket{\psi}) = -E M\ket{\psi} = -E\ket{\psi}, \]
-    <p>so the eigenvalue flips from \(+1\) to \(-1\). Measuring the generators yields the <strong>error syndrome</strong> &mdash; the list of which generators anticommute with the error &mdash; which pins down \(E\) (up to the degeneracy \(E^\dagger F\in S\)). Conversely, any Abelian \(S\) with \(-1\notin S\) defines a code:</p>
-    <p><em>Stabilizer code theorem.</em> If \(S\) is an Abelian subgroup of order \(2^a\) of \(\mathcal P_n\) with \(-1\notin S\), and \(d\) is the minimum weight of an operator in \(N(S)\setminus S\), then the states fixed by \(S\) form an \([[n,n-a,d]]\) code. Here \(N(S)\) is the normalizer (the Paulis commuting with \(S\)).</p>
-    <p>Stabilizers also have a compact <strong>binary symplectic representation</strong>: write each Pauli as a pair \((a\mid b)\) of binary vectors (a \(1\) in \(a\) for \(X\) or \(Y\), a \(1\) in \(b\) for \(Z\) or \(Y\)). Multiplication is addition, and two operators commute iff \(a_1\!\cdot\!b_2 + b_1\!\cdot\!a_2 = 0\) &mdash; a symplectic inner product. The stabilizer condition becomes "self-orthogonal under the symplectic form."</p>
+    <p>The corrective parity checks of the nine-qubit code are measurements of commuting Paulis like \(Z_1Z_2\) and \(X_1\cdots X_6\). The group they generate is the <strong>stabilizer</strong> \(S\) &mdash; an Abelian subgroup of \(\mathcal P_n\) with \(-1\notin S\). The code is its simultaneous \(+1\) eigenspace,</p>
+    \[ C = \{\,\ket{\psi} : M\ket{\psi}=\ket{\psi}\ \text{for all}\ M\in S\,\}. \]
+    <p>Each of the \(a\) independent generators splits the Hilbert space into equal \(\pm1\) eigenspaces, so fixing all of them to \(+1\) cuts the dimension by \(2^a\): the code encodes \(k = n-a\) logical qubits.</p>
+
+    <h3>Syndromes from (anti)commutation</h3>
+    <p>An error \(E\in\mathcal P_n\) either commutes or anticommutes with each generator \(M\). If they anticommute,</p>
+    \[ M\,(E\ket{\psi}) = -E\,M\ket{\psi} = -E\ket{\psi}, \]
+    <p>so that generator's measured eigenvalue flips to \(-1\). Measuring all \(a\) generators returns the <strong>syndrome</strong> \(s(E)\in\{0,1\}^a\) &mdash; the list of anticommutations &mdash; which reports <em>that</em> an error occurred and constrains <em>which</em>, without ever measuring the encoded data.</p>
+
+    <h3>How the stabilizer splits the error group into cosets</h3>
+    <p>This is the real content of the formalism. Nest three groups,</p>
+    \[ S \ \subseteq\ N(S) \ \subseteq\ \mathcal P_n, \]
+    <p>where \(N(S)\), the <strong>centralizer</strong>, is the set of Paulis that commute with everything in \(S\). (For Paulis the normalizer and centralizer coincide, since any two Paulis either commute or anticommute.) These nested groups partition the errors in two complementary ways.</p>
+    <p><strong>Cosets of \(N(S)\) in \(\mathcal P_n\) are the syndromes.</strong> Two errors \(E,F\) give the <em>same</em> syndrome exactly when they react identically to every generator &mdash; that is, when \(E^\dagger F\) commutes with all of \(S\), i.e. \(E^\dagger F\in N(S)\). So a syndrome is precisely a label for the coset \(E\,N(S)\). There are</p>
+    \[ |\mathcal P_n| / |N(S)| = 2^{a} \]
+    <p>such cosets, one per syndrome value. Measuring the syndrome tells you <em>which coset of \(N(S)\)</em> your error fell into &mdash; but not where inside that coset.</p>
+    <p><strong>Cosets of \(S\) in \(N(S)\) are the logical operations.</strong> Within one syndrome class, errors differ by elements of \(N(S)\). Those that lie in \(S\) act as the identity on every codeword &mdash; this is <strong>degeneracy</strong>: physically distinct errors with the same harmless effect. The remainder, \(N(S)\setminus S\), commute with all the checks (so the syndrome cannot see them) yet move states <em>within</em> the code space &mdash; these are the <strong>logical operators</strong>. The quotient is exactly the logical Pauli group on the \(k\) encoded qubits,</p>
+    \[ N(S)/S \ \cong\ \mathcal P_k. \]
+    <p>So \(\mathcal P_n\) stacks neatly: modding by \(N(S)\) leaves the \(2^a\) syndromes; modding \(N(S)\) by \(S\) leaves the \(4^k\) logical Pauli classes (since \(\dim N(S)/S = 2k\)); and \(S\) itself is the \(2^a\) stabilizers that do nothing.</p>
+
+    <h3>Correcting, in coset language</h3>
+    <p>Measure the syndrome to identify the coset \(E\,N(S)\), then apply any fixed representative correction \(F\) drawn from it. The residual is \(F^\dagger E\in N(S)\), and only two things can happen:</p>
+    <ul>
+      <li>\(F^\dagger E\in S\) &mdash; the residual is a stabilizer, so it acts trivially on the code and the state is restored. (This succeeds even when we <em>cannot</em> tell which physical error occurred &mdash; the gift of degeneracy.)</li>
+      <li>\(F^\dagger E\in N(S)\setminus S\) &mdash; the residual is a nontrivial <strong>logical</strong> operator, an uncorrectable logical error.</li>
+    </ul>
+    <p>Hence a set of errors \(\{E_a\}\) is correctable iff \(E_a^\dagger E_b \notin N(S)\setminus S\) for every pair: no product of two errors may be an undetectable logical operator. The code <strong>distance</strong> is the weight of the lightest logical operator &mdash; the smallest error that slips past the checks and corrupts the encoding,</p>
+    \[ d = \min_{P\,\in\,N(S)\setminus S}\ \mathrm{wt}(P). \]
+    <p><em>Stabilizer code theorem.</em> If \(S\) is an Abelian subgroup of order \(2^a\) of \(\mathcal P_n\) with \(-1\notin S\), and \(d\) is the minimum weight in \(N(S)\setminus S\), then the states fixed by \(S\) form an \([[n,\,n-a,\,d]]\) code.</p>
+    <p>All of this is linear over \(\mathbb F_2\) in the <strong>binary symplectic representation</strong>: write each Pauli as a pair \((a\mid b)\) (a \(1\) in \(a\) for \(X\)/\(Y\), in \(b\) for \(Z\)/\(Y\)); multiplication is addition, and two operators commute iff \(a_1\!\cdot\!b_2 + b_1\!\cdot\!a_2 = 0\). Then \(S\) is an isotropic subspace, its centralizer \(N(S)=S^\perp\) is the symplectic complement, and the syndrome map is the symplectic pairing against the generators.</p>
 
     <h2>5. A zoo of codes</h2>
     <p><strong>CSS codes.</strong> Take two classical linear codes with \(C_2^\perp\subseteq C_1\) so that the \(X\)- and \(Z\)-type stabilizer generators commute. The result is an \([[n,\,k_1+k_2-n,\,\min(d_1,d_2)]]\) code (Calderbank&ndash;Shor&ndash;Steane). Its codewords have the clean form</p>
@@ -131,7 +154,7 @@
     <ul>
       <li>No-cloning and continuous errors are evaded by encoding in a linear subspace and <em>digitizing</em>: correcting all weight-\(t\) Paulis corrects all \(t\)-qubit errors.</li>
       <li>The Knill&ndash;Laflamme conditions say exactly when a subspace is a code; distance \(d=2t+1\) and the Hamming / Singleton bounds constrain \([[n,k,d]]\).</li>
-      <li>The stabilizer formalism turns codes into Abelian Pauli groups, syndromes into eigenvalue flips, and connects quantum codes to classical and \(\mathrm{GF}(4)\) coding theory.</li>
+      <li>The stabilizer formalism turns codes into Abelian Pauli groups and splits the errors into cosets: cosets of the centralizer \(N(S)\) are the syndromes, and cosets of \(S\) inside \(N(S)\) &mdash; the quotient \(N(S)/S\) &mdash; are the logical operators, with the lightest one setting the distance.</li>
       <li>Fault tolerance is about taming error propagation; transversal gates are ideal but never universal (Eastin&ndash;Knill).</li>
       <li>Universality is completed by teleporting magic states up the Clifford hierarchy.</li>
       <li>Below a constant threshold, concatenation suppresses logical error doubly exponentially with polylogarithmic overhead &mdash; arbitrarily reliable quantum computation is possible.</li>

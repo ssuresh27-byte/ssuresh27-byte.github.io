@@ -95,23 +95,64 @@ The five-qubit $[[5,1,3]]$ code saturates the Singleton bound (smallest correcti
 nine-qubit code is $[[9,1,3]]$.
 
 \section{The stabilizer formalism}
-The corrective parity checks are measurements of commuting Paulis such as $Z_1Z_2$. The group they
-generate is the \textbf{stabilizer} $S$, an Abelian subgroup of $\mathcal P_n$ with $-1\notin S$ and
-$M\ket{\psi}=\ket{\psi}$ for all $M\in S$, $\ket{\psi}\in C$. If an error $E$ anticommutes with a
-generator $M$, then
-\[ M\,(E\ket{\psi}) = -E M\ket{\psi} = -E\ket{\psi}, \]
-flipping the eigenvalue to $-1$. Measuring the generators gives the \textbf{error syndrome}, which
-identifies $E$ up to degeneracy $E^\dagger F\in S$.
+The corrective parity checks of the nine-qubit code are measurements of commuting Paulis such as
+$Z_1Z_2$ and $X_1\cdots X_6$. The group they generate is the \textbf{stabilizer} $S$, an Abelian
+subgroup of $\mathcal P_n$ with $-1\notin S$. The code is its simultaneous $+1$ eigenspace,
+\[ C = \{\,\ket{\psi} : M\ket{\psi}=\ket{\psi}\ \text{for all}\ M\in S\,\}. \]
+Each of the $a$ independent generators halves the Hilbert space into its $\pm1$ eigenspaces, so the
+code encodes $k=n-a$ logical qubits.
+
+\subsection*{Syndromes from (anti)commutation}
+An error $E\in\mathcal P_n$ either commutes or anticommutes with each generator $M$. If they
+anticommute,
+\[ M\,(E\ket{\psi}) = -E\,M\ket{\psi} = -E\ket{\psi}, \]
+flipping that generator's measured eigenvalue to $-1$. Measuring all $a$ generators returns the
+\textbf{syndrome} $s(E)\in\{0,1\}^a$ --- the list of anticommutations --- reporting that an error
+occurred, and constraining which, without measuring the encoded data.
+
+\subsection*{How the stabilizer splits the error group into cosets}
+This is the real content of the formalism. Nest three groups,
+\[ S \ \subseteq\ N(S) \ \subseteq\ \mathcal P_n, \]
+where $N(S)$, the \textbf{centralizer}, is the set of Paulis commuting with all of $S$. (For Paulis
+the normalizer and centralizer coincide, since any two Paulis commute or anticommute.) These nested
+groups partition the errors in two complementary ways.
+
+\paragraph{Cosets of $N(S)$ in $\mathcal P_n$ are the syndromes.} Two errors $E,F$ give the same
+syndrome exactly when they react identically to every generator --- when $E^\dagger F$ commutes with
+all of $S$, i.e.\ $E^\dagger F\in N(S)$. So a syndrome labels the coset $E\,N(S)$, of which there are
+$|\mathcal P_n|/|N(S)| = 2^{a}$, one per syndrome value. The syndrome tells you which coset of $N(S)$
+your error fell into --- but not where inside it.
+
+\paragraph{Cosets of $S$ in $N(S)$ are the logical operations.} Within one syndrome class, errors
+differ by elements of $N(S)$. Those in $S$ act as the identity on every codeword --- this is
+\textbf{degeneracy}, physically distinct errors with the same harmless effect. The remainder,
+$N(S)\setminus S$, commute with the checks (invisible to the syndrome) yet move states within the code
+space: these are the \textbf{logical operators}, and the quotient is the logical Pauli group,
+\[ N(S)/S \ \cong\ \mathcal P_k. \]
+Thus $\mathcal P_n$ stacks cleanly: modding by $N(S)$ leaves the $2^a$ syndromes; modding $N(S)$ by $S$
+leaves the $4^k$ logical Pauli classes (as $\dim N(S)/S = 2k$); and $S$ is the $2^a$ stabilizers that
+do nothing.
+
+\subsection*{Correcting, in coset language}
+Measure the syndrome to identify the coset $E\,N(S)$, then apply any fixed representative correction
+$F$ from it. The residual is $F^\dagger E\in N(S)$, and only two things can happen: if
+$F^\dagger E\in S$ the residual is a stabilizer and the state is restored (even when we cannot tell
+which physical error occurred --- the gift of degeneracy); if $F^\dagger E\in N(S)\setminus S$ the
+residual is a nontrivial logical operator, an uncorrectable logical error. So $\{E_a\}$ is correctable
+iff $E_a^\dagger E_b\notin N(S)\setminus S$ for every pair, and the code \textbf{distance} is the
+weight of the lightest logical operator,
+\[ d = \min_{P\,\in\,N(S)\setminus S}\ \wt(P). \]
 
 \begin{theorem*}[Stabilizer code]
 If $S$ is an Abelian subgroup of order $2^a$ of $\mathcal P_n$ with $-1\notin S$, and $d$ is the
-minimum weight in $N(S)\setminus S$ (where $N(S)$ is the normalizer), then the states fixed by $S$
-form an $[[n,n-a,d]]$ code.
+minimum weight in $N(S)\setminus S$, then the states fixed by $S$ form an $[[n,n-a,d]]$ code.
 \end{theorem*}
 
-\noindent In the \textbf{binary symplectic representation} each Pauli is a pair $(a\mid b)$; two
-operators commute iff $a_1\!\cdot\!b_2 + b_1\!\cdot\!a_2 = 0$, and the stabilizer condition becomes
-self-orthogonality under this symplectic form.
+\noindent All of this is linear over $\mathbb F_2$ in the \textbf{binary symplectic representation}:
+each Pauli is a pair $(a\mid b)$, multiplication is addition, and two operators commute iff
+$a_1\!\cdot\!b_2 + b_1\!\cdot\!a_2 = 0$. Then $S$ is an isotropic subspace, its centralizer
+$N(S)=S^\perp$ is the symplectic complement, and the syndrome map is the symplectic pairing against
+the generators.
 
 \section{A zoo of codes}
 \paragraph{CSS codes.} Two classical codes with $C_2^\perp\subseteq C_1$ give an
@@ -211,8 +252,9 @@ error correlations.
   all weight-$t$ Paulis corrects all $t$-qubit errors.
   \item The Knill--Laflamme conditions say when a subspace is a code; distance $d=2t+1$ and the
   Hamming / Singleton bounds constrain $[[n,k,d]]$.
-  \item The stabilizer formalism turns codes into Abelian Pauli groups and syndromes into eigenvalue
-  flips, linking quantum codes to classical and $\mathrm{GF}(4)$ coding theory.
+  \item The stabilizer formalism turns codes into Abelian Pauli groups and splits the errors into
+  cosets: cosets of the centralizer $N(S)$ are the syndromes, while cosets of $S$ inside $N(S)$ ---
+  the quotient $N(S)/S$ --- are the logical operators, the lightest of which sets the distance.
   \item Fault tolerance tames error propagation; transversal gates are ideal but never universal.
   \item Universality is completed by teleporting magic states up the Clifford hierarchy.
   \item Below a constant threshold, concatenation suppresses logical error doubly exponentially with
