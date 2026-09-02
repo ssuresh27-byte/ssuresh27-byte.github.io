@@ -1,0 +1,26 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+
+\title{\textbf{The spectral theorem, intuitively}}
+\author{Sanjay Suresh}
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+The spectral theorem says every real symmetric (or complex Hermitian) matrix can be written as
+\[ A = Q\,\Lambda\,Q^{\mathsf{T}}, \]
+an orthonormal basis $Q$ of eigenvectors and a diagonal matrix $\Lambda$ of real eigenvalues. The
+geometric reading is the useful one: such a matrix acts as pure stretching along a set of
+perpendicular axes, with no rotation or shear.
+
+That is why these matrices are everywhere I work. A Hamiltonian is Hermitian, so its eigenvalues are
+real energies and its eigenvectors are stationary states. A covariance matrix is symmetric, so PCA
+is just reading off its eigen-axes. Whenever a problem reduces to a symmetric operator, the spectral
+theorem promises a clean coordinate system in which it becomes diagonal.
+
+\end{document}

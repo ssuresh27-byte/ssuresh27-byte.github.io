@@ -1,0 +1,27 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+
+\title{\textbf{Keep AI calls out of Convex mutations}}
+\author{Sanjay Suresh}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+Convex mutations are transactional and meant to be deterministic --- they can re-run, and the
+runtime assumes the same inputs produce the same writes. Anything non-deterministic or network-bound
+(an LLM call, token streaming, an embeddings request) breaks that assumption.
+
+The right shape is: an \texttt{action} does the external call, then hands its result to a
+\texttt{mutation} that persists it. The action is where side effects live; the mutation stays a
+clean, replayable write.
+
+I learned this the slow way on AIManager --- chat responses were occasionally double-writing because
+the model call sat inside the mutation and got retried. Moving the call into an action made the whole
+thing predictable.
+
+\end{document}

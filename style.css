@@ -2,12 +2,11 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Smooth cross-fade between pages (Chromium, served over http) */
-@view-transition { navigation: auto; }
 
 /* ───── Theme ───── */
 :root {
-  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-body:    'Inter', Arial, Helvetica, sans-serif;
+  --font-display: 'Lato', Verdana, Helvetica, sans-serif;
+  --font-body:    'Lato', Verdana, Helvetica, sans-serif;
   --font-mono:    'Courier New', Courier, monospace;
   --sidebar-w:    56px;
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -35,8 +34,8 @@
   --accent-glow:rgba(155,118,83,0.25);
   --border:     #dcd5cb;
   --hover:      rgba(155,118,83,0.05);
-  --link:       #1d4ed8;
-  --link-hover: #0b2e8a;
+  --link:       #1772d0;
+  --link-hover: #f09228;
 }
 
 [data-theme="dark"] {
@@ -52,12 +51,12 @@
   --accent-glow:rgba(201,164,122,0.3);
   --border:     #312c28;
   --hover:      rgba(201,164,122,0.05);
-  --link:       #7aa2ff;
-  --link-hover: #a9c2ff;
+  --link:       #6fa8ff;
+  --link-hover: #f5a24a;
 }
 
 /* ───── Base ───── */
-html { scroll-behavior: smooth; font-size: 17px; }
+html { scroll-behavior: auto; font-size: 17px; }
 
 body {
   font-family: var(--font-display);
@@ -1181,7 +1180,7 @@ main .page-header p { margin-bottom: 0; }
   color: var(--text);
   margin: 0 0 0.4rem;
 }
-.notes-group + .notes-group { margin-top: 3rem; }
+.notes-group + .notes-group { margin-top: 1.5rem; }
 .notes-group .item-row { padding: 0.45rem 0; }
 
 /* Make a section heading on the homepage clickable */
@@ -1210,3 +1209,111 @@ main .page-header p { margin-bottom: 0; }
   .page-header h1 { font-size: 2rem; }
   .hero-photo { width: 140px; height: 140px; }
 }
+
+/* ── Static site: motion stripped (Barron-style). Theme toggle retained. ── */
+*, *::before, *::after { transition: none !important; animation: none !important; }
+.item-row:hover { padding-left: 0; }
+.item-row:hover .item-arrow,
+.panel-screenshots img:hover,
+.hero-links a.icon-link:hover { transform: none; }
+
+/* ── Packed single-column density (Barron-style), applied site-wide ── */
+:root { --max-width: 720px; }
+html { font-size: 15px; }
+body { line-height: 1.55; }
+
+.main-col { max-width: 720px; padding-top: 1.6rem; }
+.page { max-width: 720px; padding: 1.6rem 2rem 3rem; }
+.breadcrumb { margin-bottom: 0.9rem; }
+
+.hero { padding: 1.3rem 0 1rem; gap: 1.6rem; }
+.hero h1 { font-size: 1.95rem; margin-bottom: 0.45rem; }
+.hero-bio { font-size: 1rem; line-height: 1.55; }
+.hero-photo { width: 118px; height: 118px; }
+
+.section { padding: 0.95rem 0; }
+.section h2 { font-size: 1.28rem; margin-bottom: 0.3rem; }
+
+.item-row { padding: 0.28rem 0; font-size: 0.95rem; }
+.item-title { font-size: 1rem; }
+.item-sub { font-size: 0.8rem; }
+
+/* content pages: tighten prose + project/notes rhythm */
+.page-header { margin-bottom: 1rem; }
+.page-header h1 { margin-bottom: 0.3rem; }
+.prose p, .project-desc, .page p { line-height: 1.55; }
+.notes-group { padding: 0; }
+.project-hero { padding: 0.5rem 0 1rem; }
+.gallery-grid { gap: 0.7rem; }
+
+/* ── Contact links as words (no icons) ── */
+.hero-links { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 0.8rem; }
+.hero-links a { font-size: 0.92rem; }
+
+/* ── Compact publication entries (Barron): tight stack, whitespace only, NO dividing lines ── */
+.entry { border: none; padding: 0; margin: 0 0 1.4rem; }
+.entry h2, .entry h3 { margin-bottom: 0.1rem; line-height: 1.2; }
+.panel-tag { margin-bottom: 0.05rem; font-size: 0.9rem; }
+.panel-authors { margin-bottom: 0.05rem; font-size: 0.85rem; }
+.entry p { line-height: 1.5; margin: 0.45rem 0 0.25rem; }
+.entry-links { margin-top: 0.25rem; }
+
+/* ══════════════════════════════════════════════════════════════
+   .block — the single content unit used throughout the site.
+   title → meta → description → links, stacked compact, no lines.
+   ══════════════════════════════════════════════════════════════ */
+.block { margin: 0 0 1.15rem; }
+.block:last-child { margin-bottom: 0; }
+.block-title,
+.block h3 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.08rem;
+  color: var(--text);
+}
+.block-title a,
+.block h3 a { color: var(--text); }
+.block-title a:hover,
+.block h3 a:hover { color: var(--accent); }
+.block-meta {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-3);
+  margin: 0 0 0.05rem;
+  line-height: 1.35;
+}
+.block-desc,
+.block > p {
+  font-size: 0.95rem;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin: 0.4rem 0 0.2rem;
+}
+.block-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Boxes — each block is a sized layout unit (consistent structure
+   + spacing), NOT a visually bordered card. No border/background.
+   ══════════════════════════════════════════════════════════════ */
+.block, .box {
+  margin: 0 0 1.2rem;
+}
+.block:last-child, .box:last-child { margin-bottom: 0; }
+.box > :last-child, .block > :last-child { margin-bottom: 0; }
+.box p { font-size: 0.97rem; color: var(--text-2); line-height: 1.55; margin: 0 0 0.6rem; }
+.box h3 { font-family: var(--font-body); font-weight: 700; font-size: 1.05rem; margin: 0 0 0.35rem; color: var(--text); }
+
+/* ── Project pages: screenshots inside boxes ── */
+.project-page h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.25rem; margin: 0.6rem 0 0.7rem; color: var(--text); }
+.project-page .box img { width: 100%; max-width: 540px; height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; }
+.project-page .box .block-meta { margin-top: 0.35rem; }

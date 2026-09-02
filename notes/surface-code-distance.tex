@@ -1,0 +1,27 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+
+\title{\textbf{Reading off a surface-code distance}}
+\author{Sanjay Suresh}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+The code distance $d$ of a planar surface code is just the length of the shortest logical
+operator --- the shortest chain of data qubits connecting the two like-type boundaries. Eyeballing
+it on the lattice is usually faster than any formula.
+
+A distance-$d$ code corrects up to $\left\lfloor (d-1)/2 \right\rfloor$ arbitrary errors, so distance
+grows the protection roughly exponentially \emph{below threshold}: doubling $d$ squares the
+suppression of logical error. The catch is cost --- a planar patch needs on the order of $d^2$
+physical qubits, so every step up in distance is quadratically expensive.
+
+Practical takeaway: pick the smallest $d$ whose projected logical error rate clears your algorithm's
+total operation budget, not the largest one you can fit.
+
+\end{document}

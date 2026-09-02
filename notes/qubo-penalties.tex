@@ -1,0 +1,30 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+
+\title{\textbf{Inequality constraints in QUBO}}
+\author{Sanjay Suresh}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+To map an inequality like $Ax \le b$ onto a QUBO for an annealer, introduce binary-encoded slack
+variables and fold the constraint into the objective as a quadratic penalty term. The equality
+$Ax + s = b$ becomes
+\[ (Ax + s - b)^2, \]
+which is zero exactly when the constraint is satisfied.
+
+The penalty weight matters more than people expect. Too small and the global optimum quietly
+violates the constraint; too large and it dominates the energy landscape, flattening out the
+differences between good feasible solutions so the annealer cannot tell them apart. There is a
+usable window between ``constraint is respected'' and ``objective still has resolution'' --- sweep
+the weight to find it rather than guessing once.
+
+Slack encoding also burns qubits fast, so prefer the tightest bound you can prove on the slack range
+before you discretize it.
+
+\end{document}
