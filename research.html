@@ -7,7 +7,7 @@
   <link rel="preload" href="/fonts/lato-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/lato-bold.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/lato-italic.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=34" />
+  <link rel="stylesheet" href="style.css?v=35" />
 </head>
 <body>
 
@@ -33,6 +33,37 @@
     <div class="page-header">
       <h1>Research</h1>
       <p>I work on quantum computing &mdash; mostly the gap between the algorithms we would like to run and the noisy, resource-constrained hardware we actually have. Below are the questions I keep coming back to, and the papers they've turned into.</p>
+    </div>
+
+    <div class="qcircuit" aria-hidden="true">
+      <svg viewBox="0 0 640 150" width="100%" preserveAspectRatio="xMidYMid meet">
+        <text x="4" y="44" class="qlabel">q0</text>
+        <text x="4" y="89" class="qlabel">q1</text>
+        <text x="4" y="134" class="qlabel">q2</text>
+        <line class="wire" x1="34" y1="40" x2="610" y2="40"/>
+        <line class="wire" x1="34" y1="85" x2="610" y2="85"/>
+        <line class="wire" x1="34" y1="130" x2="610" y2="130"/>
+        <line class="link" x1="230" y1="40" x2="230" y2="85"/>
+        <circle class="ctrl" cx="230" cy="40" r="5"/>
+        <circle class="tgt" cx="230" cy="85" r="12"/>
+        <line class="tgtplus" x1="230" y1="74" x2="230" y2="96"/>
+        <line class="tgtplus" x1="219" y1="85" x2="241" y2="85"/>
+        <line class="link" x1="380" y1="85" x2="380" y2="130"/>
+        <circle class="ctrl" cx="380" cy="85" r="5"/>
+        <circle class="tgt" cx="380" cy="130" r="12"/>
+        <line class="tgtplus" x1="380" y1="119" x2="380" y2="141"/>
+        <line class="tgtplus" x1="369" y1="130" x2="391" y2="130"/>
+        <g class="gate"><rect x="73" y="23" width="34" height="34"/><text x="90" y="45">H</text></g>
+        <g class="gate"><rect x="128" y="68" width="34" height="34"/><text x="145" y="90">H</text></g>
+        <g class="gate"><rect x="93" y="113" width="34" height="34"/><text x="110" y="135">X</text></g>
+        <g class="gate"><rect x="463" y="68" width="34" height="34"/><text x="480" y="90">T</text></g>
+        <g class="meas"><rect x="543" y="23" width="34" height="34"/><path d="M550 47 A10 10 0 0 1 570 47"/><line x1="560" y1="47" x2="568" y2="34"/></g>
+        <g class="meas"><rect x="543" y="68" width="34" height="34"/><path d="M550 92 A10 10 0 0 1 570 92"/><line x1="560" y1="92" x2="568" y2="79"/></g>
+        <g class="meas"><rect x="543" y="113" width="34" height="34"/><path d="M550 137 A10 10 0 0 1 570 137"/><line x1="560" y1="137" x2="568" y2="124"/></g>
+        <circle class="pulse p0" cx="34" cy="40" r="4"/>
+        <circle class="pulse p1" cx="34" cy="85" r="4"/>
+        <circle class="pulse p2" cx="34" cy="130" r="4"/>
+      </svg>
     </div>
 
     <section id="interests">

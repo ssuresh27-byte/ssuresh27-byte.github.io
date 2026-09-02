@@ -653,3 +653,25 @@ body { line-height: 1.55; }
 /* Base link color — teal highlight for all otherwise-unstyled links (inline prose, contact, action links) */
 a { color: var(--link); }
 a:hover { color: var(--link-hover); }
+
+/* ── Animated quantum circuit (research header) — pure CSS/SVG, monochrome ── */
+.qcircuit { max-width: 620px; margin: 0.25rem 0 1.9rem; }
+.qcircuit svg { display: block; overflow: visible; }
+.qcircuit .wire, .qcircuit .link, .qcircuit .tgtplus,
+.qcircuit .meas path, .qcircuit .meas line { stroke: var(--text); stroke-width: 1.4; fill: none; stroke-linecap: round; }
+.qcircuit .ctrl { fill: var(--text); }
+.qcircuit .tgt,
+.qcircuit .gate rect, .qcircuit .meas rect { fill: var(--bg); stroke: var(--text); stroke-width: 1.4; }
+.qcircuit .gate text { font-family: var(--font-body); font-size: 18px; font-weight: 700; fill: var(--text); text-anchor: middle; }
+.qcircuit .qlabel { font-family: var(--font-mono); font-size: 12px; fill: var(--text-3); }
+.qcircuit .pulse { fill: var(--text); }
+.qcircuit .p0 { animation: qtravel 3.4s linear infinite; }
+.qcircuit .p1 { animation: qtravel 3.4s linear infinite 0.55s; }
+.qcircuit .p2 { animation: qtravel 3.4s linear infinite 1.1s; }
+@keyframes qtravel {
+  0%   { transform: translateX(0);     opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateX(576px); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .qcircuit .pulse { animation: none; opacity: 0; } }
