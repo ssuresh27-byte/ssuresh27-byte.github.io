@@ -17,9 +17,9 @@
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --max-width:    760px;
-  --bg:         #ffffff;
-  --bg-card:    #f7f7f7;
-  --bg-alt:     #f0f0f0;
+  --bg:         #f5f1ea;
+  --bg-card:    #faf6ef;
+  --bg-alt:     #ece5d8;
   --text:       #111111;
   --text-2:     #111111;
   --text-3:     #111111;
