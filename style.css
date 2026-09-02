@@ -646,9 +646,9 @@ body { line-height: 1.55; }
   color: var(--text);
 }
 .block-title a,
-.block h3 a { color: var(--link); }
+.block h3 a { color: var(--text); }
 .block-title a:hover,
-.block h3 a:hover { color: var(--link-hover); }
+.block h3 a:hover { color: var(--link); }
 .block-meta {
   font-family: var(--font-display);
   font-size: 0.85rem;
