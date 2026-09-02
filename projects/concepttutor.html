@@ -7,14 +7,13 @@
   <link rel="preload" href="/fonts/lato-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/lato-bold.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/lato-italic.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="../style.css?v=35" />
+  <link rel="stylesheet" href="../style.css?v=38" />
 </head>
 <body>
 
-  <header class="site-header">
-    <nav>
-      <a href="/" class="site-name">sanjaysuresh.me</a>
-      <div class="nav-right">
+  <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="/">Home</a>
         <a href="../research.html">Research</a>
         <a href="../sciencebowl.html">Science Bowl</a>
         <a href="../music.html">Music</a>
@@ -23,9 +22,8 @@
         <a href="../notes.html">Notes</a>
         <a href="/SanjayResume.pdf">Resume</a>
         <a href="/SanjayCV.pdf">CV</a>
-      </div>
-    </nav>
-  </header>
+      </nav>
+  </aside>
 
   <main class="project-page">
     <nav class="breadcrumb"><a href="/" class="bc-home" aria-label="Home"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></a> <span class="sep">/</span> <a href="../projects.html">Projects</a> <span class="sep">/</span> <span class="current">Concept Tutor</span></nav>
@@ -33,9 +31,8 @@
     <div class="page-header"><h1>Concept Tutor</h1><p>Open a book on one side, talk to a tutor on the other</p></div>
 
     <div class="box"><p class="block-desc">A PDF reader paired with an AI tutor. The tutor reads each page <em>as an image</em> &mdash; so it understands diagrams, structures, and equations, not just text &mdash; mines the testable concepts on that page, and has a natural conversation about them: it explains, answers your questions, and probes with its own. Your understanding of each concept is tracked as a number that quietly steers the difficulty of what it asks next.</p><p class="block-desc"><strong>See the page, not the text.</strong> PyMuPDF renders each PDF page to an image that serves as both the in-app viewer and the &ldquo;screenshot&rdquo; sent to a vision model, so figures and math come through intact.</p><p class="block-desc"><strong>Concepts, modeled simply.</strong> Each concept holds one number, <code>understanding &isin; [0,1]</code>, starting at 0. When a message actually <em>demonstrates</em> a concept (an answer or piece of reasoning, not just a question), the model scores it and blends it in: <code>understanding &larr; 0.6&middot;score + 0.4&middot;understanding</code>.</p><p class="block-desc"><strong>Difficulty that adapts.</strong> Questions climb with mastery &mdash; recall, then apply, then analyze, then synthesize &mdash; and each page opens on the concept you understand least.</p><div class="block-meta">React &middot; TypeScript &middot; FastAPI &middot; OpenAI Vision &middot; PyMuPDF &middot; SQLite</div></div>
+  <footer><p>&copy; 2026 Sanjay Suresh</p></footer>
   </main>
-
-  <footer style="max-width:var(--max-width);margin:0 auto;padding:1.5rem 2rem 3rem;font-family:var(--font-body);font-size:0.75rem;color:var(--text-3);">&copy; 2026 Sanjay Suresh</footer>
 
   </body>
 </html>
