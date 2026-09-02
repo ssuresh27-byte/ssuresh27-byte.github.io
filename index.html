@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;d.style.background=t==="dark"?"#1a1715":"#f2efe9";}catch(e){}})();</script>
   <title>Sanjay Suresh</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=26" />
+  <link rel="preload" href="/fonts/lato-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css?v=28" />
 </head>
 <body>
 
@@ -38,26 +38,15 @@
     <section class="hero">
       <img class="hero-photo" src="images/headshot.png" alt="Sanjay Suresh" />
       <div class="hero-text">
-      <h1>Sanjay Suresh</h1>
-      <p class="hero-bio">Researcher at Argonne National Laboratory and UW&ndash;Madison. Building AI-powered learning tools and studying quantum computing &mdash; from annealing to error correction. Carnatic violinist and accompanist to frontline artists across India and the US.</p>
-      <div class="hero-links">
-        <a href="https://github.com/ssuresh27-byte" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/sanjay-suresh-4774a326b/" target="_blank">LinkedIn</a>
-        <a href="mailto:ssuresh27@wisc.edu">Email</a>
-      </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="section">
-      <div class="item-list">
-        <div class="block"><h3 class="block-title"><a href="research.html">Research</a></h3><p class="block-desc">Quantum computing across the stack &mdash; error correction and fault tolerance, quantum annealing for constrained optimization, and distributed quantum computing across networked nodes. Two journal papers and open-source tools have come out of it.</p></div>
-        <div class="block"><h3 class="block-title"><a href="sciencebowl.html">Science Bowl</a></h3><p class="block-desc">The National Science Bowl shaped me most &mdash; 2nd nationally among individuals, president and captain of my team, and practice platforms that reached 2,000+ students. It&rsquo;s where my love of building learning tools began.</p></div>
-        <div class="block"><h3 class="block-title"><a href="music.html">Carnatic Music</a></h3><p class="block-desc">A Carnatic violinist and sought-after accompanist, a disciple of Chitravina N Ravikiran since 2012, performing with frontline artists across India and the US.</p></div>
-        <div class="block"><h3 class="block-title"><a href="projects.html">Projects</a></h3><p class="block-desc">AI-powered learning tools and quantum visualizers &mdash; Studia, Eloquizzer, PDFQuizzer, SurfaceScope, and more.</p></div>
-        <div class="block"><h3 class="block-title"><a href="writing.html">Writing</a></h3><p class="block-desc">Short essays on quantum computing, the learning tools I keep rebuilding, and music.</p></div>
-        <div class="block"><h3 class="block-title"><a href="notes.html">Notes</a></h3><p class="block-desc">Technical notes, written in LaTeX and posted as PDFs &mdash; quantum error correction, MBQC, QUBO, and more.</p></div>
-        <div class="block"><h3 class="block-title"><a href="/SanjayResume.pdf">Resume</a> &middot; <a href="/SanjayCV.pdf">CV</a></h3><p class="block-desc">My quantum resume and full CV (PDF).</p></div>
+        <h1>Sanjay Suresh</h1>
+        <p class="hero-bio">I&rsquo;m a researcher at Argonne National Laboratory and UW&ndash;Madison working across the quantum computing stack &mdash; from error correction and fault tolerance to quantum annealing and distributed quantum computing &mdash; work that&rsquo;s become two journal papers and a handful of open-source tools. Alongside it I build AI-powered learning tools, a habit that started with Science Bowl (2nd nationally, and practice platforms that reached 2,000+ students). Away from the lab I&rsquo;m a Carnatic violinist and accompanist, a disciple of Chitravina N Ravikiran, performing with frontline artists across India and the US.</p>
+        <div class="hero-links">
+          <a href="https://github.com/ssuresh27-byte" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/sanjay-suresh-4774a326b/" target="_blank">LinkedIn</a>
+          <a href="mailto:ssuresh27@wisc.edu">Email</a>
+          <a href="/SanjayResume.pdf">Resume</a>
+          <a href="/SanjayCV.pdf">CV</a>
+        </div>
       </div>
     </section>
 
