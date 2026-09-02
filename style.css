@@ -583,3 +583,6 @@ a:hover { color: var(--link-hover); }
   100% { transform: translateX(576px); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .qcircuit .pulse { animation: none; opacity: 0; } }
+
+/* Normalize footer copyright size everywhere (beat .prose p / .page p) */
+footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0.75rem; line-height: 1.4; margin: 0; color: var(--text); }
