@@ -2,63 +2,37 @@
 @font-face { font-family:'Lato'; font-style:normal; font-weight:400; font-display:swap; src:url(/fonts/lato-regular.woff2) format('woff2'); }
 @font-face { font-family:'Lato'; font-style:normal; font-weight:700; font-display:swap; src:url(/fonts/lato-bold.woff2) format('woff2'); }
 @font-face { font-family:'Lato'; font-style:italic; font-weight:400; font-display:swap; src:url(/fonts/lato-italic.woff2) format('woff2'); }
-@font-face { font-family:'Fraunces'; font-style:normal; font-weight:400 600; font-display:swap; src:url(/fonts/fraunces.woff2) format('woff2'); }
 
 /* ───── Reset ───── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Smooth cross-fade between pages (Chromium, served over http) */
 
-/* ───── Theme ───── */
+/* ───── Theme (light only) ───── */
 :root {
+  color-scheme: light;
   --font-display: 'Lato', Verdana, Helvetica, sans-serif;
   --font-body:    'Lato', Verdana, Helvetica, sans-serif;
   --font-mono:    'Courier New', Courier, monospace;
-  --sidebar-w:    56px;
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --max-width:    760px;
-  --transition:   var(--t);
-}
-
-/* Aliases so the older project.css variable names resolve */
-[data-theme="light"], [data-theme="dark"] {
+  --bg:         #ffffff;
+  --bg-card:    #f7f7f7;
+  --bg-alt:     #f0f0f0;
+  --text:       #111111;
+  --text-2:     #444444;
+  --text-3:     #767676;
+  --accent:     #111111;
+  --accent-soft:rgba(0,0,0,0.05);
+  --accent-glow:rgba(0,0,0,0.12);
+  --border:     #e4e4e4;
+  --hover:      rgba(0,0,0,0.03);
+  --link:       #111111;
+  --link-hover: #555555;
   --text-soft:  var(--text-2);
   --text-faint: var(--text-3);
   --accent-bg:  var(--accent-soft);
-}
-
-[data-theme="light"] {
-  color-scheme: light;
-  --bg:         #f2efe9;
-  --bg-card:    #faf8f5;
-  --bg-alt:     #e9e4db;
-  --text:       #2d2520;
-  --text-2:     #5e524a;
-  --text-3:     #9a8e82;
-  --accent:     #9b7653;
-  --accent-soft:rgba(155,118,83,0.08);
-  --accent-glow:rgba(155,118,83,0.25);
-  --border:     #dcd5cb;
-  --hover:      rgba(155,118,83,0.05);
-  --link:       #2f7d6e;
-  --link-hover: #235f54;
-}
-
-[data-theme="dark"] {
-  color-scheme: dark;
-  --bg:         #1a1715;
-  --bg-card:    #211e1b;
-  --bg-alt:     #2a2623;
-  --text:       #e8e3db;
-  --text-2:     #afa69b;
-  --text-3:     #6e665d;
-  --accent:     #c9a47a;
-  --accent-soft:rgba(201,164,122,0.08);
-  --accent-glow:rgba(201,164,122,0.3);
-  --border:     #312c28;
-  --hover:      rgba(201,164,122,0.05);
-  --link:       #7cc0b1;
-  --link-hover: #a6d6ca;
 }
 
 /* ───── Base ───── */
@@ -87,21 +61,6 @@ h1, h2, h3, h4 {
 ::selection { background: var(--accent-glow); }
 
 /* ───── Theme Toggle (text) ───── */
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-3);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: color var(--t);
-}
-.theme-toggle:hover { color: var(--accent); }
-[data-theme="light"] .theme-label-dark { display: none; }
-[data-theme="dark"] .theme-label-light { display: none; }
 
 /* ───── Layout ───── */
 
@@ -423,13 +382,6 @@ footer {
 .nav-right a.active { color: var(--accent); }
 
 /* Icon theme toggle */
-.theme-toggle svg { display: block; }
-.nav-right .theme-toggle,
-footer .theme-toggle {
-  display: flex;
-  align-items: center;
-  padding: 0;
-}
 
 /* ───── Content Pages ───── */
 .page {
@@ -698,10 +650,6 @@ body { line-height: 1.55; }
 .about p { font-size: 1.02rem; color: var(--text-2); line-height: 1.7; margin-bottom: 0.85rem; max-width: 62ch; }
 .about p:last-child { margin-bottom: 0; }
 
-/* ── Serif headings (Fraunces) paired with the Lato body ── */
-h1, h2,
-.hero h1, .page-header h1,
-.section h2, .notes-subject, .project-page h2, .page h2 {
-  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-  letter-spacing: 0;
-}
+/* Base link color — teal highlight for all otherwise-unstyled links (inline prose, contact, action links) */
+a { color: var(--link); }
+a:hover { color: var(--link-hover); }

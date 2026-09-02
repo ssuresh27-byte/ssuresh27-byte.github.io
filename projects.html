@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var d=document.documentElement;d.setAttribute("data-theme",t);d.style.colorScheme=t;d.style.background=t==="dark"?"#1a1715":"#f2efe9";}catch(e){}})();</script>
   <title>Projects &mdash; Sanjay Suresh</title>
   <link rel="preload" href="/fonts/lato-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/lato-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=30" />
+  <link rel="preload" href="/fonts/lato-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css?v=34" />
 </head>
 <body>
 
@@ -24,7 +23,6 @@
         <a href="notes.html">Notes</a>
         <a href="/SanjayResume.pdf">Resume</a>
         <a href="/SanjayCV.pdf">CV</a>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-label-light">Dark</span><span class="theme-label-dark">Light</span></button>
       </div>
     </nav>
   </header>
@@ -38,43 +36,43 @@
     </div>
 
     <div class="block">
-      <h2><a href="projects/studia.html">Studia</a></h2>
+      <h3 class="block-title"><a href="projects/studia.html">Studia</a></h3>
       <p class="block-meta">Next.js &middot; TypeScript &middot; Convex &middot; Vercel AI SDK &middot; Manim</p>
       <p>A full-stack AI tutoring platform where educators create structured lessons with checkpoints, and students learn through conversational AI tutoring. Features PDF context extraction, automated review generation, and real-time Manim animations.</p>
     </div>
 
     <div class="block">
-      <h2><a href="projects/eloquizzer.html">Eloquizzer</a></h2>
+      <h3 class="block-title"><a href="projects/eloquizzer.html">Eloquizzer</a></h3>
       <p class="block-meta">Next.js &middot; TypeScript &middot; Convex &middot; Anthropic &middot; React 19</p>
       <p>A competitive quiz and learning platform with Elo-based skill tracking. Adaptive difficulty, multiplayer quiz matches with real-time spectating, and personalized lesson generation across any subject.</p>
     </div>
 
     <div class="block">
-      <h2><a href="projects/pdfquizzer.html">PDFQuizzer</a></h2>
+      <h3 class="block-title"><a href="projects/pdfquizzer.html">PDFQuizzer</a></h3>
       <p class="block-meta">Next.js &middot; TypeScript &middot; Convex &middot; PDF.js &middot; KaTeX</p>
       <p>An interactive study tool that generates quizzes from uploaded PDF documents. Upload, read, quiz yourself page by page, and review performance &mdash; with streak tracking and KaTeX math rendering.</p>
     </div>
 
     <div class="block">
-      <h2><a href="projects/sciencebowlwriter.html">Science Bowl Writer</a></h2>
+      <h3 class="block-title"><a href="projects/sciencebowlwriter.html">Science Bowl Writer</a></h3>
       <p class="block-meta">Python &middot; FastAPI &middot; OpenAI &middot; pypdf &middot; SQLite</p>
       <p>A local PDF reader that writes Stanford Science Bowl&ndash;style questions from whatever page you're reading, stores them, and lets you practice &mdash; tossup vs. bonus, W/X/Y/Z multiple choice, and category/difficulty tagging following the SSB writing guide. You can also write your own.</p>
     </div>
 
     <div class="block">
-      <h2><a href="projects/concepttutor.html">Concept Tutor</a></h2>
+      <h3 class="block-title"><a href="projects/concepttutor.html">Concept Tutor</a></h3>
       <p class="block-meta">React &middot; TypeScript &middot; FastAPI &middot; OpenAI Vision &middot; PyMuPDF &middot; SQLite</p>
       <p>A PDF reader paired with an AI tutor that reads each page as an image (understanding diagrams and equations, not just text), mines the testable concepts, and converses about them &mdash; explaining, answering, and probing. It models your understanding of each concept in [0,1] and adapts question difficulty from recall to synthesis.</p>
     </div>
 
     <div class="block">
-      <h2><a href="projects/aimanager.html">AIManager</a></h2>
+      <h3 class="block-title"><a href="projects/aimanager.html">AIManager</a></h3>
       <p class="block-meta">Next.js &middot; TypeScript &middot; Convex &middot; Vercel AI SDK &middot; OpenAI</p>
       <p>A comprehensive personal productivity platform powered by AI. Manage tasks, calendar events, and habits with an integrated AI chat assistant, motivational dashboard, pinboard, and knowledge base.</p>
     </div>
 
     <div class="block">
-      <h2><a href="projects/surfacescope.html">SurfaceScope</a></h2>
+      <h3 class="block-title"><a href="projects/surfacescope.html">SurfaceScope</a></h3>
       <p class="block-meta">Python &middot; Flask &middot; React &middot; TypeScript &middot; Stim &middot; PyMatching</p>
       <p>An interactive web-based visualizer for surface-code quantum error correction. Step-by-step exploration of noise injection, syndrome extraction, detector error models, and minimum-weight perfect matching decoding, plus a multi-qubit lattice surgery pipeline.</p>
     </div>
@@ -82,17 +80,5 @@
 
   <footer style="max-width:var(--max-width);margin:0 auto;padding:1.5rem 2rem 3rem;font-family:var(--font-body);font-size:0.75rem;color:var(--text-3);">&copy; 2026 Sanjay Suresh</footer>
 
-  <script>
-    const html = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved) html.setAttribute('data-theme', saved);
-    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
-    function toggleTheme() {
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    }
-  </script>
-
-</body>
+  </body>
 </html>
