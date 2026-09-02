@@ -21,8 +21,8 @@
   --bg-card:    #f7f7f7;
   --bg-alt:     #f0f0f0;
   --text:       #111111;
-  --text-2:     #444444;
-  --text-3:     #767676;
+  --text-2:     #111111;
+  --text-3:     #111111;
   --accent:     #111111;
   --accent-soft:rgba(0,0,0,0.05);
   --accent-glow:rgba(0,0,0,0.12);
@@ -182,7 +182,6 @@ h1, h2, h3, h4 {
 
 .hero h1 { margin-bottom: 0.85rem; }
 
-.hero-bio { max-width: 54ch; }
 
 .hero-links { justify-content: flex-start; }
 
@@ -358,7 +357,6 @@ main .page-header p { margin-bottom: 0; }
   font-size: 0.95rem;
   color: var(--text-2);
   line-height: 1.7;
-  max-width: 58ch;
 }
 
 /* Prose blocks reuse the panel typography */
@@ -498,7 +496,7 @@ body { line-height: 1.55; }
 .block h3 {
   font-family: var(--font-body);
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
   margin: 0 0 0.08rem;
@@ -560,7 +558,7 @@ a { color: var(--link); text-decoration: none; }
 a:hover { color: var(--link-hover); }
 /* Inline content links: quiet underline that darkens on hover */
 .block-desc a, .box a, .prose p a, .page-header p a, .hero-bio a {
-  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: #c4c4c4;
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--text);
 }
 .block-desc a:hover, .box a:hover, .prose p a:hover, .page-header p a:hover, .hero-bio a:hover { text-decoration-color: var(--text); }
 
