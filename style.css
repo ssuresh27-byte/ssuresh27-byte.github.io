@@ -1317,3 +1317,6 @@ body { line-height: 1.55; }
 .project-page h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.25rem; margin: 0.6rem 0 0.7rem; color: var(--text); }
 .project-page .box img { width: 100%; max-width: 540px; height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; }
 .project-page .box .block-meta { margin-top: 0.35rem; }
+
+/* Project pages: use the same container as every other content page (fixes offset position) */
+.project-page { max-width: 720px; margin: 0 auto; padding: 1.6rem 2rem 3rem; }
