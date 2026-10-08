@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research &mdash; Sanjay Suresh</title>
-  <meta name="description" content="Quantum computing research by Sanjay Suresh — error correction, quantum annealing, distributed quantum computing, and publications." />
+  <meta name="description" content="Quantum computing research by Sanjay Suresh — fault-tolerant compilation, distributed quantum computing, error correction, quantum annealing, and publications." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Research &mdash; Sanjay Suresh" />
-  <meta property="og:description" content="Quantum computing research by Sanjay Suresh — error correction, quantum annealing, distributed quantum computing, and publications." />
+  <meta property="og:description" content="Quantum computing research by Sanjay Suresh — fault-tolerant compilation, distributed quantum computing, error correction, quantum annealing, and publications." />
   <meta property="og:url" content="https://ssuresh27-byte.github.io/research.html" />
   <meta property="og:image" content="https://ssuresh27-byte.github.io/images/headshot.png" />
   <meta name="twitter:card" content="summary" />
@@ -23,11 +23,9 @@
       <nav class="sidebar-nav">
         <a href="/">Home</a>
         <a href="research.html" class="active" aria-current="page">Research</a>
-        <a href="sciencebowl.html">Science Bowl</a>
         <a href="music.html">Music</a>
         <a href="projects.html">Projects</a>
         <a href="writing.html">Writing</a>
-        <a href="notes.html">Notes</a>
       </nav>
   </aside>
 
@@ -36,7 +34,7 @@
 
     <div class="page-header">
       <h1>Research</h1>
-      <p>I work on quantum computing &mdash; mostly the gap between the algorithms we would like to run and the noisy, resource-constrained hardware we actually have. Below are the questions I keep coming back to, and the papers they've turned into.</p>
+      <p>I work on compiling quantum algorithms for the machines that will actually run them: modular, fault-tolerant computers built from error-corrected modules linked by entanglement. Compiling well for these machines means understanding three things at once &mdash; the architecture's costs, the structure of the error-correcting code, and the algorithms the machine will realistically run. Below are the problems I keep coming back to, and the papers and software they've turned into.</p>
     </div>
 
     <div class="qcircuit" aria-hidden="true">
@@ -73,17 +71,27 @@
     <section id="interests">
       <h2>What I'm interested in</h2>
 
-      <div class="block"><h3 class="block-title">Quantum error correction &amp; fault tolerance</h3><p class="block-desc">How do we build a reliable logical qubit out of unreliable physical ones? I'm drawn to surface codes in particular &mdash; reading code distance off a lattice, minimum-weight perfect matching decoders, lattice surgery, and estimating thresholds by simulating across code distances and error rates. This is the thinking behind my <a href="projects/surfacescope.html">SurfaceScope</a> visualizer.</p></div>
+      <div class="block"><h3 class="block-title">Architecture costs &amp; distributed quantum computing</h3><p class="block-desc">Fault-tolerant machines will likely scale as error-corrected modules linked by entanglement, so a compiler has to reason about operations that cross module boundaries as well as the scheduling, memory, and idle time inside each module. At Argonne I designed and built <a href="https://github.com/ssuresh27-byte/SeQUeNCe.DQC" target="_blank">SeQUeNCe.DQC</a>, a full-stack distributed-QC simulator, and came away convinced that entanglement is a scarce resource with its own lifecycle &mdash; a compiler that treats remote gates as ordinary instructions misses most of the real cost.</p></div>
 
-      <div class="block"><h3 class="block-title">Quantum annealing &amp; optimization</h3><p class="block-desc">A lot of useful problems are really constrained optimization in disguise. I like figuring out how to express them as QUBOs an annealer can actually solve &mdash; encoding inequality constraints, tuning penalty weights, and contracting search regions to solve linear systems faster. Both of my journal papers came out of this line of work.</p></div>
+      <div class="block"><h3 class="block-title">Error correction &amp; code structure</h3><p class="block-desc">Which logical operations a code makes cheap depends on its structure. With Prof. Swamit Tannu I'm developing compilation strategies for bivariate bicycle (qLDPC) codes, where only some logical Pauli measurements are native and the best optimizations often come from how the Clifford group acts on Paulis as much as from mapping and routing. Surface codes are where this intuition started &mdash; the thinking behind my <a href="projects/surfacescope.html">SurfaceScope</a> visualizer &mdash; and with Dr. Sathyawageeswar Subramanian at Oxford I'm extending graph-state verification to more realistic noise models for measurement-based fault tolerance.</p></div>
 
-      <div class="block"><h3 class="block-title">Distributed quantum computing</h3><p class="block-desc">Near-term machines are small, so one natural question is how to spread a single logical circuit across several networked quantum nodes. At Argonne I've been partitioning and scheduling circuits across arbitrary network topologies and simulating the entanglement and remote gates that hold them together.</p></div>
+      <div class="block"><h3 class="block-title">Algorithms &amp; workloads</h3><p class="block-desc">Knowing what a machine will realistically run tells a compiler what to optimize for. With Prof. Krishnan Suresh I've worked on getting real engineering problems onto quantum hardware &mdash; QUBO formulations for annealers, and structured state preparation that keeps data-loading from erasing a speedup. That work shaped my sense of where quantum computers will actually be useful, and convinced me the structure of an algorithm is information a compiler can use.</p></div>
 
-      <div class="block"><h3 class="block-title">Benchmarking noisy hardware</h3><p class="block-desc">Before you trust a device, you want to predict how it will behave. I'm interested in classically-simulable metrics that correlate with real hardware performance and error rates &mdash; cheap signals that tell you something true about an expensive machine.</p></div>
+      <div class="block"><h3 class="block-title">Where I want to take this</h3><p class="block-desc">I want to build compilers for modular fault-tolerant machines that use all three kinds of information: how to schedule entanglement generation and distillation around logical operations that span modules, whether a code's group structure can lower the cost of those operations, and how a compiler can use what it knows about an algorithm to decide where to spend scarce resources.</p></div>
     </section>
 
     <section id="publications">
       <h2>Publications &amp; software</h2>
+
+      <div class="block" id="sequence-dqc">
+        <h3>SeQUeNCe.DQC: A Full-Stack Simulator for Distributed Quantum Computing</h3>
+        <p class="block-meta">Under review &middot; IEEE ICC</p>
+        <p class="block-meta">S. Suresh, et al.</p>
+        <p>Turns Argonne's SeQUeNCe network simulator (a 2026 R&amp;D 100 winner) into a full-stack distributed-QC simulator: a circuit front end, a compiler layer with pluggable partitioners (QAP, random, time-sliced FGP-rOEE) behind a common interface, a central controller modeled as a real network node, and worker agents with separate data and communication memories. Nodes run TeleGate and TeleData teleportation over multi-hop entanglement swapping, with both ket-vector and density-matrix backends. Under a per-qubit T1/T2 and per-shot Pauli noise model it reproduces the 71% distributed-Grover success rate from a Nature trapped-ion experiment. First author.</p>
+        <div class="block-links">
+          <a href="https://github.com/ssuresh27-byte/SeQUeNCe.DQC" target="_blank" class="panel-link">GitHub &rarr;</a>
+        </div>
+      </div>
 
       <div class="block" id="pyencode">
         <h3>PyEncode: An Open-Source Library for Structured Quantum State Preparation</h3>
