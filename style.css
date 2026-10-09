@@ -247,10 +247,9 @@ footer {
   font-family: var(--font-body);
   letter-spacing: 0.02em;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  border-top: 1px solid var(--border);
-  margin-top: 2.5rem;
+  margin-top: 3rem;
 }
 
 /* ───── Concert View Toggle ───── */
