@@ -47,7 +47,7 @@
   --accent-glow:rgba(209,68,36,0.16);
   --border:     #d1cfc5;
   --hover:      rgba(31,30,29,0.04);
-  --card-shadow: 0 2px 10px rgba(31,30,29,0.03), 0 14px 36px rgba(31,30,29,0.045);
+  --card-shadow: 0 2px 12px rgba(31,30,29,0.015), 0 18px 44px rgba(31,30,29,0.025);
   --link:       #c0432a;
   --link-hover: #953521;
   --text-soft:  var(--text-2);
@@ -655,7 +655,7 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
   --accent-soft: rgba(232,115,79,0.14);
   --accent-glow: rgba(232,115,79,0.22);
   --hover:      rgba(240,238,230,0.05);
-  --card-shadow: 0 2px 10px rgba(0,0,0,0.28), 0 14px 36px rgba(0,0,0,0.3);
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.16), 0 18px 44px rgba(0,0,0,0.18);
 }
 
 /* smooth theme switch */
@@ -694,6 +694,7 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
 /* ── Whole page content in a single card/sheet ── */
 main.page, main.project-page {
   background: var(--bg);
+  box-shadow: var(--card-shadow);
   padding: 2rem 2.25rem 2.5rem;
   min-height: 100dvh;
 }
