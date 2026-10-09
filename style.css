@@ -554,7 +554,10 @@ body { line-height: 1.6; }
    + spacing), NOT a visually bordered card. No border/background.
    ══════════════════════════════════════════════════════════════ */
 .block, .box {
-  margin: 0 0 0.85rem;
+  background: var(--bg);
+  box-shadow: var(--card-shadow);
+  padding: 1rem 1.1rem;
+  margin: 0 -1.1rem 0.95rem;
 }
 .block:last-child, .box:last-child { margin-bottom: 0; }
 .box > :last-child, .block > :last-child { margin-bottom: 0; }
@@ -563,7 +566,7 @@ body { line-height: 1.6; }
 
 /* ── Project pages: screenshots inside boxes ── */
 .project-page h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.25rem; margin: 0.6rem 0 0.7rem; color: var(--text); }
-.project-page .box img { width: 100%; max-width: 540px; height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; }
+.project-page .box img { width: 100%; max-width: 540px; height: auto; display: block; border: 0; border-radius: 0; }
 .project-page .box .block-meta { margin-top: 0.35rem; }
 
 /* Project pages: use the same container as every other content page (fixes offset position) */
@@ -635,7 +638,6 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 }
 
 /* ── Publications as bordered boxes (research page) ── */
-#publications .block { border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--card-shadow); padding: 1.05rem 1.25rem 1.1rem; margin-bottom: 0.9rem; }
 #publications .block h3 { margin-bottom: 0.3rem; }
 .pub-authors { font-size: 0.92rem; color: var(--text-2); margin: 0.2rem 0; line-height: 1.35; }
 .pub-authors strong { font-weight: 700; color: var(--text); }
@@ -691,5 +693,3 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
   .theme-switch { margin-top: 0; padding-top: 0; margin-left: auto; }
 }
 
-/* publications: cards sit flush within the content column */
-#publications .block { margin: 0 0 0.9rem; padding: 1rem 1.15rem; }
