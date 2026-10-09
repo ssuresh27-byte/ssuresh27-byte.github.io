@@ -36,19 +36,19 @@
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --max-width:    760px;
-  --bg:         #f5f1ea;
-  --bg-card:    #faf6ef;
-  --bg-alt:     #ece5d8;
-  --text:       #111111;
-  --text-2:     #3a3a3a;
-  --text-3:     #767676;
+  --bg:         #f4ecda;
+  --bg-card:    #faf4e7;
+  --bg-alt:     #ece0c9;
+  --text:       #2c251f;
+  --text-2:     #514538;
+  --text-3:     #8c8070;
   --accent:     #1772d0;
   --accent-soft:rgba(23,114,208,0.07);
   --accent-glow:rgba(23,114,208,0.16);
-  --border:     #e4e4e4;
-  --hover:      rgba(0,0,0,0.03);
+  --border:     #e3d7c0;
+  --hover:      rgba(60,40,20,0.04);
   --link:       #1772d0;
-  --link-hover: #f09228;
+  --link-hover: #d9772a;
   --text-soft:  var(--text-2);
   --text-faint: var(--text-3);
   --accent-bg:  var(--accent-soft);
@@ -642,19 +642,19 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 /* ═══════════════ Dark mode + more color ═══════════════ */
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg:         #15161a;
-  --bg-card:    #1c1e24;
-  --bg-alt:     #23252c;
-  --text:       #e9e6df;
-  --text-2:     #c2bdb2;
-  --text-3:     #8b857a;
-  --border:     #2f3139;
-  --link:       #7ab0ff;
-  --link-hover: #efa85a;
-  --accent:     #7ab0ff;
-  --accent-soft: rgba(122,176,255,0.12);
-  --accent-glow: rgba(122,176,255,0.22);
-  --hover:      rgba(255,255,255,0.04);
+  --bg:         #1a1611;
+  --bg-card:    #231e17;
+  --bg-alt:     #2b251c;
+  --text:       #ece3d3;
+  --text-2:     #c8beac;
+  --text-3:     #90836f;
+  --border:     #372f24;
+  --link:       #8fb8ff;
+  --link-hover: #f0b36a;
+  --accent:     #8fb8ff;
+  --accent-soft: rgba(143,184,255,0.12);
+  --accent-glow: rgba(143,184,255,0.22);
+  --hover:      rgba(255,240,220,0.05);
 }
 
 /* smooth theme switch */
@@ -668,7 +668,7 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
   padding-top: 1.5rem;
   display: flex;
   align-items: baseline;
-  gap: 0.4rem;
+  gap: 0;
 }
 .ts-opt {
   font-family: var(--font-body);
