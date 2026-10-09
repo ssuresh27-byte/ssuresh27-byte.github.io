@@ -14,7 +14,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=61" />
+  <link rel="stylesheet" href="style.css?v=62" />
 </head>
 <body>
 
@@ -39,10 +39,8 @@
 
     <section id="about">
       <h2>Bio <span class="amp">&amp;</span> Training</h2>
-      <div class="box">
-      <div class="panel-screenshots">
-        <img src="images/music-gallery-1.png" alt="Sanjay Suresh performing" />
-      </div>
+      <div class="box music-bio">
+      <img class="music-photo" src="images/music-gallery-1.png" alt="Sanjay Suresh performing" />
       <p>Disciple of Sangeet Samrat Chitravina N Ravikiran since 2012, trained initially under his mother Vanitha Suresh and Violinist Shri C N Srinivasa Murthy.</p>
       <p>Since his maiden concert as a soloist and accompanist to Shri Sikkil Gurucharan in July 2017, Sanjay has graduated into a sought-after accompanist, supporting frontline artists including Smt Alamelu Mani, Shri Chitravina N Ravikiran, Shri Raghavachary Dharuri, Dr. Rama Ravi, Dr. S Sowmya, Carnatica Brothers, Dr Gayathri Girish, Shri Palghat Ramprasad, Shri Sikkil Gurucharan, Akkarai Sisters, and Shri KS Vishnudev in major festivals and venues in India <span class="amp">&amp;</span> the US, sharing the stage with legends such as Shri V V Subrahmanyam, Shri Trichy Sankaran, Shri Srimushnam Raja Rao, Shri Tiruvarur Bhakthavatsalam <span class="amp">&amp;</span> Shri Patri Sathish Kumar.</p>
       <p>He has also presented solos and duos with his brother Arjun Suresh (Chitravina), as well as orchestral Melharmony concerts with his guru Ravikiran (whom he has also assisted in arranging some of the pieces).</p></div>
@@ -52,29 +50,35 @@
       <h2>Concerts</h2>
 
       <h3>Upcoming</h3>
-      <div class="block"><h3 class="block-title">Anirudh Raja</h3><div class="block-meta">Apr 4 &middot; Cleveland Thyagaraja Festival &middot; 10 PM</div></div>
-      <div class="block"><h3 class="block-title">Malladi Suribabu</h3><div class="block-meta">Apr 11 &middot; Pittsburgh</div></div>
-      <div class="block"><h3 class="block-title">Malladi Suribabu</h3><div class="block-meta">Apr 13 &middot; Dayton, Ohio</div></div>
-      <div class="block"><h3 class="block-title">Akshay Padmanabhan</h3><div class="block-meta">Apr 17 &middot; Chicago</div></div>
+      <div class="concert-list">
+        <div class="concert"><span class="c-date">Apr 4</span><span class="c-info"><span class="c-artist">Anirudh Raja</span><span class="c-venue">Cleveland Thyagaraja Festival &middot; 10 PM</span></span></div>
+        <div class="concert"><span class="c-date">Apr 11</span><span class="c-info"><span class="c-artist">Malladi Suribabu</span><span class="c-venue">Pittsburgh</span></span></div>
+        <div class="concert"><span class="c-date">Apr 13</span><span class="c-info"><span class="c-artist">Malladi Suribabu</span><span class="c-venue">Dayton, Ohio</span></span></div>
+        <div class="concert"><span class="c-date">Apr 17</span><span class="c-info"><span class="c-artist">Akshay Padmanabhan</span><span class="c-venue">Chicago</span></span></div>
+      </div>
 
       <h3>2025/26 Chennai Music Season</h3>
-      <div class="block"><h3 class="block-title">Chitravina N Ravikiran</h3><div class="block-meta">Dec 21 &middot; Arkay Convention Centre &middot; 6:30 PM</div></div>
-      <div class="block"><h3 class="block-title">TVS Mahadevan</h3><div class="block-meta">Dec 22 &middot; Narada Gana Sabha &middot; 10 AM</div></div>
-      <div class="block"><h3 class="block-title">Duet with C S Chinmayi</h3><div class="block-meta">Dec 23 &middot; Velleeshwarar Kovil &middot; 6 AM</div></div>
-      <div class="block"><h3 class="block-title">Sankari Krishnan</h3><div class="block-meta">Dec 24 &middot; Chennai Fine Arts &middot; 9:30 AM</div></div>
-      <div class="block"><h3 class="block-title">K Gayatri</h3><div class="block-meta">Dec 25 &middot; GFA &middot; 5&ndash;7 PM</div></div>
-      <div class="block"><h3 class="block-title">Rama Ravi</h3><div class="block-meta">Dec 26 &middot; GFA &middot; 10:20&ndash;11:50 AM</div></div>
-      <div class="block"><h3 class="block-title">Chitravina N Ravikiran</h3><div class="block-meta">Dec 28 &middot; Neelakantan Sivan Cultural Trust, Nanganallur</div></div>
-      <div class="block"><h3 class="block-title">Carnatica Brothers</h3><div class="block-meta">Dec 29 &middot; 6:30 PM</div></div>
-      <div class="block"><h3 class="block-title">Akkarai Sisters</h3><div class="block-meta">Dec 31 &middot; Neelakantan Sivan Academy &middot; TBD</div></div>
-      <div class="block"><h3 class="block-title">Melharmony Concert</h3><div class="block-meta">Jan 1 &middot; Brahma Gana Sabha &middot; 6:30 PM</div></div>
-      <div class="block"><h3 class="block-title">KS Vishnudev <span class="amp">&amp;</span> Trichy Sankaran</h3><div class="block-meta">Jan 7 &middot; Srirangam</div></div>
-      <div class="block"><h3 class="block-title">Chitravina N Ravikiran</h3><div class="block-meta">Jan 10 &middot; Kalady, Kerala</div></div>
+      <div class="concert-list">
+        <div class="concert"><span class="c-date">Dec 21</span><span class="c-info"><span class="c-artist">Chitravina N Ravikiran</span><span class="c-venue">Arkay Convention Centre &middot; 6:30 PM</span></span></div>
+        <div class="concert"><span class="c-date">Dec 22</span><span class="c-info"><span class="c-artist">TVS Mahadevan</span><span class="c-venue">Narada Gana Sabha &middot; 10 AM</span></span></div>
+        <div class="concert"><span class="c-date">Dec 23</span><span class="c-info"><span class="c-artist">Duet with C S Chinmayi</span><span class="c-venue">Velleeshwarar Kovil &middot; 6 AM</span></span></div>
+        <div class="concert"><span class="c-date">Dec 24</span><span class="c-info"><span class="c-artist">Sankari Krishnan</span><span class="c-venue">Chennai Fine Arts &middot; 9:30 AM</span></span></div>
+        <div class="concert"><span class="c-date">Dec 25</span><span class="c-info"><span class="c-artist">K Gayatri</span><span class="c-venue">GFA &middot; 5&ndash;7 PM</span></span></div>
+        <div class="concert"><span class="c-date">Dec 26</span><span class="c-info"><span class="c-artist">Rama Ravi</span><span class="c-venue">GFA &middot; 10:20&ndash;11:50 AM</span></span></div>
+        <div class="concert"><span class="c-date">Dec 28</span><span class="c-info"><span class="c-artist">Chitravina N Ravikiran</span><span class="c-venue">Neelakantan Sivan Cultural Trust, Nanganallur</span></span></div>
+        <div class="concert"><span class="c-date">Dec 29</span><span class="c-info"><span class="c-artist">Carnatica Brothers</span><span class="c-venue">6:30 PM</span></span></div>
+        <div class="concert"><span class="c-date">Dec 31</span><span class="c-info"><span class="c-artist">Akkarai Sisters</span><span class="c-venue">Neelakantan Sivan Academy &middot; TBD</span></span></div>
+        <div class="concert"><span class="c-date">Jan 1</span><span class="c-info"><span class="c-artist">Melharmony Concert</span><span class="c-venue">Brahma Gana Sabha &middot; 6:30 PM</span></span></div>
+        <div class="concert"><span class="c-date">Jan 7</span><span class="c-info"><span class="c-artist">KS Vishnudev <span class="amp">&amp;</span> Trichy Sankaran</span><span class="c-venue">Srirangam</span></span></div>
+        <div class="concert"><span class="c-date">Jan 10</span><span class="c-info"><span class="c-artist">Chitravina N Ravikiran</span><span class="c-venue">Kalady, Kerala</span></span></div>
+      </div>
 
       <h3>2026 &mdash; US Tour</h3>
-      <div class="block"><h3 class="block-title">Carnatica Brothers</h3><div class="block-meta">Mar 14 &middot; Minnesota</div></div>
-      <div class="block"><h3 class="block-title">Carnatica Brothers</h3><div class="block-meta">Mar 15 &middot; Tampa, Florida</div></div>
-      <div class="block"><h3 class="block-title">Carnatica Brothers</h3><div class="block-meta">Mar 29 &middot; Chicago</div></div>
+      <div class="concert-list">
+        <div class="concert"><span class="c-date">Mar 14</span><span class="c-info"><span class="c-artist">Carnatica Brothers</span><span class="c-venue">Minnesota</span></span></div>
+        <div class="concert"><span class="c-date">Mar 15</span><span class="c-info"><span class="c-artist">Carnatica Brothers</span><span class="c-venue">Tampa, Florida</span></span></div>
+        <div class="concert"><span class="c-date">Mar 29</span><span class="c-info"><span class="c-artist">Carnatica Brothers</span><span class="c-venue">Chicago</span></span></div>
+      </div>
     </section>
 
     <section id="media">

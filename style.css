@@ -616,3 +616,19 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 @media (max-width: 768px) {
   .hero-photo { float: none; display: block; width: 150px; height: 150px; margin: 0 0 0.8rem 0; }
 }
+
+/* ── Carnatic music: concert schedule + floated bio photo ── */
+.music-photo { float: right; width: 300px; max-width: 42%; margin: 0.2rem 0 0.9rem 1.6rem; border-radius: 10px; border: 1px solid var(--border); }
+.music-bio::after { content: ""; display: block; clear: both; }
+
+.concert-list { margin: 0.3rem 0 0.2rem; }
+.concert { display: grid; grid-template-columns: 4.5rem 1fr; column-gap: 1rem; padding: 0.28rem 0; align-items: baseline; }
+.c-date { font-family: var(--font-body); font-size: 0.8rem; color: var(--text-3); white-space: nowrap; letter-spacing: 0.01em; }
+.c-info { font-size: 1rem; line-height: 1.4; }
+.c-artist { font-weight: 700; color: var(--text); }
+.c-venue { color: var(--text-3); }
+.c-venue::before { content: " \00B7 "; }
+@media (max-width: 768px) {
+  .music-photo { float: none; display: block; width: 100%; max-width: 380px; margin: 0 0 1rem; }
+  .concert { grid-template-columns: 4rem 1fr; column-gap: 0.75rem; }
+}
