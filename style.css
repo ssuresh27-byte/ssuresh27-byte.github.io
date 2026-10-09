@@ -612,7 +612,7 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 .hero-bio { grid-column: 1; grid-row: 2; max-width: 30rem; }
 .hero-bio p { font-size: 1rem; color: var(--text-2); line-height: 1.55; margin-bottom: 0.6rem; }
 .hero-bio p:last-child { margin-bottom: 0; }
-.hero-photo { grid-column: 2; grid-row: 2; align-self: start; margin: 0; width: 230px; height: 230px; }
+.hero-photo { grid-column: 2; grid-row: 2; align-self: start; margin: 0; width: 175px; height: 175px; }
 @media (max-width: 768px) {
   .hero { display: flex; flex-direction: column; align-items: flex-start; }
   .hero-bio { max-width: none; }
