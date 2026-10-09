@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Font preview — Sanjay Suresh</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    /* ── every candidate family, self-hosted ── */
+    @font-face { font-family:'IBM Plex Serif'; font-weight:400; font-style:normal; src:url(/fonts/plex-serif-regular.woff2) format('woff2'); }
+    @font-face { font-family:'IBM Plex Serif'; font-weight:700; font-style:normal; src:url(/fonts/plex-serif-bold.woff2) format('woff2'); }
+    @font-face { font-family:'IBM Plex Serif'; font-weight:400; font-style:italic; src:url(/fonts/plex-serif-italic.woff2) format('woff2'); }
+    @font-face { font-family:'IBM Plex Sans'; font-weight:400; font-style:normal; src:url(/fonts/plex-sans-regular.woff2) format('woff2'); }
+    @font-face { font-family:'IBM Plex Sans'; font-weight:600; font-style:normal; src:url(/fonts/plex-sans-semibold.woff2) format('woff2'); }
+    @font-face { font-family:'IBM Plex Sans'; font-weight:700; font-style:normal; src:url(/fonts/plex-sans-bold.woff2) format('woff2'); }
+    @font-face { font-family:'IBM Plex Mono'; font-weight:400; font-style:normal; src:url(/fonts/plex-mono-regular.woff2) format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:normal; src:url(/fonts/garamond-regular.woff2) format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:700; font-style:normal; src:url(/fonts/garamond-bold.woff2) format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:italic; src:url(/fonts/garamond-italic.woff2) format('woff2'); }
+    @font-face { font-family:'Palladio'; font-weight:400; font-style:normal; src:url(/fonts/palladio-regular.woff2) format('woff2'); }
+    @font-face { font-family:'Palladio'; font-weight:700; font-style:normal; src:url(/fonts/palladio-bold.woff2) format('woff2'); }
+    @font-face { font-family:'Palladio'; font-weight:400; font-style:italic; src:url(/fonts/palladio-italic.woff2) format('woff2'); }
+    @font-face { font-family:'Spectral'; font-weight:400; font-style:normal; src:url(/fonts/spectral-regular.woff2) format('woff2'); }
+    @font-face { font-family:'Spectral'; font-weight:700; font-style:normal; src:url(/fonts/spectral-bold.woff2) format('woff2'); }
+    @font-face { font-family:'Spectral'; font-weight:400; font-style:italic; src:url(/fonts/spectral-italic.woff2) format('woff2'); }
+    @font-face { font-family:'Newsreader'; font-weight:400; font-style:normal; src:url(/fonts/newsreader-regular.woff2) format('woff2'); }
+    @font-face { font-family:'Newsreader'; font-weight:700; font-style:normal; src:url(/fonts/newsreader-bold.woff2) format('woff2'); }
+    @font-face { font-family:'Newsreader'; font-weight:400; font-style:italic; src:url(/fonts/newsreader-italic.woff2) format('woff2'); }
+    @font-face { font-family:'Lato'; font-weight:400; font-style:normal; src:url(/fonts/lato-regular.woff2) format('woff2'); }
+    @font-face { font-family:'Lato'; font-weight:700; font-style:normal; src:url(/fonts/lato-bold.woff2) format('woff2'); }
+    @font-face { font-family:'Lato'; font-weight:400; font-style:italic; src:url(/fonts/lato-italic.woff2) format('woff2'); }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#f5f1ea; color:#111; -webkit-font-smoothing:antialiased; }
+    .wrap { max-width:840px; margin:0 auto; padding:3rem 2rem 5rem; }
+    .intro { font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:#767676; line-height:1.7; margin-bottom:1.5rem; }
+    .intro b { color:#111; }
+
+    .opt { border-top:1px solid #ddd; padding:2.4rem 0 2rem; }
+    .label { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#1772d0; margin-bottom:1.1rem; }
+    .label span { color:#767676; }
+    .opt h1 { font-size:2.2rem; font-weight:700; letter-spacing:-0.01em; line-height:1.08; margin-bottom:0.75rem; color:#111; }
+    .opt p { font-size:1.06rem; line-height:1.62; color:#3a3a3a; max-width:640px; margin-bottom:1.05rem; }
+    .links a { font-family:'IBM Plex Mono',monospace; font-size:0.82rem; letter-spacing:-0.01em; color:#1772d0; text-decoration:none; margin-right:1.1rem; }
+    .links a:hover { color:#f09228; }
+
+    /* per-option font assignment: heading / body */
+    .v-plex      h1 { font-family:'IBM Plex Sans'; font-weight:600; }  .v-plex      p { font-family:'IBM Plex Serif'; }
+    .v-plexserif h1 { font-family:'IBM Plex Serif'; }                   .v-plexserif p { font-family:'IBM Plex Serif'; }
+    .v-spectral  h1 { font-family:'Spectral'; }                         .v-spectral  p { font-family:'Spectral'; }
+    .v-newsreader h1{ font-family:'Newsreader'; }                       .v-newsreader p{ font-family:'Newsreader'; }
+    .v-garamond  h1 { font-family:'EB Garamond'; }                      .v-garamond  p { font-family:'EB Garamond'; font-size:1.14rem; }
+    .v-palladio  h1 { font-family:'Palladio'; }                         .v-palladio  p { font-family:'Palladio'; }
+    .v-lato      h1 { font-family:'Lato'; }                             .v-lato      p { font-family:'Lato'; font-size:1rem; }
+    .v-lato .links a { font-family:'Lato'; font-size:0.92rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="intro">Same hero, seven type treatments. Links are shown in IBM Plex Mono (the accent) except the all-Lato original.<br>Tell me the <b>option number</b> you like and I'll set the whole site to it.</p>
+
+    <div class="opt v-plex">
+      <div class="label">Option 1 — Current <span>· Plex Sans heading + Plex Serif body</span></div>
+      <h1>Sanjay Suresh</h1>
+      <p>Hi, I&rsquo;m Sanjay &mdash; a graduate student at UW&ndash;Madison studying quantum computing in the MSPQC program. I&rsquo;m generally interested in compilers, error correction, and algorithms within quantum computing. Alongside research I build tools that make learning more efficient, more interesting, and more accessible, and I&rsquo;m a Carnatic violinist and accompanist.</p>
+      <div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a><a href="#">Resume</a><a href="#">CV</a></div>
+    </div>
+
+    <div class="opt v-plexserif">
+      <div class="label">Option 2 <span>· IBM Plex Serif (heading + body, all-serif)</span></div>
+      <h1>Sanjay Suresh</h1>
+      <p>Hi, I&rsquo;m Sanjay &mdash; a graduate student at UW&ndash;Madison studying quantum computing in the MSPQC program. I&rsquo;m generally interested in compilers, error correction, and algorithms within quantum computing. Alongside research I build tools that make learning more efficient, more interesting, and more accessible, and I&rsquo;m a Carnatic violinist and accompanist.</p>
+      <div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a><a href="#">Resume</a><a href="#">CV</a></div>
+    </div>
+
+    <div class="opt v-spectral">
+      <div class="label">Option 3 <span>· Spectral (serif made for screens)</span></div>
+      <h1>Sanjay Suresh</h1>
+      <p>Hi, I&rsquo;m Sanjay &mdash; a graduate student at UW&ndash;Madison studying quantum computing in the MSPQC program. I&rsquo;m generally interested in compilers, error correction, and algorithms within quantum computing. Alongside research I build tools that make learning more efficient, more interesting, and more accessible, and I&rsquo;m a Carnatic violinist and accompanist.</p>
+      <div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a><a href="#">Resume</a><a href="#">CV</a></div>
+    </div>
+
+    <div class="opt v-newsreader">
+      <div class="label">Option 4 <span>· Newsreader (editorial serif)</span></div>
+      <h1>Sanjay Suresh</h1>
+      <p>Hi, I&rsquo;m Sanjay &mdash; a graduate student at UW&ndash;Madison studying quantum computing in the MSPQC program. I&rsquo;m generally interested in compilers, error correction, and algorithms within quantum computing. Alongside research I build tools that make learning more efficient, more interesting, and more accessible, and I&rsquo;m a Carnatic violinist and accompanist.</p>
+      <div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a><a href="#">Resume</a><a href="#">CV</a></div>
+    </div>
+
+    <div class="opt v-garamond">
+      <div class="label">Option 5 <span>· EB Garamond (the Sophie-Wang serif)</span></div>
+      <h1>Sanjay Suresh</h1>
+      <p>Hi, I&rsquo;m Sanjay &mdash; a graduate student at UW&ndash;Madison studying quantum computing in the MSPQC program. I&rsquo;m generally interested in compilers, error correction, and algorithms within quantum computing. Alongside research I build tools that make learning more efficient, more interesting, and more accessible, and I&rsquo;m a Carnatic violinist and accompanist.</p>
+      <div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a><a href="#">Resume</a><a href="#">CV</a></div>
+    </div>
+
+    <div class="opt v-palladio">
+      <div class="label">Option 6 <span>· Palladio (Palatino book serif)</span></div>
+      <h1>Sanjay Suresh</h1>
+      <p>Hi, I&rsquo;m Sanjay &mdash; a graduate student at UW&ndash;Madison studying quantum computing in the MSPQC program. I&rsquo;m generally interested in compilers, error correction, and algorithms within quantum computing. Alongside research I build tools that make learning more efficient, more interesting, and more accessible, and I&rsquo;m a Carnatic violinist and accompanist.</p>
+      <div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a><a href="#">Resume</a><a href="#">CV</a></div>
+    </div>
+
+    <div class="opt v-lato">
+      <div class="label">Option 7 <span>· Lato (the original, all-sans)</span></div>
+      <h1>Sanjay Suresh</h1>
+      <p>Hi, I&rsquo;m Sanjay &mdash; a graduate student at UW&ndash;Madison studying quantum computing in the MSPQC program. I&rsquo;m generally interested in compilers, error correction, and algorithms within quantum computing. Alongside research I build tools that make learning more efficient, more interesting, and more accessible, and I&rsquo;m a Carnatic violinist and accompanist.</p>
+      <div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a><a href="#">Resume</a><a href="#">CV</a></div>
+    </div>
+
+  </div>
+</body>
+</html>
