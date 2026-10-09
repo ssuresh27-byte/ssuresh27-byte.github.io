@@ -205,7 +205,7 @@ h1, h2, h3, h4 {
 
 .hero h1 {
   font-family: var(--font-body);
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.08;
@@ -361,7 +361,7 @@ main .page-header p { margin-bottom: 0; }
 
 .page-header h1 {
   font-family: var(--font-body);
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.08;
@@ -377,7 +377,7 @@ main .page-header p { margin-bottom: 0; }
 /* Prose blocks reuse the panel typography */
 .prose h2 {
   font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   margin: 1.6rem 0 0.4rem;
@@ -385,7 +385,7 @@ main .page-header p { margin-bottom: 0; }
 .prose h3 {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.12rem;
   letter-spacing: -0.01em;
   margin: 1.15rem 0 0.35rem;
   color: var(--text);
@@ -441,7 +441,7 @@ main .page-header p { margin-bottom: 0; }
 /* Notes index — subjects styled like the homepage section labels */
 .notes-subject {
   font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--text);
@@ -462,7 +462,7 @@ main .page-header p { margin-bottom: 0; }
   
   
   .page { padding: 2.25rem 1.25rem 3rem; }
-  .page-header h1 { font-size: 2rem; }
+  .page-header h1 { font-size: 1.55rem; }
   .hero-photo { width: 140px; height: 140px; }
 }
 
@@ -483,7 +483,7 @@ body { line-height: 1.6; }
 .breadcrumb { margin-bottom: 0.9rem; }
 
 .hero { padding: 1.3rem 0 1rem; gap: 1.6rem; }
-.hero h1 { font-size: 1.95rem; margin-bottom: 0.45rem; }
+.hero h1 { font-size: 1.7rem; margin-bottom: 0.45rem; }
 .hero-bio { font-size: 1rem; line-height: 1.55; }
 .hero-photo { width: 118px; height: 118px; }
 
