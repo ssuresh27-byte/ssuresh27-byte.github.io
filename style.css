@@ -690,3 +690,16 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
   .theme-switch { margin-top: 0; padding-top: 0; margin-left: auto; }
 }
 
+
+/* ── Experiment: everything in cards ── */
+main.page > :not(.breadcrumb):not(.qcircuit),
+main.project-page > :not(.breadcrumb):not(.qcircuit) {
+  box-shadow: var(--card-shadow);
+  background: var(--bg);
+  padding: 1.15rem 1.35rem;
+  margin: 0 -1.35rem 1rem;
+}
+main.page > :not(.breadcrumb):not(.qcircuit) > :first-child,
+main.project-page > :not(.breadcrumb):not(.qcircuit) > :first-child { margin-top: 0; }
+main.page > :not(.breadcrumb):not(.qcircuit) > :last-child,
+main.project-page > :not(.breadcrumb):not(.qcircuit) > :last-child { margin-bottom: 0; }
