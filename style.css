@@ -297,7 +297,7 @@ footer {
   text-decoration: none;
   transition: color var(--t);
 }
-.sidebar-nav a:hover { color: var(--text); }
+.sidebar-nav a:hover { color: var(--link); }
 .sidebar-nav a.active { color: var(--link); font-weight: 700; }
 
 main { flex: 1; min-width: 0; }
