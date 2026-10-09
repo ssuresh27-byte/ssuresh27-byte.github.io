@@ -1,8 +1,8 @@
 /* ── Self-hosted fonts (preloaded → no FOUT glitch) ── */
-/* Palladio = URW P052, the open Palatino/Palladio book serif (URW++ license). */
-@font-face { font-family:'Palladio'; font-style:normal; font-weight:400; font-display:swap; src:url(/fonts/palladio-regular.woff2) format('woff2'); }
-@font-face { font-family:'Palladio'; font-style:normal; font-weight:700; font-display:swap; src:url(/fonts/palladio-bold.woff2) format('woff2'); }
-@font-face { font-family:'Palladio'; font-style:italic; font-weight:400; font-display:swap; src:url(/fonts/palladio-italic.woff2) format('woff2'); }
+/* EB Garamond — old-style Garamond book serif (OFL). */
+@font-face { font-family:'EB Garamond'; font-style:normal; font-weight:400; font-display:swap; src:url(/fonts/garamond-regular.woff2) format('woff2'); }
+@font-face { font-family:'EB Garamond'; font-style:normal; font-weight:700; font-display:swap; src:url(/fonts/garamond-bold.woff2) format('woff2'); }
+@font-face { font-family:'EB Garamond'; font-style:italic; font-weight:400; font-display:swap; src:url(/fonts/garamond-italic.woff2) format('woff2'); }
 
 /* ───── Reset ───── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,8 +12,8 @@
 /* ───── Theme (light only) ───── */
 :root {
   color-scheme: light;
-  --font-display: 'Palladio', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
-  --font-body:    'Palladio', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  --font-display: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  --font-body:    'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
   --font-mono:    'Courier New', Courier, monospace;
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -461,7 +461,7 @@ main .page-header p { margin-bottom: 0; }
 
 /* ── Packed single-column density (Barron-style), applied site-wide ── */
 :root { --max-width: 720px; }
-html { font-size: 16.5px; } /* serif reads a touch small — nudge up from 15.5 */
+html { font-size: 17.5px; } /* Garamond has a small x-height — set generously */
 body { line-height: 1.6; }
 
 .main-col { max-width: 720px; padding-top: 1.6rem; }
