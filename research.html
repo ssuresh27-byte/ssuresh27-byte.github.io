@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research · Sanjay Suresh</title>
@@ -14,11 +15,12 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=65" />
+  <link rel="stylesheet" href="style.css?v=66" />
 </head>
-<body>
+<body class="p-research">
 
   <aside class="sidebar">
+      <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle light and dark mode" title="Toggle theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg></button>
       <nav class="sidebar-nav">
         <a href="/">Home</a>
         <a href="research.html" class="active" aria-current="page">Research</a>
@@ -87,7 +89,7 @@
         <h3>SeQUeNCe.DQC: A Full-Stack Simulator for Distributed Quantum Computing</h3>
         <p class="block-meta">Under review &middot; IEEE ICC</p>
         <p class="pub-authors"><strong>S. Suresh</strong>, et al.</p>
-        <p>Turns Argonne's SeQUeNCe network simulator (a 2026 R&amp;D 100 winner) into a full-stack distributed-QC simulator: a circuit front end, a compiler layer with pluggable partitioners (QAP, random, time-sliced FGP-rOEE) behind a common interface, a central controller modeled as a real network node, and worker agents with separate data and communication memories. Nodes run TeleGate and TeleData teleportation over multi-hop entanglement swapping, with both ket-vector and density-matrix backends. Under a per-qubit T1/T2 and per-shot Pauli noise model it reproduces the 71% distributed-Grover success rate from a Nature trapped-ion experiment. First author.</p>
+        <p>A full-stack distributed-QC simulator on Argonne's SeQUeNCe: pluggable circuit partitioners, a network-node controller, and TeleGate/TeleData teleportation over multi-hop entanglement swapping. Reproduces the 71% distributed-Grover success rate from a Nature trapped-ion experiment. First author.</p>
         <div class="block-links">
           <a href="https://github.com/ssuresh27-byte/SeQUeNCe.DQC" target="_blank" class="panel-link">GitHub &rarr;</a>
         </div>
@@ -97,7 +99,7 @@
         <h3>PyEncode: An Open-Source Library for Structured Quantum State Preparation</h3>
         <p class="block-meta">Open-source library &middot; Python &middot; Qiskit</p>
         <p class="pub-authors">K. Suresh, <strong>S. Suresh</strong></p>
-        <p>Loading a classical vector into a quantum state is the hidden bottleneck behind algorithms like HHL and QSVT: general state preparation costs <em>O</em>(2&#7504;) gates and erases any quantum speedup. PyEncode exploits the structure scientific vectors actually have (sinusoids, polynomials, distributions, &hellip;): you declare the pattern and it returns a verified Qiskit circuit that prepares the state in poly(<em>m</em>) gates, with no materialization or approximation. One function, eleven encoding patterns.</p>
+        <p>State preparation is a hidden bottleneck that can erase a quantum speedup. PyEncode exploits the structure real scientific vectors have (sinusoids, polynomials, distributions) to prepare the state in poly(<em>m</em>) gates, with no materialization or approximation.</p>
         <div class="block-links">
           <a href="https://github.com/UW-ERSL/PyEncode" target="_blank" class="panel-link">GitHub &rarr;</a>
         </div>
@@ -107,7 +109,7 @@
         <h3>Computing a Sparse Approximate Inverse on Quantum Annealing Machines</h3>
         <p class="block-meta">Journal of Computing and Information Science in Engineering (JCISE)</p>
         <p class="pub-authors"><strong>S. Suresh</strong>, K. Suresh</p>
-        <p>Adapted quantum annealing algorithms for computing sparse approximate inverses of matrices, with applications to preconditioning linear systems. Explored inequality-constrained optimization formulations mapped to QUBO problems on D-Wave hardware.</p>
+        <p>Quantum-annealing algorithms for sparse approximate inverses, preconditioning linear systems by mapping inequality-constrained optimization to QUBO problems on D-Wave hardware.</p>
         <div class="block-links">
           <a href="https://arxiv.org/pdf/2310.02388" target="_blank" class="panel-link">arXiv &rarr;</a>
           <a href="https://asmedigitalcollection.asme.org/computingengineering/article-abstract/26/1/011008/1229055/Computing-a-Sparse-Approximate-Inverse-on-Quantum" target="_blank" class="panel-link">Journal &rarr;</a>
@@ -118,7 +120,7 @@
         <h3>Optimal Box Contraction for Solving Linear Systems via Simulated and Quantum Annealing</h3>
         <p class="block-meta">Engineering Optimization</p>
         <p class="pub-authors"><strong>S. Suresh</strong>, K. Suresh</p>
-        <p>Improved linear system solving efficiency by 30&ndash;40% via Box-Algorithm contraction ratio reduction. Applied methods to 2D-Poisson, thermal, and topology optimization problems. Presented results at WCCM Vancouver 2024.</p>
+        <p>Improved linear-system solving efficiency by 30&ndash;40% via Box-Algorithm contraction, tested on 2D-Poisson, thermal, and topology-optimization problems. Presented at WCCM Vancouver 2024.</p>
         <div class="block-links">
           <a href="https://arxiv.org/pdf/2405.03029" target="_blank" class="panel-link">arXiv &rarr;</a>
           <a href="https://www.tandfonline.com/doi/abs/10.1080/0305215X.2024.2408686" target="_blank" class="panel-link">Journal &rarr;</a>
@@ -129,7 +131,7 @@
         <h3>A Visual Approach to Programming for Middle and High School Students</h3>
         <p class="block-meta">Textbook &middot; ISBN 979-8470081841</p>
         <p class="pub-authors"><strong>S. Suresh</strong></p>
-        <p>Authored a textbook covering CAD modeling, programming fundamentals, and 3D-printing for middle and high school students. Used as teaching material at the Boys and Girls Club of Dane County.</p>
+        <p>A textbook on CAD, programming, and 3D-printing for middle- and high-school students; used at the Boys and Girls Club of Dane County.</p>
         <div class="block-links">
           <a href="https://www.amazon.com/Visual-Approach-Programming-Middle-Students/dp/B09HHYJ1841" target="_blank" class="panel-link">View on Amazon &rarr;</a>
         </div>
