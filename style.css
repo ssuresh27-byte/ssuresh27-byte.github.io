@@ -696,4 +696,5 @@ main.page, main.project-page {
   box-shadow: var(--card-shadow);
   background: var(--bg);
   padding: 2rem 2.25rem 2.5rem;
+  min-height: 100dvh;
 }
