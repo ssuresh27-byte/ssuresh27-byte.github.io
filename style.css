@@ -691,15 +691,9 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
 }
 
 
-/* ── Experiment: everything in cards ── */
-main.page > :not(.breadcrumb):not(.qcircuit),
-main.project-page > :not(.breadcrumb):not(.qcircuit) {
+/* ── Whole page content in a single card/sheet ── */
+main.page, main.project-page {
   box-shadow: var(--card-shadow);
   background: var(--bg);
-  padding: 1.15rem 1.35rem;
-  margin: 0 -1.35rem 1rem;
+  padding: 2rem 2.25rem 2.5rem;
 }
-main.page > :not(.breadcrumb):not(.qcircuit) > :first-child,
-main.project-page > :not(.breadcrumb):not(.qcircuit) > :first-child { margin-top: 0; }
-main.page > :not(.breadcrumb):not(.qcircuit) > :last-child,
-main.project-page > :not(.breadcrumb):not(.qcircuit) > :last-child { margin-bottom: 0; }
