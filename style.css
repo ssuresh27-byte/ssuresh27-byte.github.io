@@ -605,16 +605,14 @@ a:hover { color: var(--link-hover); }
 footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0.75rem; line-height: 1.4; margin: 0; color: var(--text); }
 
 /* ── Hero: name+links row on top; bio + photo below, photo aligned to the bio ── */
-.hero { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 0 2rem; align-items: start; }
-.hero-top { grid-column: 1; grid-row: 1; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin-bottom: 0.85rem; }
+.hero { display: block; }
+.hero-top { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin-bottom: 0.85rem; }
 .hero-top h1 { margin-bottom: 0; }
 .hero-top .hero-links { margin-top: 0; }
-.hero-bio { grid-column: 1; grid-row: 2; max-width: 30rem; }
+.hero-bio::after { content: ""; display: block; clear: both; }
 .hero-bio p { font-size: 1rem; color: var(--text-2); line-height: 1.55; margin-bottom: 0.6rem; }
 .hero-bio p:last-child { margin-bottom: 0; }
-.hero-photo { grid-column: 2; grid-row: 2; align-self: start; margin: 0; width: 175px; height: 175px; }
+.hero-photo { float: right; width: 175px; height: 175px; margin: 0.25rem 0 0.6rem 1.75rem; }
 @media (max-width: 768px) {
-  .hero { display: flex; flex-direction: column; align-items: flex-start; }
-  .hero-bio { max-width: none; }
-  .hero-photo { order: -1; width: 150px; height: 150px; margin-bottom: 0.8rem; }
+  .hero-photo { float: none; display: block; width: 150px; height: 150px; margin: 0 0 0.8rem 0; }
 }
