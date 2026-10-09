@@ -12,10 +12,14 @@
 @font-face { font-family:'Spectral'; font-style:normal; font-weight:400; font-display:block; src:url(/fonts/spectral-regular.woff2) format('woff2'); }
 @font-face { font-family:'Spectral'; font-style:normal; font-weight:700; font-display:block; src:url(/fonts/spectral-bold.woff2) format('woff2'); }
 @font-face { font-family:'Spectral'; font-style:italic; font-weight:400; font-display:block; src:url(/fonts/spectral-italic.woff2) format('woff2'); }
-/* Newsreader — editorial serif (OFL); current body + headings. */
+/* Newsreader — editorial serif (OFL). */
 @font-face { font-family:'Newsreader'; font-style:normal; font-weight:400; font-display:block; src:url(/fonts/newsreader-regular.woff2) format('woff2'); }
 @font-face { font-family:'Newsreader'; font-style:normal; font-weight:700; font-display:block; src:url(/fonts/newsreader-bold.woff2) format('woff2'); }
 @font-face { font-family:'Newsreader'; font-style:italic; font-weight:400; font-display:block; src:url(/fonts/newsreader-italic.woff2) format('woff2'); }
+/* EB Garamond — the Sophie Wang serif (OFL); current body + headings. */
+@font-face { font-family:'EB Garamond'; font-style:normal; font-weight:400; font-display:block; src:url(/fonts/garamond-regular.woff2) format('woff2'); }
+@font-face { font-family:'EB Garamond'; font-style:normal; font-weight:700; font-display:block; src:url(/fonts/garamond-bold.woff2) format('woff2'); }
+@font-face { font-family:'EB Garamond'; font-style:italic; font-weight:400; font-display:block; src:url(/fonts/garamond-italic.woff2) format('woff2'); }
 
 /* ───── Reset ───── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,9 +29,9 @@
 /* ───── Theme (light only) ───── */
 :root {
   color-scheme: light;
-  /* Newsreader serif for body + headings + nav; Plex Mono only for accents */
-  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-body:    'Newsreader', Georgia, 'Times New Roman', serif;
+  /* EB Garamond (the Sophie Wang serif) for body + headings + nav; Plex Mono accents */
+  --font-display: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  --font-body:    'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
   --font-mono:    'IBM Plex Mono', 'Courier New', Courier, monospace;
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -474,7 +478,7 @@ main .page-header p { margin-bottom: 0; }
 
 /* ── Packed single-column density (Barron-style), applied site-wide ── */
 :root { --max-width: 720px; }
-html { font-size: 16px; } /* Newsreader has a generous x-height */
+html { font-size: 17.5px; } /* EB Garamond has a small x-height — set generously */
 body { line-height: 1.6; }
 
 .main-col { max-width: 720px; padding-top: 1.6rem; }
