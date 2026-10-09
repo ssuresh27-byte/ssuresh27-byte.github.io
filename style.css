@@ -483,7 +483,7 @@ body { line-height: 1.6; }
 .page { max-width: 720px; padding: 1.6rem 2rem 3rem; }
 .breadcrumb { margin-bottom: 0.9rem; }
 
-.hero { padding: 1.3rem 0 1rem; gap: 1.6rem; }
+.hero { padding: 0 0 1rem; gap: 1.6rem; }
 .hero h1 { font-size: 1.7rem; margin-bottom: 0.45rem; }
 .hero-bio { font-size: 1rem; line-height: 1.55; }
 .hero-photo { width: 118px; height: 118px; }
