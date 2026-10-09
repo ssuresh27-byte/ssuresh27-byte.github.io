@@ -703,7 +703,7 @@ main.page, main.project-page {
 .sidebar { overflow-y: auto; }
 .tree { font-family: var(--font-body); width: 100%; }
 .tree ul { list-style: none; margin: 0; padding: 0; }
-.tree-children { display: none; margin-left: 0.75rem; padding-left: 0.95rem; border-left: 1px solid var(--border); }
+.tree-children { display: none; margin-left: 0.75rem; padding-left: 0.95rem; }
 .tree-node.open > .tree-children { display: block; }
 .tree-row { display: flex; align-items: center; gap: 0.3rem; padding: 0.14rem 0; }
 .tree-toggle {
