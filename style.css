@@ -47,7 +47,7 @@
   --accent-glow:rgba(209,68,36,0.16);
   --border:     #d1cfc5;
   --hover:      rgba(31,30,29,0.04);
-  --card-shadow: 0 2px 6px rgba(31,30,29,0.08), 0 12px 32px rgba(31,30,29,0.16);
+  --card-shadow: 0 2px 10px rgba(31,30,29,0.03), 0 14px 36px rgba(31,30,29,0.045);
   --link:       #c0432a;
   --link-hover: #953521;
   --text-soft:  var(--text-2);
@@ -655,7 +655,7 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
   --accent-soft: rgba(232,115,79,0.14);
   --accent-glow: rgba(232,115,79,0.22);
   --hover:      rgba(240,238,230,0.05);
-  --card-shadow: 0 2px 8px rgba(0,0,0,0.45), 0 16px 40px rgba(0,0,0,0.6);
+  --card-shadow: 0 2px 10px rgba(0,0,0,0.28), 0 14px 36px rgba(0,0,0,0.3);
 }
 
 /* smooth theme switch */
@@ -698,3 +698,29 @@ main.page, main.project-page {
   padding: 2rem 2.25rem 2.5rem;
   min-height: 100dvh;
 }
+
+/* ── Sidebar directory tree ── */
+.sidebar { overflow-y: auto; }
+.tree { font-family: var(--font-body); width: 100%; }
+.tree ul { list-style: none; margin: 0; padding: 0; }
+.tree-children { display: none; margin-left: 0.45rem; padding-left: 0.55rem; border-left: 1px solid var(--border); }
+.tree-node.open > .tree-children { display: block; }
+.tree-row { display: flex; align-items: center; gap: 0.3rem; padding: 0.14rem 0; }
+.tree-toggle {
+  flex: none; width: 0.95rem; height: 0.95rem; padding: 0; margin: 0;
+  border: 0; background: none; cursor: pointer; color: var(--text-3);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.tree-toggle::before {
+  content: ""; width: 0; height: 0;
+  border-left: 5px solid currentColor; border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+  transition: transform var(--t);
+}
+.tree-node.open > .tree-row > .tree-toggle::before { transform: rotate(90deg); }
+.tree-toggle:hover { color: var(--accent); }
+.tree-spacer { flex: none; width: 0.95rem; }
+.tree-link { color: var(--text); text-decoration: none; font-size: 1rem; line-height: 1.3; transition: color var(--t); }
+.tree-link:hover { color: var(--accent); }
+.tree-link.active { font-weight: 700; }
+.tree-children .tree-link { font-size: 0.92rem; color: var(--text-2); }
+.tree-children .tree-link.active { color: var(--text); }

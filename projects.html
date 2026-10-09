@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}</script>
+  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}function treeToggle(el){var n=el.closest('.tree-node');if(n)n.classList.toggle('open');}document.addEventListener('DOMContentLoaded',function(){var here=location.pathname;if(here==='/index.html')here='/';var r=document.querySelector('.tree > ul > .tree-node');if(r)r.classList.add('open');var ls=document.querySelectorAll('.tree-link'),a=null,i;for(i=0;i<ls.length;i++){if(ls[i].getAttribute('href').split('#')[0]===here){a=ls[i];break;}}if(a){a.classList.add('active');var n=a.closest('.tree-node');while(n){n.classList.add('open');n=n.parentElement?n.parentElement.closest('.tree-node'):null;}}});</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects · Sanjay Suresh</title>
@@ -15,18 +15,35 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=80" />
+  <link rel="stylesheet" href="style.css?v=81" />
 </head>
 <body class="p-projects">
 
   <aside class="sidebar">
-      <nav class="sidebar-nav">
-        <a href="/">Home</a>
-        <a href="research.html">Research</a>
-        <a href="music.html">Music</a>
-        <a href="projects.html" class="active" aria-current="page">Projects</a>
-        <a href="writing.html">Writing</a>
-        <a href="notes.html">Notes</a>
+            <nav class="tree" aria-label="Site tree">
+        <ul>
+          <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/">Home</a></div>
+            <ul class="tree-children">
+              <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/research.html">Research</a></div>
+                <ul class="tree-children">
+                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/research.html#interests">Interests</a></div></li>
+                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/research.html#publications">Publications</a></div></li>
+                </ul></li>
+              <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/music.html">Music</a></div>
+                <ul class="tree-children">
+                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/music.html#about">Bio</a></div></li>
+                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/music.html#concerts">Concerts</a></div></li>
+                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/music.html#media">Media</a></div></li>
+                </ul></li>
+              <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/projects.html">Projects</a></div>
+                <ul class="tree-children">
+                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/projects/studia.html">Studia</a></div></li>
+                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/projects/surfacescope.html">SurfaceScope</a></div></li>
+                </ul></li>
+              <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/writing.html">Writing</a></div></li>
+              <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/notes.html">Notes</a></div></li>
+            </ul></li>
+        </ul>
       </nav>
       <div class="theme-switch">
         <button type="button" class="ts-opt ts-light" onclick="setTheme('light')">light</button>
