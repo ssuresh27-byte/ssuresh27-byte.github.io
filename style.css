@@ -554,10 +554,7 @@ body { line-height: 1.6; }
    + spacing), NOT a visually bordered card. No border/background.
    ══════════════════════════════════════════════════════════════ */
 .block, .box {
-  background: var(--bg);
-  box-shadow: var(--card-shadow);
-  padding: 1rem 1.1rem;
-  margin: 0 -1.1rem 0.95rem;
+  margin: 0 0 1.1rem;
 }
 .block:last-child, .box:last-child { margin-bottom: 0; }
 .box > :last-child, .block > :last-child { margin-bottom: 0; }
