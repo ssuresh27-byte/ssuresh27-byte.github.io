@@ -609,11 +609,12 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 .hero-top { grid-column: 1; grid-row: 1; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin-bottom: 0.85rem; }
 .hero-top h1 { margin-bottom: 0; }
 .hero-top .hero-links { margin-top: 0; }
-.hero-bio { grid-column: 1; grid-row: 2; }
-.hero-bio p { font-size: 1rem; color: var(--text-2); line-height: 1.5; margin-bottom: 0.55rem; }
+.hero-bio { grid-column: 1; grid-row: 2; max-width: 30rem; }
+.hero-bio p { font-size: 1rem; color: var(--text-2); line-height: 1.55; margin-bottom: 0.6rem; }
 .hero-bio p:last-child { margin-bottom: 0; }
-.hero-photo { grid-column: 2; grid-row: 2; align-self: start; margin: 0; }
+.hero-photo { grid-column: 2; grid-row: 2; align-self: start; margin: 0; width: 230px; height: 230px; }
 @media (max-width: 768px) {
   .hero { display: flex; flex-direction: column; align-items: flex-start; }
-  .hero-photo { order: -1; margin-bottom: 0.8rem; }
+  .hero-bio { max-width: none; }
+  .hero-photo { order: -1; width: 150px; height: 150px; margin-bottom: 0.8rem; }
 }
