@@ -28,15 +28,15 @@
   --bg-card:    #faf6ef;
   --bg-alt:     #ece5d8;
   --text:       #111111;
-  --text-2:     #111111;
-  --text-3:     #111111;
-  --accent:     #111111;
-  --accent-soft:rgba(0,0,0,0.05);
-  --accent-glow:rgba(0,0,0,0.12);
+  --text-2:     #3a3a3a;
+  --text-3:     #767676;
+  --accent:     #1772d0;
+  --accent-soft:rgba(23,114,208,0.07);
+  --accent-glow:rgba(23,114,208,0.16);
   --border:     #e4e4e4;
   --hover:      rgba(0,0,0,0.03);
-  --link:       #111111;
-  --link-hover: #555555;
+  --link:       #1772d0;
+  --link-hover: #f09228;
   --text-soft:  var(--text-2);
   --text-faint: var(--text-3);
   --accent-bg:  var(--accent-soft);
@@ -114,14 +114,13 @@ h1, h2, h3, h4 {
   font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--link);
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 2px;
-  text-decoration-color: var(--link);
   transition: color var(--t);
 }
 .panel-link:hover {
   color: var(--link-hover);
-  text-decoration-color: var(--link-hover);
+  text-decoration: underline;
 }
 
 .panel-screenshots {
@@ -196,7 +195,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-body);
   font-size: 2.2rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.08;
   margin-bottom: 1rem;
   padding-bottom: 0.1em;
@@ -288,7 +287,7 @@ footer {
   transition: color var(--t);
 }
 .sidebar-nav a:hover { color: var(--text); }
-.sidebar-nav a.active { color: var(--text); font-weight: 700; }
+.sidebar-nav a.active { color: var(--link); font-weight: 700; }
 
 main { flex: 1; min-width: 0; }
 
@@ -355,7 +354,7 @@ main .page-header p { margin-bottom: 0; }
   font-family: var(--font-body);
   font-size: 2.2rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.08;
   margin-bottom: 0.5rem;
 }
@@ -371,7 +370,7 @@ main .page-header p { margin-bottom: 0; }
   font-family: var(--font-body);
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin: 2.5rem 0 0.4rem;
 }
 .prose h3 {
@@ -563,11 +562,11 @@ body { line-height: 1.6; }
 /* Base link color — teal highlight for all otherwise-unstyled links (inline prose, contact, action links) */
 a { color: var(--link); text-decoration: none; }
 a:hover { color: var(--link-hover); }
-/* Inline content links: quiet underline that darkens on hover */
+/* Inline content links: academic-blue, underline only on hover (Barron style) */
 .block-desc a, .box a, .prose p a, .page-header p a, .hero-bio a {
-  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--text);
+  text-decoration: none; text-underline-offset: 2px; text-decoration-thickness: 1px;
 }
-.block-desc a:hover, .box a:hover, .prose p a:hover, .page-header p a:hover, .hero-bio a:hover { text-decoration-color: var(--text); }
+.block-desc a:hover, .box a:hover, .prose p a:hover, .page-header p a:hover, .hero-bio a:hover { text-decoration: underline; }
 
 /* ── Animated quantum circuit (research header) — pure CSS/SVG, monochrome ── */
 .qcircuit { max-width: 620px; margin: 0.25rem 0 1.9rem; }
