@@ -739,12 +739,11 @@ main.page, main.project-page {
 .updates-head h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.15rem; color: var(--text); margin: 0; }
 .updates-toggle { background: none; border: 0; color: var(--text-3); cursor: pointer; line-height: 1; padding: 0; display: inline-flex; align-items: center; }
 .updates-toggle:hover { color: var(--accent); }
-.updates-toggle svg { display: block; }
-.ut-open { display: none; }
-html.upd-collapsed .ut-open { display: block; }
-html.upd-collapsed .ut-close { display: none; }
+.updates-toggle svg { display: none; }
+.updates-toggle .ut-close { display: block; }
+html.upd-collapsed .updates-toggle .ut-close { display: none; }
+html.upd-collapsed .updates-toggle .ut-open { display: block; }
 html.upd-collapsed .updates-body { display: none; }
-html.upd-collapsed .updates { width: auto; min-width: 0; }
 html.upd-collapsed .updates-head { margin-bottom: 0; justify-content: flex-end; }
 html.upd-collapsed .updates-head h2 { display: none; }
 .updates-body { flex: 1; min-height: 0; overflow-y: auto; }
