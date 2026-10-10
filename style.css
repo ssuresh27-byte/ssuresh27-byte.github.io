@@ -728,14 +728,17 @@ main.page, main.project-page {
 
 
 /* ── Homepage: hero + Updates feed (two columns) ── */
-body.p-home main.page { max-width: 1050px; }
-.home-grid { display: grid; grid-template-columns: minmax(0,1fr) 15rem; gap: 2.75rem; align-items: start; }
+body.p-home main.page { max-width: 1500px; margin-left: 0; }
+.home-grid { display: flex; align-items: flex-start; gap: 3rem; }
+.home-col { flex: 0 1 44rem; min-width: 0; }
+.updates { flex: 0 0 15rem; margin-left: auto; }
 .updates h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.15rem; color: var(--text); margin: 0 0 1.1rem; }
 .updates-list { list-style: none; margin: 0; padding: 0; }
 .updates-list li { font-size: 0.95rem; line-height: 1.45; color: var(--text-2); margin: 0 0 1.05rem; }
 .updates-list li:last-child { margin-bottom: 0; }
 .u-date { display: block; font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.12rem; }
 @media (max-width: 900px) {
-  body.p-home main.page { max-width: 720px; }
-  .home-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  body.p-home main.page { max-width: 720px; margin-left: auto; }
+  .home-grid { flex-direction: column; gap: 1.75rem; }
+  .updates { margin-left: 0; flex: none; }
 }
