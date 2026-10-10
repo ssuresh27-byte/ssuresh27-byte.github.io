@@ -3,22 +3,23 @@
 <head>
   <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();(function(){try{if(localStorage.getItem('updColl')==='1')document.documentElement.classList.add('upd-collapsed');}catch(e){}})();function updToggle(){var c=document.documentElement.classList.toggle('upd-collapsed');try{localStorage.setItem('updColl',c?'1':'0');}catch(e){}}function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}function treeKey(n){var a=n.querySelector(':scope > .tree-row > .tree-link');return a?a.getAttribute('href'):null;}function treeSave(){var o=[];document.querySelectorAll('.tree-node.open').forEach(function(n){var k=treeKey(n);if(k)o.push(k);});try{localStorage.setItem('treeOpen',JSON.stringify(o));}catch(e){}}function treeToggle(el){var n=el.closest('.tree-node');if(n){n.classList.toggle('open');treeSave();}}document.addEventListener('DOMContentLoaded',function(){var here=location.pathname;if(here==='/index.html')here='/';var saved=null;try{saved=JSON.parse(localStorage.getItem('treeOpen'));}catch(e){}if(saved&&saved.length){document.querySelectorAll('.tree-node').forEach(function(n){var k=treeKey(n);if(k&&saved.indexOf(k)!==-1)n.classList.add('open');});}else{var r=document.querySelector('.tree > ul > .tree-node');if(r)r.classList.add('open');var ls=document.querySelectorAll('.tree-link'),i;for(i=0;i<ls.length;i++){if(ls[i].getAttribute('href').split('#')[0]===here){var n=ls[i].closest('.tree-node');while(n){n.classList.add('open');n=n.parentElement?n.parentElement.closest('.tree-node'):null;}break;}}treeSave();}var l2=document.querySelectorAll('.tree-link'),j;for(j=0;j<l2.length;j++){if(l2[j].getAttribute('href').split('#')[0]===here){l2[j].classList.add('active');break;}}});document.addEventListener('DOMContentLoaded',function(){var ub=document.querySelector('.updates-body');if(!ub)return;try{var y=sessionStorage.getItem('updScroll');if(y)ub.scrollTop=+y;}catch(e){}ub.addEventListener('scroll',function(){try{sessionStorage.setItem('updScroll',ub.scrollTop);}catch(e){}});});</script>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Writing · Sanjay Suresh</title>
-  <meta name="description" content="Essays by Sanjay Suresh on quantum computing, learning tools, and music." />
+  <title>Page not found · Sanjay Suresh</title>
+  <meta name="description" content="Page not found." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Writing · Sanjay Suresh" />
-  <meta property="og:description" content="Essays by Sanjay Suresh on quantum computing, learning tools, and music." />
-  <meta property="og:url" content="https://ssuresh27-byte.github.io/writing.html" />
+  <meta property="og:title" content="Page not found" />
+  <meta property="og:description" content="Page not found." />
+  <meta property="og:url" content="https://ssuresh27-byte.github.io/404.html" />
   <meta property="og:image" content="https://ssuresh27-byte.github.io/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://ssuresh27-byte.github.io/og.png" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=106" />
+  <link rel="stylesheet" href="/style.css?v=106" />
 </head>
-<body class="p-writing">
+<body class="p-notes">
 
   <aside class="sidebar">
             <nav class="tree" aria-label="Site tree">
@@ -48,16 +49,14 @@
   </aside>
 
   <main class="page prose">
-    <nav class="breadcrumb"><a href="/" class="bc-home" aria-label="Home" title="Home"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/><path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/></svg></a> <span class="sep">/</span> <span class="current">Writing</span></nav>
+    <nav class="breadcrumb"><a href="/" class="bc-home" aria-label="Home" title="Home"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/><path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/></svg></a> <span class="sep">/</span> <span class="current">404</span></nav>
 
     <div class="page-header">
-      <h1>Writing</h1>
-      <p>Half-formed thoughts on quantum computing, learning, and life.</p>
+      <h1>Page not found</h1>
+      <p>This page drifted off the lattice.</p>
     </div>
 
-    <div class="item-list">
-      <div class="block"><h3 class="block-title"><a href="writing/science-bowl.html">What Science Bowl taught me about learning</a></h3><div class="block-meta">On breadth, predicting questions, and why the on-ramp matters.</div></div>
-    </div>
+    <p>The link may be broken or the page may have moved. Try the <a href="/">home page</a>, or pick a branch from the tree on the left.</p>
   </main>
 
   <aside class="updates" aria-label="Updates">
