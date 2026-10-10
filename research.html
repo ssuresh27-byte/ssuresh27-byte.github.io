@@ -54,39 +54,7 @@
       <h1>Research</h1>
       <p>I work on compiling quantum algorithms for the machines that will actually run them: modular, fault-tolerant computers built from error-corrected modules linked by entanglement. Compiling well for these machines means understanding three things at once: the architecture's costs, the structure of the error-correcting code, and the algorithms the machine will realistically run. Below are the problems I keep coming back to, and the papers and software they've turned into.</p>
     </div>
-
-    <div class="qcircuit" aria-hidden="true">
-      <svg viewBox="0 0 640 150" width="100%" preserveAspectRatio="xMidYMid meet">
-        <text x="4" y="44" class="qlabel">q0</text>
-        <text x="4" y="89" class="qlabel">q1</text>
-        <text x="4" y="134" class="qlabel">q2</text>
-        <line class="wire" x1="34" y1="40" x2="610" y2="40"/>
-        <line class="wire" x1="34" y1="85" x2="610" y2="85"/>
-        <line class="wire" x1="34" y1="130" x2="610" y2="130"/>
-        <line class="link" x1="230" y1="40" x2="230" y2="85"/>
-        <circle class="ctrl" cx="230" cy="40" r="5"/>
-        <circle class="tgt" cx="230" cy="85" r="12"/>
-        <line class="tgtplus" x1="230" y1="74" x2="230" y2="96"/>
-        <line class="tgtplus" x1="219" y1="85" x2="241" y2="85"/>
-        <line class="link" x1="380" y1="85" x2="380" y2="130"/>
-        <circle class="ctrl" cx="380" cy="85" r="5"/>
-        <circle class="tgt" cx="380" cy="130" r="12"/>
-        <line class="tgtplus" x1="380" y1="119" x2="380" y2="141"/>
-        <line class="tgtplus" x1="369" y1="130" x2="391" y2="130"/>
-        <g class="gate"><rect x="73" y="23" width="34" height="34"/><text x="90" y="45">H</text></g>
-        <g class="gate"><rect x="128" y="68" width="34" height="34"/><text x="145" y="90">H</text></g>
-        <g class="gate"><rect x="93" y="113" width="34" height="34"/><text x="110" y="135">X</text></g>
-        <g class="gate"><rect x="463" y="68" width="34" height="34"/><text x="480" y="90">T</text></g>
-        <g class="meas"><rect x="543" y="23" width="34" height="34"/><path d="M550 47 A10 10 0 0 1 570 47"/><line x1="560" y1="47" x2="568" y2="34"/></g>
-        <g class="meas"><rect x="543" y="68" width="34" height="34"/><path d="M550 92 A10 10 0 0 1 570 92"/><line x1="560" y1="92" x2="568" y2="79"/></g>
-        <g class="meas"><rect x="543" y="113" width="34" height="34"/><path d="M550 137 A10 10 0 0 1 570 137"/><line x1="560" y1="137" x2="568" y2="124"/></g>
-        <circle class="pulse p0" cx="34" cy="40" r="4"/>
-        <circle class="pulse p1" cx="34" cy="85" r="4"/>
-        <circle class="pulse p2" cx="34" cy="130" r="4"/>
-      </svg>
-    </div>
-
-    <section id="interests">
+<section id="interests">
       <h2>What I'm interested in</h2>
 
       <div class="block"><h3 class="block-title">Architecture costs &amp; distributed quantum computing</h3><p class="block-desc">Fault-tolerant machines will likely scale as error-corrected modules linked by entanglement, so a compiler has to reason about operations that cross module boundaries as well as the scheduling, memory, and idle time inside each module. At Argonne I designed and built <a href="https://github.com/ssuresh27-byte/SeQUeNCe.DQC" target="_blank">SeQUeNCe.DQC</a>, a full-stack distributed-QC simulator, and came away convinced that entanglement is a scarce resource with its own lifecycle; a compiler that treats remote gates as ordinary instructions misses most of the real cost.</p></div>
