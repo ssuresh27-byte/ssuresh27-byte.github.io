@@ -740,8 +740,8 @@ main.page, main.project-page {
 .updates-toggle { background: none; border: 0; color: var(--text-3); cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0 0.2rem; }
 .updates-toggle:hover { color: var(--accent); }
 .updates-toggle::before { content: "\2212"; }
-.updates.collapsed .updates-toggle::before { content: "+"; }
-.updates.collapsed .updates-body { display: none; }
+html.upd-collapsed .updates-toggle::before { content: "+"; }
+html.upd-collapsed .updates-body { display: none; }
 .updates-body { flex: 1; min-height: 0; overflow-y: auto; }
 .updates-list { list-style: none; margin: 0; padding: 0; }
 .updates-list li { font-size: 0.92rem; line-height: 1.4; color: var(--text-2); margin: 0 0 0.95rem; }
