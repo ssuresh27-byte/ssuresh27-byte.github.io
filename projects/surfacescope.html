@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}function treeKey(n){var a=n.querySelector(':scope > .tree-row > .tree-link');return a?a.getAttribute('href'):null;}function treeSave(){var o=[];document.querySelectorAll('.tree-node.open').forEach(function(n){var k=treeKey(n);if(k)o.push(k);});try{localStorage.setItem('treeOpen',JSON.stringify(o));}catch(e){}}function treeToggle(el){var n=el.closest('.tree-node');if(n){n.classList.toggle('open');treeSave();}}document.addEventListener('DOMContentLoaded',function(){var here=location.pathname;if(here==='/index.html')here='/';var saved=null;try{saved=JSON.parse(localStorage.getItem('treeOpen'));}catch(e){}if(saved&&saved.length){document.querySelectorAll('.tree-node').forEach(function(n){var k=treeKey(n);if(k&&saved.indexOf(k)!==-1)n.classList.add('open');});}else{var r=document.querySelector('.tree > ul > .tree-node');if(r)r.classList.add('open');var ls=document.querySelectorAll('.tree-link'),i;for(i=0;i<ls.length;i++){if(ls[i].getAttribute('href').split('#')[0]===here){var n=ls[i].closest('.tree-node');while(n){n.classList.add('open');n=n.parentElement?n.parentElement.closest('.tree-node'):null;}break;}}treeSave();}var l2=document.querySelectorAll('.tree-link'),j;for(j=0;j<l2.length;j++){if(l2[j].getAttribute('href').split('#')[0]===here){l2[j].classList.add('active');break;}}});</script>
+  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}function treeKey(n){var a=n.querySelector(':scope > .tree-row > .tree-link');return a?a.getAttribute('href'):null;}function treeSave(){var o=[];document.querySelectorAll('.tree-node.open').forEach(function(n){var k=treeKey(n);if(k)o.push(k);});try{localStorage.setItem('treeOpen',JSON.stringify(o));}catch(e){}}function treeToggle(el){var n=el.closest('.tree-node');if(n){n.classList.toggle('open');treeSave();}}document.addEventListener('DOMContentLoaded',function(){var here=location.pathname;if(here==='/index.html')here='/';var saved=null;try{saved=JSON.parse(localStorage.getItem('treeOpen'));}catch(e){}if(saved&&saved.length){document.querySelectorAll('.tree-node').forEach(function(n){var k=treeKey(n);if(k&&saved.indexOf(k)!==-1)n.classList.add('open');});}else{var r=document.querySelector('.tree > ul > .tree-node');if(r)r.classList.add('open');var ls=document.querySelectorAll('.tree-link'),i;for(i=0;i<ls.length;i++){if(ls[i].getAttribute('href').split('#')[0]===here){var n=ls[i].closest('.tree-node');while(n){n.classList.add('open');n=n.parentElement?n.parentElement.closest('.tree-node'):null;}break;}}treeSave();}var l2=document.querySelectorAll('.tree-link'),j;for(j=0;j<l2.length;j++){if(l2[j].getAttribute('href').split('#')[0]===here){l2[j].classList.add('active');break;}}});document.addEventListener('DOMContentLoaded',function(){var secs=document.querySelectorAll('main.page section[id]');var items=[];secs.forEach(function(s){var h=s.querySelector('h2');if(h)items.push([s.id,h.textContent.trim()]);});if(items.length<2)return;var a=document.createElement('aside');a.className='toc';var h='<div class="toc-head">On this page</div><ul>';items.forEach(function(it){h+='<li><a href="#'+it[0]+'">'+it[1]+'</a></li>';});a.innerHTML=h+'</ul>';document.body.appendChild(a);var lk=a.querySelectorAll('a'),m={};lk.forEach(function(x){m[x.getAttribute('href').slice(1)]=x;});var ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){lk.forEach(function(x){x.classList.remove('active');});if(m[e.target.id])m[e.target.id].classList.add('active');}});},{rootMargin:'-15% 0px -75% 0px'});secs.forEach(function(s){ob.observe(s);});});</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SurfaceScope · Sanjay Suresh</title>
@@ -15,7 +15,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="../style.css?v=92" />
+  <link rel="stylesheet" href="../style.css?v=93" />
 </head>
 <body class="p-projects">
 
@@ -24,17 +24,8 @@
         <ul>
           <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/">Home</a></div>
             <ul class="tree-children">
-              <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/research.html">Research</a></div>
-                <ul class="tree-children">
-                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/research.html#interests">Interests</a></div></li>
-                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/research.html#publications">Publications</a></div></li>
-                </ul></li>
-              <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/music.html">Music</a></div>
-                <ul class="tree-children">
-                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/music.html#about">Bio</a></div></li>
-                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/music.html#concerts">Concerts</a></div></li>
-                  <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/music.html#media">Media</a></div></li>
-                </ul></li>
+              <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/research.html">Research</a></div></li>
+              <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/music.html">Music</a></div></li>
               <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/projects.html">Projects</a></div>
                 <ul class="tree-children">
                   <li class="tree-node"><div class="tree-row"><span class="tree-spacer"></span><a class="tree-link" href="/projects/studia.html">Studia</a></div></li>
