@@ -727,15 +727,24 @@ main.page, main.project-page {
 .tree-children .tree-link.active { color: var(--text); }
 
 
-/* ── Homepage: bio stays centered like every other page; Updates floats in the right margin ── */
-main.page { position: relative; }
-.updates { position: absolute; top: 3.4rem; left: calc(100% + 2.75rem); width: 13.5rem; }
-.updates h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.15rem; color: var(--text); margin: 0 0 1.1rem; }
-.updates-list { list-style: none; margin: 0; padding: 0; }
-.updates-list li { font-size: 0.95rem; line-height: 1.45; color: var(--text-2); margin: 0 0 1.05rem; }
-.updates-list li:last-child { margin-bottom: 0; }
-.u-date { display: block; font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.12rem; }
-/* not enough room for the right margin: drop Updates below the bio */
-@media (max-width: 1480px) {
-  .updates { position: static; width: auto; margin-top: 2.75rem; }
+/* ── Updates: a persistent right rail (mirrors the sidebar), collapsible + scrollable ── */
+.updates {
+  position: sticky; top: 0; align-self: flex-start;
+  width: 15rem; min-width: 15rem; height: 100dvh; flex: none;
+  display: flex; flex-direction: column;
+  padding: 1.75rem 1.5rem 1.5rem;
+  overflow: hidden;
 }
+.updates-head { flex: none; display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1rem; }
+.updates-head h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.15rem; color: var(--text); margin: 0; }
+.updates-toggle { background: none; border: 0; color: var(--text-3); cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0 0.2rem; }
+.updates-toggle:hover { color: var(--accent); }
+.updates-toggle::before { content: "\2212"; }
+.updates.collapsed .updates-toggle::before { content: "+"; }
+.updates.collapsed .updates-body { display: none; }
+.updates-body { flex: 1; min-height: 0; overflow-y: auto; }
+.updates-list { list-style: none; margin: 0; padding: 0; }
+.updates-list li { font-size: 0.92rem; line-height: 1.4; color: var(--text-2); margin: 0 0 0.95rem; }
+.updates-list li:last-child { margin-bottom: 0; }
+.u-date { display: block; font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.1rem; }
+@media (max-width: 1100px) { .updates { display: none; } }

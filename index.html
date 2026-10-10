@@ -15,7 +15,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=100" />
+  <link rel="stylesheet" href="style.css?v=101" />
 </head>
 <body class="p-home">
 
@@ -72,16 +72,25 @@
           <p>Alongside research I build <a href="projects.html">tools</a> that try to make learning more efficient, more interesting, and more accessible, usually some flavor of pairing a reader with an AI that quizzes or tutors you as you go. Away from the lab I&rsquo;m a Carnatic <a href="music.html">violinist</a> and accompanist, and I&rsquo;ve performed with and accompanied frontline artists across India and the US (<a href="/CarnaticBio.pdf" target="_blank">music bio</a>). I also keep some <a href="writing.html">writing</a> and <a href="notes.html">notes</a> here, which I&rsquo;ll be filling in over time.</p>
         </div>
     </section>
-    <aside class="updates" aria-label="Updates">
-      <h2>Updates</h2>
-      <ul class="updates-list">
-        <li><span class="u-date">Oct 2026</span> New writing: <a href="writing/science-bowl.html">What Science Bowl taught me about learning</a>.</li>
-        <li><span class="u-date">2026</span> <a href="research.html#publications">SeQUeNCe.DQC</a> under review at IEEE ICC (first author).</li>
-        <li><span class="u-date">Dec 2026</span> <a href="music.html#concerts">Chennai music season</a>: 12 concerts across margazhi.</li>
-        <li><span class="u-date">2025&ndash;</span> MSPQC at UW&ndash;Madison; distributed QC at Argonne.</li>
-      </ul>
-    </aside>
   </main>
+
+  <aside class="updates" aria-label="Updates">
+      <div class="updates-head"><h2>Updates</h2><button class="updates-toggle" type="button" aria-label="Collapse updates" onclick="this.closest('.updates').classList.toggle('collapsed')"></button></div>
+      <div class="updates-body">
+        <ul class="updates-list">
+          <li><span class="u-date">Oct 2026</span> New writing: <a href="/writing/science-bowl.html">What Science Bowl taught me about learning</a>.</li>
+          <li><span class="u-date">2026</span> <a href="/research.html#sequence-dqc">SeQUeNCe.DQC</a> under review at IEEE ICC (first author).</li>
+          <li><span class="u-date">Dec 2026</span> <a href="/music.html#concerts">Chennai music season</a>: 12 concerts across margazhi.</li>
+          <li><span class="u-date">2026</span> <a href="https://studia-ebon.vercel.app/" target="_blank">Studia</a> live: an AI tutoring platform.</li>
+          <li><span class="u-date">2026</span> <a href="/projects/surfacescope.html">SurfaceScope</a>: a surface-code error-correction visualizer.</li>
+          <li><span class="u-date">Apr 2026</span> Carnatica Brothers US tour: Minnesota, Tampa, Chicago.</li>
+          <li><span class="u-date">2025</span> <a href="/research.html#pyencode">PyEncode</a> published in Quantum Science &amp; Technology.</li>
+          <li><span class="u-date">2025</span> Joined Argonne National Laboratory (distributed QC).</li>
+          <li><span class="u-date">2024</span> <a href="/research.html#box-contraction">Optimal Box Contraction</a> in Engineering Optimization; presented at WCCM Vancouver.</li>
+          <li><span class="u-date">2022</span> Atlas Fellowship: a $50K STEM fellowship.</li>
+        </ul>
+      </div>
+  </aside>
 
   </body>
 </html>
