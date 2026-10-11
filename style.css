@@ -575,10 +575,10 @@ body { line-height: 1.6; }
 a { color: var(--link); text-decoration: none; }
 a:hover { color: var(--link-hover); }
 /* Inline content links: academic-blue, underline only on hover (Barron style) */
-.block-desc a, .box a, .prose p a, .page-header p a, .hero-bio a {
+.block-desc a, .box a, .prose p a, .page-header p a, .hero-bio a, .updates-list a {
   text-decoration: none; text-underline-offset: 2px; text-decoration-thickness: 1px;
 }
-.block-desc a:hover, .box a:hover, .prose p a:hover, .page-header p a:hover, .hero-bio a:hover { text-decoration: underline; }
+.block-desc a:hover, .box a:hover, .prose p a:hover, .page-header p a:hover, .hero-bio a:hover, .updates-list a:hover { text-decoration: underline; }
 
 /* ── Animated quantum circuit (research header) — pure CSS/SVG, monochrome ── */
 .qcircuit { max-width: 620px; margin: 0.25rem 0 1.9rem; }
