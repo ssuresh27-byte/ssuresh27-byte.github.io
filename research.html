@@ -16,7 +16,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=112" />
+  <link rel="stylesheet" href="style.css?v=113" />
 </head>
 <body class="p-research">
 
@@ -58,44 +58,13 @@
     <p>Broadly, I'm interested in making quantum computers useful in practice. A lot of that is compiling: turning an algorithm into something a real, error-corrected machine can run efficiently, where the hardware, the error-correcting code, and the algorithm itself all shape what's cheap. The other half is figuring out which algorithms are actually worth running, accounting for the true overhead of error correction rather than idealized costs, so the effort goes toward problems where quantum computers will genuinely help.</p>
 
     <section id="experience">
-      <h2>Research experience</h2>
+      <h2>Path</h2>
 
-      <div class="block">
-        <h3 class="block-title">Distributed quantum computing</h3>
-        <p class="block-meta">2025&ndash;present &middot; Argonne National Laboratory &middot; advised by Dr. Rajkumar Kettimuthu</p>
-        <ul>
-          <li>Designed and built <a href="https://github.com/ssuresh27-byte/SeQUeNCe.DQC" target="_blank">SeQUeNCe.DQC</a>, a top-level module turning SeQUeNCe (a 2026 R&amp;D 100 winner) into a full-stack DQC simulator: circuit builder, compiler, central controller, and per-node worker agents.</li>
-          <li>Implemented DQC nodes with separate data and communication memory and TeleGate / TeleData teleportation primitives.</li>
-          <li>Built QAP, random, and time-sliced FGP-rOEE compilers behind a compiler-agnostic interface, plus ket-vector and density-matrix simulation backends; reproduced the 71% Grover success rate from a trapped-ion experiment published in Nature. Presented at the 2025 Chicago Quantum Summit.</li>
-        </ul>
-      </div>
+      <p>I came into quantum computing from the applications side. For a few years, with Prof. Krishnan Suresh at UW&ndash;Madison, I worked on getting real engineering problems onto quantum hardware: formulating <a href="#sparse-inverse">sparse approximate inverse preconditioners</a> as QUBOs and running them on D-Wave, sharpening <a href="#box-contraction">box-contraction annealing</a> for faster linear solves, and building <a href="#pyencode">PyEncode</a>, a library for structured state preparation. That work taught me where quantum computers are actually likely to help, and that the structure of a problem (the thing that makes a state cheap to prepare, or an annealing schedule converge) is information a compiler should be able to use.</p>
 
-      <div class="block">
-        <h3 class="block-title">Fault-tolerant quantum computing</h3>
-        <p class="block-meta">2024&ndash;present &middot; UW&ndash;Madison &middot; advised by Prof. Swamit Tannu</p>
-        <ul>
-          <li>Developed benchmark suites for fault-tolerant quantum hardware, using variational autoencoders to learn latent-space representations of quantum circuits and enable similarity analysis on metrics such as T-gate density.</li>
-          <li>Currently developing compilation strategies for the Tour de Gross architecture.</li>
-        </ul>
-      </div>
+      <p>From there I moved down the stack, toward the machines themselves. At Argonne National Laboratory, advised by Dr. Rajkumar Kettimuthu, I designed and built <a href="#sequence-dqc">SeQUeNCe.DQC</a>, a full-stack simulator for distributed quantum computing, and came away convinced that entanglement across modules is a scarce resource with real cost that most compilers quietly ignore. In parallel, with Prof. Swamit Tannu at UW&ndash;Madison, I work on fault-tolerant hardware: benchmark suites, learned representations of quantum circuits, and compilation strategies for the Tour de Gross architecture. And with Dr. Sathya Subramanian at Oxford, I'm extending graph-state verification to the more realistic noise models that measurement-based fault tolerance will face.</p>
 
-      <div class="block">
-        <h3 class="block-title">Measurement-based quantum computing</h3>
-        <p class="block-meta">2026&ndash;present &middot; University of Oxford (remote) &middot; advised by Dr. Sathya Subramanian</p>
-        <ul>
-          <li>Extending graph-state verification protocols to more sophisticated error models for fault-tolerant measurement-based quantum computing.</li>
-        </ul>
-      </div>
-
-      <div class="block">
-        <h3 class="block-title">Quantum algorithms for scientific computing</h3>
-        <p class="block-meta">2023&ndash;present &middot; UW&ndash;Madison &middot; advised by Prof. Krishnan Suresh</p>
-        <ul>
-          <li>Formulated sparse approximate inverse (SPAI) preconditioner construction as a QUBO and computed it on D-Wave Advantage hardware to accelerate conjugate-gradient solves of poorly conditioned linear systems.</li>
-          <li>Reduced the box-algorithm contraction ratio for 30&ndash;40% faster solution of random linear systems, and adapted annealing to inequality-constrained portfolio optimization. Presented a talk at WCCM 2024.</li>
-          <li>Developed an open-source library for structured state preparation with applications to engineering. Presented a poster and co-taught a workshop at QC 2026.</li>
-        </ul>
-      </div>
+      <p>All of it points the same way. The machines that will actually run quantum algorithms are modular and fault-tolerant, and compiling for them means holding three things at once: what the architecture costs, what the error-correcting code makes cheap, and what the algorithm genuinely needs. My work now is about building compilers that use all three, so that scarce resources get spent where they matter. The papers below are the pieces of that picture so far.</p>
     </section>
 
     <section id="publications">
@@ -109,6 +78,12 @@
         <div class="block-links">
           <a href="https://github.com/ssuresh27-byte/SeQUeNCe.DQC" target="_blank" class="panel-link">GitHub &rarr;</a>
         </div>
+        <details class="cite"><summary>BibTeX</summary><pre>@misc{suresh2026sequencedqc,
+  title   = {SeQUeNCe.DQC: A Full-Stack Simulator for Distributed Quantum Computing},
+  author  = {Suresh, S. and Zhan, C. and Chung, J. and Kettimuthu, R.},
+  year    = {2026},
+  note    = {Under review, IEEE ICC 2027}
+}</pre></details>
       </div>
 
       <div class="block" id="pyencode">
@@ -119,6 +94,12 @@
         <div class="block-links">
           <a href="https://github.com/UW-ERSL/PyEncode" target="_blank" class="panel-link">GitHub &rarr;</a>
         </div>
+        <details class="cite"><summary>BibTeX</summary><pre>@article{suresh2026pyencode,
+  title   = {PyEncode: An Open-Source Library for Structured Quantum State Preparation},
+  author  = {Suresh, K. and Suresh, S.},
+  journal = {Quantum Science and Technology},
+  year    = {2026}
+}</pre></details>
       </div>
 
       <div class="block" id="sparse-inverse">
@@ -130,6 +111,15 @@
           <a href="https://arxiv.org/pdf/2310.02388" target="_blank" class="panel-link">arXiv &rarr;</a>
           <a href="https://asmedigitalcollection.asme.org/computingengineering/article-abstract/26/1/011008/1229055/Computing-a-Sparse-Approximate-Inverse-on-Quantum" target="_blank" class="panel-link">Journal &rarr;</a>
         </div>
+        <details class="cite"><summary>BibTeX</summary><pre>@article{suresh2025spai,
+  title   = {Computing a Sparse Approximate Inverse on Quantum Annealing Machines},
+  author  = {Suresh, S. and Suresh, K.},
+  journal = {Journal of Computing and Information Science in Engineering},
+  volume  = {26},
+  number  = {1},
+  pages   = {011008},
+  year    = {2025}
+}</pre></details>
       </div>
 
       <div class="block" id="box-contraction">
@@ -141,6 +131,12 @@
           <a href="https://arxiv.org/pdf/2405.03029" target="_blank" class="panel-link">arXiv &rarr;</a>
           <a href="https://www.tandfonline.com/doi/abs/10.1080/0305215X.2024.2408686" target="_blank" class="panel-link">Journal &rarr;</a>
         </div>
+        <details class="cite"><summary>BibTeX</summary><pre>@article{suresh2024boxcontraction,
+  title   = {Optimal Box Contraction for Solving Linear Systems via Simulated and Quantum Annealing},
+  author  = {Suresh, S. and Suresh, K.},
+  journal = {Engineering Optimization},
+  year    = {2024}
+}</pre></details>
       </div>
 
       <div class="block" id="visual-programming">
@@ -151,6 +147,11 @@
         <div class="block-links">
           <a href="https://www.amazon.com/Visual-Approach-Programming-Middle-Students/dp/B09HHYJ1JS" target="_blank" class="panel-link">View on Amazon &rarr;</a>
         </div>
+        <details class="cite"><summary>BibTeX</summary><pre>@book{suresh_visual_programming,
+  title  = {A Visual Approach to Programming for Middle and High School Students},
+  author = {Suresh, S.},
+  isbn   = {979-8470081841}
+}</pre></details>
       </div>
     </section>
   </main>
