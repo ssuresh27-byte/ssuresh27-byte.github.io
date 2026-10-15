@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();(function(){try{if(localStorage.getItem('updColl')==='1')document.documentElement.classList.add('upd-collapsed');}catch(e){}})();function updToggle(){var c=document.documentElement.classList.toggle('upd-collapsed');try{localStorage.setItem('updColl',c?'1':'0');}catch(e){}}function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}function treeKey(n){var a=n.querySelector(':scope > .tree-row > .tree-link');return a?a.getAttribute('href'):null;}function treeSave(){var o=[];document.querySelectorAll('.tree-node.open').forEach(function(n){var k=treeKey(n);if(k)o.push(k);});try{localStorage.setItem('treeOpen',JSON.stringify(o));}catch(e){}}function treeToggle(el){var n=el.closest('.tree-node');if(n){n.classList.toggle('open');treeSave();}}document.addEventListener('DOMContentLoaded',function(){var here=location.pathname;if(here==='/index.html')here='/';var saved=null;try{saved=JSON.parse(localStorage.getItem('treeOpen'));}catch(e){}if(saved&&saved.length){document.querySelectorAll('.tree-node').forEach(function(n){var k=treeKey(n);if(k&&saved.indexOf(k)!==-1)n.classList.add('open');});}else{var r=document.querySelector('.tree > ul > .tree-node');if(r)r.classList.add('open');var ls=document.querySelectorAll('.tree-link'),i;for(i=0;i<ls.length;i++){if(ls[i].getAttribute('href').split('#')[0]===here){var n=ls[i].closest('.tree-node');while(n){n.classList.add('open');n=n.parentElement?n.parentElement.closest('.tree-node'):null;}break;}}treeSave();}var l2=document.querySelectorAll('.tree-link'),j;for(j=0;j<l2.length;j++){if(l2[j].getAttribute('href').split('#')[0]===here){l2[j].classList.add('active');break;}}});document.addEventListener('DOMContentLoaded',function(){var ub=document.querySelector('.updates-body');if(!ub)return;try{var y=sessionStorage.getItem('updScroll');if(y)ub.scrollTop=+y;}catch(e){}ub.addEventListener('scroll',function(){try{sessionStorage.setItem('updScroll',ub.scrollTop);}catch(e){}});});</script>
+  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}function treeKey(n){var a=n.querySelector(':scope > .tree-row > .tree-link');return a?a.getAttribute('href'):null;}function treeSave(){var o=[];document.querySelectorAll('.tree-node.open').forEach(function(n){var k=treeKey(n);if(k)o.push(k);});try{localStorage.setItem('treeOpen',JSON.stringify(o));}catch(e){}}function treeToggle(el){var n=el.closest('.tree-node');if(n){n.classList.toggle('open');treeSave();}}document.addEventListener('DOMContentLoaded',function(){var here=location.pathname;if(here==='/index.html')here='/';var saved=null;try{saved=JSON.parse(localStorage.getItem('treeOpen'));}catch(e){}if(saved&&saved.length){document.querySelectorAll('.tree-node').forEach(function(n){var k=treeKey(n);if(k&&saved.indexOf(k)!==-1)n.classList.add('open');});}else{var r=document.querySelector('.tree > ul > .tree-node');if(r)r.classList.add('open');var ls=document.querySelectorAll('.tree-link'),i;for(i=0;i<ls.length;i++){if(ls[i].getAttribute('href').split('#')[0]===here){var n=ls[i].closest('.tree-node');while(n){n.classList.add('open');n=n.parentElement?n.parentElement.closest('.tree-node'):null;}break;}}treeSave();}var l2=document.querySelectorAll('.tree-link'),j;for(j=0;j<l2.length;j++){if(l2[j].getAttribute('href').split('#')[0]===here){l2[j].classList.add('active');break;}}});</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What Science Bowl taught me about learning · Sanjay Suresh</title>
@@ -16,7 +16,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="../style.css?v=110" />
+  <link rel="stylesheet" href="../style.css?v=111" />
 </head>
 <body class="p-writing">
 
@@ -64,23 +64,5 @@
     <p>The other half was teaching. As captain, the thing I'm proudest of wasn't winning, it was getting other people in. I built practice platforms and ran sessions that reached a couple thousand students, and watching someone go from &ldquo;I'm not a science person&rdquo; to buzzing in correctly taught me that the on-ramp matters as much as the material. That's the thread running through most of the tools I build now: learning sticks when it's a little competitive, a little social, and when someone makes the first step feel possible.</p>
   </main>
 
-  <aside class="updates" aria-label="Updates">
-      <div class="updates-head"><h2>Updates</h2><button class="updates-toggle" type="button" aria-label="Toggle updates" onclick="updToggle()"><svg class="ut-open" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ut-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-      <div class="updates-body">
-        <ul class="updates-list">
-          <li><span class="u-date">Oct 2026</span> New writing: <a href="/writing/science-bowl.html">What Science Bowl taught me about learning</a>.</li>
-          <li><span class="u-date">2026</span> <a href="/research.html#sequence-dqc">SeQUeNCe.DQC</a> under review at IEEE ICC (first author).</li>
-          <li><span class="u-date">Dec 2026</span> <a href="/music.html#concerts">Chennai music season</a>: 12 concerts across margazhi.</li>
-          <li><span class="u-date">2026</span> <a href="https://studia-ebon.vercel.app/" target="_blank">Studia</a> live: an AI tutoring platform.</li>
-          <li><span class="u-date">2026</span> <a href="/projects/surfacescope.html">SurfaceScope</a>: a surface-code error-correction visualizer.</li>
-          <li><span class="u-date">Apr 2026</span> Carnatica Brothers US tour: Minnesota, Tampa, Chicago.</li>
-          <li><span class="u-date">2025</span> <a href="/research.html#pyencode">PyEncode</a> published in Quantum Science &amp; Technology.</li>
-          <li><span class="u-date">2025</span> Joined Argonne National Laboratory (distributed QC).</li>
-          <li><span class="u-date">2024</span> <a href="/research.html#box-contraction">Optimal Box Contraction</a> in Engineering Optimization; presented at WCCM Vancouver.</li>
-          <li><span class="u-date">2022</span> Atlas Fellowship: a $50K STEM fellowship.</li>
-        </ul>
-      </div>
-  </aside>
-
-  </body>
+</body>
 </html>
