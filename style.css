@@ -791,12 +791,13 @@ main.page, main.project-page {
 .tree-children .tree-link { color: var(--text-2); }
 .tree-children .tree-link.active { color: var(--text); }
 
-
-
-/* ── Per-page themed cursors ── */
-body.p-home, body.p-home * { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20fill%3D%27%23d14424%27%20d%3D%27M16%203%20L18.4%2013.6%20L29%2016%20L18.4%2018.4%20L16%2029%20L13.6%2018.4%20L3%2016%20L13.6%2013.6%20Z%27%2F%3E%3C%2Fsvg%3E") 16 16, auto; }
-body.p-research, body.p-research * { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23d14424%27%20stroke-width%3D%271.6%27%3E%3Cellipse%20cx%3D%2716%27%20cy%3D%2716%27%20rx%3D%2713%27%20ry%3D%275%27%2F%3E%3Cellipse%20cx%3D%2716%27%20cy%3D%2716%27%20rx%3D%2713%27%20ry%3D%275%27%20transform%3D%27rotate%2860%2016%2016%29%27%2F%3E%3Cellipse%20cx%3D%2716%27%20cy%3D%2716%27%20rx%3D%2713%27%20ry%3D%275%27%20transform%3D%27rotate%28120%2016%2016%29%27%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2716%27%20cy%3D%2716%27%20r%3D%272.6%27%20fill%3D%27%23d14424%27%2F%3E%3C%2Fsvg%3E") 16 16, auto; }
-body.p-music, body.p-music * { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cellipse%20cx%3D%2713%27%20cy%3D%2723%27%20rx%3D%275.2%27%20ry%3D%273.8%27%20transform%3D%27rotate%28-18%2013%2023%29%27%20fill%3D%27%23d14424%27%2F%3E%3Crect%20x%3D%2717%27%20y%3D%276%27%20width%3D%272.2%27%20height%3D%2716%27%20fill%3D%27%23d14424%27%2F%3E%3Cpath%20d%3D%27M19.2%206%20C25%207.5%2024.5%2013%2020.5%2015%20C23.5%2011%2022.5%208.5%2019.2%208.5%20Z%27%20fill%3D%27%23d14424%27%2F%3E%3C%2Fsvg%3E") 16 16, auto; }
-body.p-projects, body.p-projects * { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20fill%3D%27none%27%20stroke%3D%27%23d14424%27%20stroke-width%3D%271.6%27%20stroke-linejoin%3D%27round%27%20d%3D%27M16%204%20L27%2010%20L27%2022%20L16%2028%20L5%2022%20L5%2010%20Z%20M16%204%20L16%2016%20M16%2016%20L27%2010%20M16%2016%20L5%2010%27%2F%3E%3C%2Fsvg%3E") 16 16, auto; }
-body.p-writing, body.p-writing * { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cg%20transform%3D%27rotate%2845%2016%2016%29%27%3E%3Crect%20x%3D%2713%27%20y%3D%275%27%20width%3D%276%27%20height%3D%2715%27%20fill%3D%27%23d14424%27%2F%3E%3Crect%20x%3D%2713%27%20y%3D%275%27%20width%3D%276%27%20height%3D%273%27%20fill%3D%27%23953521%27%2F%3E%3Cpath%20d%3D%27M13%2020%20L19%2020%20L16%2027%20Z%27%20fill%3D%27%23d14424%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") 16 16, auto; }
-body.p-notes, body.p-notes * { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20fill%3D%27%23d14424%27%20d%3D%27M16%204%20a9%209%200%200%201%205%2016.5%20V23%20h-10%20v-2.5%20A9%209%200%200%201%2016%204%20Z%27%2F%3E%3Crect%20x%3D%2712%27%20y%3D%2723.5%27%20width%3D%278%27%20height%3D%272.2%27%20rx%3D%271%27%20fill%3D%27%23953521%27%2F%3E%3Crect%20x%3D%2713%27%20y%3D%2726.5%27%20width%3D%276%27%20height%3D%272%27%20rx%3D%271%27%20fill%3D%27%23953521%27%2F%3E%3C%2Fsvg%3E") 16 16, auto; }
+/* ── Custom cursor: a dot that tracks exactly + a ring that trails and reacts ── */
+@media (hover: hover) and (pointer: fine) {
+  html.has-cursor, html.has-cursor * { cursor: none; }
+  .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; border-radius: 50%; will-change: transform; }
+  .cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--accent); }
+  .cursor-ring { width: 30px; height: 30px; margin: -15px 0 0 -15px; border: 1.5px solid var(--accent); transition: width .2s ease, height .2s ease, margin .2s ease, background-color .2s ease, opacity .25s ease; }
+  html.cursor-hover .cursor-ring { width: 48px; height: 48px; margin: -24px 0 0 -24px; background: var(--accent-soft); }
+  html.cursor-down .cursor-ring { width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+  html.cursor-hide .cursor-dot, html.cursor-hide .cursor-ring { opacity: 0; }
+}
