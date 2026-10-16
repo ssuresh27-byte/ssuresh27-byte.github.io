@@ -303,16 +303,18 @@ footer {
 
 main { flex: 1; min-width: 0; }
 
+.nav-toggle { display: none; align-items: center; gap: 0.5rem; background: none; border: 0; color: var(--text); font-family: var(--font-body); font-size: 1.05rem; line-height: 1; cursor: pointer; padding: 0; }
 @media (max-width: 820px) {
-  body { flex-direction: column; }
+  body { flex-direction: column; align-items: stretch; }
   .sidebar {
-    width: 100%; min-width: 0; height: auto; position: static;
-    border: none;
-    flex-direction: row; align-items: center; flex-wrap: wrap;
-    gap: 0.4rem 1rem; padding: 0.9rem 1.25rem;
+    position: static; width: 100%; min-width: 0; height: auto;
+    flex-direction: column; overflow: visible;
+    padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border);
   }
-  .sidebar .site-name { margin-bottom: 0; margin-right: auto; }
-  .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 0.4rem 0.9rem; }
+  .nav-toggle { display: inline-flex; }
+  .sidebar .tree, .sidebar .theme-switch { display: none; }
+  .sidebar.nav-open .tree { display: block; margin-top: 0.75rem; }
+  .sidebar.nav-open .theme-switch { display: flex; margin-top: 0.75rem; }
 }
 
 /* Icon theme toggle */
