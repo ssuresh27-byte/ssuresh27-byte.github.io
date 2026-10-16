@@ -790,9 +790,3 @@ main.page, main.project-page {
 .tree-link.active { font-weight: 700; }
 .tree-children .tree-link { color: var(--text-2); }
 .tree-children .tree-link.active { color: var(--text); }
-
-/* ── Cursor: a clean terracotta ring; pointer stays on clickable things ── */
-@media (hover: hover) and (pointer: fine) {
-  html { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2720%27%20height%3D%2720%27%20viewBox%3D%270%200%2020%2020%27%3E%3Ccircle%20cx%3D%2710%27%20cy%3D%2710%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%2523d14424%27%20stroke-width%3D%271.5%27%2F%3E%3Ccircle%20cx%3D%2710%27%20cy%3D%2710%27%20r%3D%271.5%27%20fill%3D%27%2523d14424%27%2F%3E%3C%2Fsvg%3E") 10 10, auto; }
-  a[href], button, summary, label, [role=button], .tree-toggle, .ts-opt { cursor: pointer; }
-}
