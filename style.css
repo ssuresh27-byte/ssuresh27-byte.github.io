@@ -276,7 +276,6 @@ footer {
   min-width: 232px;
   height: 100dvh;
   padding: 1.75rem 1.6rem 1.5rem;
-  background: var(--bg);
   display: flex;
   flex-direction: column;
 }
@@ -652,7 +651,8 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 .header-row .hero-links, .header-row .doc-links { margin: 0; }
 
 /* interactive quantum (surface-code) lattice: fixed site-wide background, behind all content */
-.lattice { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
+.lattice { position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none; }
+body { position: relative; }
 body > .sidebar, body > main { position: relative; z-index: 1; }
 .toc { z-index: 2; }
 
