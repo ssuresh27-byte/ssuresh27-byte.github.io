@@ -628,7 +628,7 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 .concert.duet { border-left-color: var(--accent); }
 .c-date { font-family: var(--font-body); font-size: 0.8rem; color: var(--text-3); white-space: nowrap; letter-spacing: 0.01em; }
 .c-info { font-size: 1rem; line-height: 1.4; }
-.c-type { justify-self: start; text-align: center; min-width: 5.6rem; box-sizing: border-box; display: inline-block; font-family: var(--font-body); font-size: 0.56rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; line-height: 1; padding: 0.3em 0.45em; border-radius: 3px; white-space: nowrap; border: 1px solid var(--border); color: var(--text-3); }
+.c-type { justify-self: start; text-align: center; min-width: 5.6rem; box-sizing: border-box; display: inline-block; font-family: var(--font-body); font-size: 0.64rem; font-weight: 600; text-transform: lowercase; letter-spacing: 0.02em; line-height: 1; padding: 0.3em 0.45em; border-radius: 3px; white-space: nowrap; border: 1px solid var(--border); color: var(--text-3); }
 .solo .c-type { color: #fff; background: var(--accent); border-color: var(--accent); }
 .duet .c-type { color: var(--accent); border-color: var(--accent); }
 .c-artist { display: block; font-weight: 700; color: var(--text); }
