@@ -651,10 +651,10 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 .header-row > :first-child { margin-top: 0; }
 .header-row .hero-links, .header-row .doc-links { margin: 0; }
 
-/* interactive quantum (surface-code) lattice behind the hero */
-.hero { position: relative; }
-.lattice { position: absolute; inset: -1.5rem -1.5rem auto -1.5rem; height: 100%; width: calc(100% + 3rem); z-index: 0; pointer-events: none; }
-.hero > .hero-top, .hero > .hero-bio { position: relative; z-index: 1; }
+/* interactive quantum (surface-code) lattice: fixed site-wide background, behind all content */
+.lattice { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
+body > .sidebar, body > main { position: relative; z-index: 1; }
+.toc { z-index: 2; }
 
 /* ── News list (homepage + full news page) ── */
 .news { margin-top: 2.6rem; }
