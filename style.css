@@ -646,6 +646,11 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 
 .doc-links { margin: 0.3rem 0 0.3rem; }
 
+/* heading with a links group pushed to the right */
+.header-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.4rem 1.5rem; flex-wrap: wrap; }
+.header-row > :first-child { margin-top: 0; }
+.header-row .hero-links, .header-row .doc-links { margin: 0; }
+
 /* ── News list (homepage + full news page) ── */
 .news { margin-top: 2.6rem; }
 .news-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.5rem; }
