@@ -30,8 +30,8 @@
 :root {
   color-scheme: light;
   /* EB Garamond (the Sophie Wang serif) for body + headings + nav; Plex Mono accents */
-  --font-display: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
-  --font-body:    'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-body:    'Newsreader', Georgia, 'Times New Roman', serif;
   --font-mono:    'IBM Plex Mono', 'Courier New', Courier, monospace;
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
