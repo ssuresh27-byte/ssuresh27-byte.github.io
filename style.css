@@ -789,4 +789,5 @@ main.page, main.project-page {
 .tree-link:hover { color: var(--accent); }
 .tree-link.active { font-weight: 700; }
 .tree-children .tree-link { color: var(--text-2); }
+.tree-children .tree-link:hover { color: var(--accent); }
 .tree-children .tree-link.active { color: var(--text); }
