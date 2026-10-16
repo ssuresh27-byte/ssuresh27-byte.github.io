@@ -644,7 +644,7 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 /* ── Publications as bordered boxes (research page) ── */
 #publications .block h3 { margin-bottom: 0.3rem; }
 
-.doc-links { margin: 0.4rem 0 1.4rem; }
+.doc-links { margin: 0.3rem 0 0.3rem; }
 
 /* ── News list (homepage + full news page) ── */
 .news { margin-top: 2.6rem; }
@@ -693,6 +693,8 @@ body.p-research .prose ul, body.p-research .prose li,
 body.p-research .block-desc, body.p-research .block > p,
 body.p-research .pub-authors, body.p-research .block-meta,
 body.p-research .block-title, body.p-research .block h3 { font-size: 1rem; }
+body.p-research #interests { margin-top: 0; }
+body.p-research #interests h2 { margin-top: 0.8rem; }
 .pub-authors { font-size: 0.92rem; color: var(--text-2); margin: 0.2rem 0; line-height: 1.35; }
 .pub-authors strong { font-weight: 700; color: var(--text); }
 
