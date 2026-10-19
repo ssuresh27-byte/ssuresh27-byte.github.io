@@ -795,7 +795,7 @@ main.page, main.project-page {
 .tree-children .tree-link.active { color: var(--text); }
 
 /* ── Contents rail (Music page): numbered TOC, sticky right column ── */
-.toc { position: sticky; top: 0; align-self: flex-start; width: 15rem; min-width: 15rem; height: 100dvh; flex: none; display: flex; flex-direction: column; padding: 1.75rem 1.5rem 1.5rem; overflow: hidden; }
+.toc { position: fixed; top: 0; right: 0; width: 14rem; box-sizing: border-box; height: 100dvh; display: flex; flex-direction: column; padding: 1.75rem 1.5rem 1.5rem; overflow: hidden; }
 .toc-empty { display: none; }
 .toc-head { flex: none; display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.3rem; }
 .toc-head h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.3rem; color: var(--text); margin: 0; }
@@ -816,4 +816,5 @@ html.toc-collapsed .toc-head h2 { display: none; }
 .toc-list a:hover { color: var(--text); }
 .toc-list a.active { color: var(--text); }
 .toc-list a.active::before { color: var(--accent); }
-@media (max-width: 1100px) { .toc { display: none; } }
+/* only show when the viewport is wide enough that the rail clears the centered content */
+@media (max-width: 1440px) { .toc { display: none; } }
