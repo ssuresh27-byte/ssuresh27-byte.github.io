@@ -801,6 +801,4 @@ html.toc-collapsed .toc-head h2 { display: none; }
 .pub-desc { flex-basis: 100%; width: 100%; display: none; }
 .pub-row.open .pub-desc { display: block; }
 .pub-desc p { margin: 0; color: var(--text-2); }
-/* portrait book cover: keep the 240px column (so text aligns) but center a shorter cover in it */
-#visual-programming .pub-thumb img { height: 170px; width: auto; margin: 0 auto; }
 @media (max-width: 640px) { #publications .pub-row { flex-direction: column; gap: 0.6rem; } .pub-thumb { width: 100%; max-width: 300px; } .pub-desc { flex-basis: auto; } }
