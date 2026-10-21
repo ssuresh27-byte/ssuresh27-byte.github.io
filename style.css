@@ -789,3 +789,8 @@ html.toc-collapsed .toc-head h2 { display: none; }
 .toc-list a.active::before { color: var(--accent); }
 /* only show when the viewport is wide enough that the rail clears the centered content */
 @media (max-width: 1440px) { .toc { display: none; } }
+
+/* ── Figures beside each publication ── */
+.pub-fig { float: right; width: 210px; max-width: 42%; margin: 0.3rem 0 0.6rem 1.3rem; border: 1px solid var(--border); background: #fff; display: block; }
+#publications .block::after { content: ""; display: table; clear: both; }
+@media (max-width: 768px) { .pub-fig { float: none; width: 100%; max-width: 340px; margin: 0.5rem 0 0.9rem; } }
