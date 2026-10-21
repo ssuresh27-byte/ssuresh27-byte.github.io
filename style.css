@@ -801,4 +801,7 @@ html.toc-collapsed .toc-head h2 { display: none; }
 .pub-desc { flex-basis: 100%; width: 100%; display: none; }
 .pub-row.open .pub-desc { display: block; }
 .pub-desc p { margin: 0; color: var(--text-2); }
+/* portrait book cover: constrain by height so it doesn't take a tall column */
+#visual-programming .pub-thumb { flex: 0 0 auto; width: auto; }
+#visual-programming .pub-thumb img { height: 160px; width: auto; }
 @media (max-width: 640px) { #publications .pub-row { flex-direction: column; gap: 0.6rem; } .pub-thumb { width: 100%; max-width: 300px; } .pub-desc { flex-basis: auto; } }
