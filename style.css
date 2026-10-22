@@ -808,7 +808,17 @@ html.nav-open .nav-toggle .nt-close { display: inline-flex; }
   main.page, main.project-page { padding-left: 1.1rem; padding-right: 1.1rem; }
 }
 
-/* YouTube channel icon (music Media header) */
-.yt-link { color: var(--link); display: inline-flex; align-items: center; transition: color var(--t); }
-.yt-link:hover { color: var(--link-hover); }
-.yt-link svg { display: block; }
+/* brand/icon links (GitHub, Spotify, Apple Music, etc.) */
+.icon-link { display: inline-flex; align-items: center; color: var(--link); transition: color var(--t); }
+.icon-link:hover { color: var(--link-hover); }
+.icon-link svg { display: block; width: 22px; height: 22px; }
+.block-links { align-items: center; }
+
+/* streaming row (Naturosynth) */
+.stream-links { display: flex; align-items: center; gap: 1rem; margin: 0.5rem 0 1rem; }
+.stream-links .icon-link svg { width: 26px; height: 26px; }
+
+/* YouTube call-to-action (music Media) */
+.yt-cta { display: inline-flex; align-items: center; gap: 0.7rem; margin: 0.2rem 0 1.4rem; color: var(--link); text-decoration: none; font-size: 1.05rem; transition: color var(--t); }
+.yt-cta:hover { color: var(--link-hover); }
+.yt-cta svg { display: block; flex: none; }
