@@ -56,7 +56,7 @@
 }
 
 /* ───── Base ───── */
-html { scroll-behavior: auto; font-size: 17.5px; overscroll-behavior-y: none; background: var(--bg); }
+html { scroll-behavior: auto; font-size: 17.5px; overscroll-behavior-y: none; }
 
 body {
   font-family: var(--font-display);
@@ -315,7 +315,7 @@ main { flex: 1; min-width: 0; }
   .sidebar .tree { display: none; }
   html.nav-open .sidebar .tree { display: block; margin-top: 0.75rem; }
   /* theme toggle lives in the top header, vertically centered with the menu button */
-  .theme-switch { position: absolute; top: 0.85rem; right: 1.25rem; height: 22px; display: flex; align-items: center; z-index: 5; margin: 0; padding: 0; background: none; }
+  .sidebar .theme-switch { position: absolute; top: 0.85rem; right: 1.25rem; height: 22px; display: flex; align-items: center; z-index: 5; margin: 0; padding: 0; background: none; }
   /* content card spans full width on mobile (margin:auto was shrinking it to fit) */
   main.page, main.project-page { max-width: none; margin: 0; box-shadow: none; padding-left: 1.25rem; padding-right: 1.25rem; }
 }
@@ -727,7 +727,7 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
 
 /* ── Whole page content in a single card/sheet ── */
 main.page, main.project-page {
-  background: var(--bg-card);
+  background: var(--bg);
   box-shadow: var(--card-shadow);
   padding: 2rem 2.25rem 2.5rem;
   min-height: 100dvh;
