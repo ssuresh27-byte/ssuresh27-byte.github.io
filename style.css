@@ -314,6 +314,8 @@ main { flex: 1; min-width: 0; }
   .nav-toggle { display: inline-flex; }
   .sidebar .tree { display: none; }
   html.nav-open .sidebar .tree { display: block; margin-top: 0.75rem; }
+  /* on mobile only, pin the theme toggle to the top-right corner */
+  .theme-switch { position: fixed; top: 0.95rem; right: 1.3rem; z-index: 100; margin: 0; padding: 0.2rem 0.4rem; background: var(--bg); }
 }
 
 /* Icon theme toggle */
@@ -698,15 +700,11 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
 
 /* ── Theme switch: "light / dark" text toggle, bottom of the sidebar ── */
 .theme-switch {
-  position: fixed;
-  top: 0.8rem;
-  right: 1.4rem;
-  z-index: 100;
+  margin-top: auto;
+  padding-top: 1.5rem;
   display: flex;
   align-items: baseline;
   gap: 0;
-  background: var(--bg);
-  padding: 0.25rem 0.5rem;
 }
 .ts-opt {
   font-family: var(--font-body);
