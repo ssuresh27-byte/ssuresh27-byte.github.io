@@ -761,27 +761,27 @@ main.page, main.project-page {
 .tree-children .tree-link.active { color: var(--text); }
 
 /* ── Contents rail (Music page): numbered TOC, sticky right column ── */
-.toc { position: fixed; top: 0; right: 0; width: 14rem; box-sizing: border-box; height: 100dvh; display: flex; flex-direction: column; padding: 1.75rem 1.5rem 1.5rem; overflow: hidden; }
+.toc { position: fixed; top: 0; right: 0; width: 15rem; box-sizing: border-box; height: 100dvh; display: flex; flex-direction: column; padding: 2rem 1.6rem 1.5rem; overflow: hidden; }
 .toc-empty { display: none; }
-.toc-head { flex: none; display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.3rem; }
-.toc-head h2 { font-family: var(--font-body); font-weight: 700; font-size: 1.3rem; color: var(--text); margin: 0; }
-.toc-toggle { background: none; border: 0; color: var(--text-3); cursor: pointer; line-height: 1; padding: 0; display: inline-flex; align-items: center; }
+.toc-head { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 1.15rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--border); }
+.toc-head h2 { font-family: var(--font-body); font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-3); margin: 0; }
+.toc-toggle { background: none; border: 0; color: var(--text-3); cursor: pointer; line-height: 1; padding: 0; display: inline-flex; align-items: center; transition: color var(--t); }
 .toc-toggle:hover { color: var(--accent); }
 .toc-toggle svg { display: none; }
 .toc-toggle .ut-close { display: block; }
 html.toc-collapsed .toc-toggle .ut-close { display: none; }
 html.toc-collapsed .toc-toggle .ut-open { display: block; }
 html.toc-collapsed .toc-body { display: none; }
-html.toc-collapsed .toc-head { margin-bottom: 0; justify-content: flex-end; }
+html.toc-collapsed .toc-head { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; justify-content: flex-end; }
 html.toc-collapsed .toc-head h2 { display: none; }
 .toc-body { flex: 1; min-height: 0; overflow-y: auto; }
 .toc-list { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
-.toc-list li { counter-increment: toc; margin: 0 0 0.9rem; }
-.toc-list a { display: block; color: var(--text-3); text-decoration: none; line-height: 1.3; transition: color var(--t); }
-.toc-list a::before { content: counter(toc) ". "; color: var(--text-3); }
+.toc-list li { counter-increment: toc; }
+.toc-list a { position: relative; display: flex; gap: 0.7rem; align-items: baseline; color: var(--text-3); text-decoration: none; font-size: 0.95rem; line-height: 1.3; padding: 0.46rem 0; transition: color var(--t); }
+.toc-list a::before { content: counter(toc, decimal-leading-zero); font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.03em; color: var(--text-3); opacity: 0.6; flex: none; min-width: 1rem; transition: color var(--t), opacity var(--t); }
 .toc-list a:hover { color: var(--text); }
 .toc-list a.active { color: var(--accent); }
-.toc-list a.active::before { color: var(--accent); }
+.toc-list a.active::before { color: var(--accent); opacity: 1; }
 /* only show when the viewport is wide enough that the rail clears the centered content */
 @media (max-width: 1440px) { .toc { display: none; } }
 
