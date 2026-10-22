@@ -802,3 +802,18 @@ html.toc-collapsed .toc-head h2 { display: none; }
 .pub-row.open .pub-desc { display: block; }
 .pub-desc p { margin: 0; color: var(--text-2); }
 @media (max-width: 640px) { #publications .pub-row { flex-direction: column; gap: 0.6rem; } .pub-thumb { width: 100%; max-width: 300px; } .pub-desc { flex-basis: auto; } }
+
+/* mobile menu: hamburger -> X when open */
+.nav-toggle .nt-close { display: none; }
+.sidebar.nav-open .nav-toggle .nt-open { display: none; }
+.sidebar.nav-open .nav-toggle .nt-close { display: inline-flex; }
+.sidebar.nav-open .nav-toggle .nt-label { display: none; }
+
+/* mobile: wider content + stack concert chip over full-width details */
+@media (max-width: 768px) {
+  main.page, main.project-page { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .concert { grid-template-columns: auto 1fr; column-gap: 0.7rem; padding-left: 0.6rem; }
+  .concert .c-date { grid-column: 1; grid-row: 1; }
+  .concert .c-type { grid-column: 2; grid-row: 1; justify-self: start; margin-bottom: 0.3rem; }
+  .concert .c-info { grid-column: 2; grid-row: 2; }
+}
