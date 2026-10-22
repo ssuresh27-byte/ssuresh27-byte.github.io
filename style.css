@@ -727,7 +727,7 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
 
 /* ── Whole page content in a single card/sheet ── */
 main.page, main.project-page {
-  background: var(--bg);
+  background: var(--bg-card);
   box-shadow: var(--card-shadow);
   padding: 2rem 2.25rem 2.5rem;
   min-height: 100dvh;
