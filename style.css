@@ -822,3 +822,8 @@ html.nav-open .nav-toggle .nt-close { display: inline-flex; }
 .yt-cta { display: inline-flex; align-items: center; gap: 0.7rem; margin: 0.2rem 0 1.4rem; color: var(--link); text-decoration: none; font-size: 1.05rem; transition: color var(--t); }
 .yt-cta:hover { color: var(--link-hover); }
 .yt-cta svg { display: block; flex: none; }
+
+/* every word link underlines on hover (icons excluded) */
+.block-links a:not(.icon-link), .hero-links a:not(.icon-link) { text-decoration: none; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.block-links a:not(.icon-link):hover, .hero-links a:not(.icon-link):hover { text-decoration: underline; }
+.yt-cta:hover span { text-decoration: underline; text-underline-offset: 2px; }
