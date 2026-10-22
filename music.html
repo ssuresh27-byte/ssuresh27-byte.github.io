@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preload" href="/fonts/garamond-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/garamond-bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=150" />
+  <link rel="stylesheet" href="style.css?v=151" />
   <script>
   (function(){try{if(localStorage.getItem('tocColl')==='1')document.documentElement.classList.add('toc-collapsed');}catch(e){}})();
   function tocToggle(){var c=document.documentElement.classList.toggle('toc-collapsed');try{localStorage.setItem('tocColl',c?'1':'0');}catch(e){}}
@@ -29,7 +29,7 @@
 <body class="p-music">
 
   <aside class="sidebar">
-      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="navToggle(this)"><svg class="nt-open" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="nt-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="nt-label">Menu</span></button>
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="navToggle(this)"><svg class="nt-open" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="nt-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             <nav class="tree" aria-label="Site tree">
         <ul>
           <li class="tree-node"><div class="tree-row"><button class="tree-toggle" type="button" onclick="treeToggle(this)" aria-label="Toggle"></button><a class="tree-link" href="/">Home</a></div>
@@ -75,29 +75,29 @@
 
       <h3>Upcoming</h3>
       <div class="concert-list">
-        <div class="concert solo"><span class="c-date">Oct 17</span><span class="c-type">Solo</span><span class="c-info"><span class="c-artist">Violin solo</span><span class="c-support">Mridangam: Vijay Natesan</span><span class="c-meta">Temple, Aurora, Illinois &middot; 5 PM</span></span></div>
+        <div class="concert solo"><div class="c-when"><span class="c-date">Oct 17</span><span class="c-time">5 PM</span></div><div class="c-artist">Violin solo</div><div class="c-details"><span class="c-venue">Temple, Aurora, Illinois</span><span class="c-accomp">Mridangam: Vijay Natesan</span></div></div>
       </div>
 
       <h3>2026/27 Chennai Music Season</h3>
       <div class="concert-list">
-        <div class="concert accomp"><span class="c-date">Dec 23</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Akshay Padmanabhan</span><span class="c-meta">Tattvaloka (TTVT) &middot; 10:30 AM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 23</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Abhilash Giriprasad</span><span class="c-meta">Pammal &middot; 6:30 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 24</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Bhargavi Balasubramaniam</span><span class="c-meta">GFA &middot; 5 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 24</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Delhi Sunder Rajan</span><span class="c-meta">GFA &middot; 5 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 25</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">TN Seshagopalan</span><span class="c-meta">SASTRA &middot; 9 AM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 25</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Carnatica Brothers</span><span class="c-meta">Chennaiyil Thiruvaiyaru &middot; 4:15 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 26</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Arjun Suresh</span><span class="c-meta">Chennai Fine Arts &middot; 2:30 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 26</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Chitravina N Ravikiran</span><span class="c-meta">Nada Sudha &middot; 6:30 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 27</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">TN Seshagopalan</span><span class="c-meta">Nada Sudha &middot; 9 AM</span></span></div>
-        <div class="concert duet"><span class="c-date">Dec 27</span><span class="c-type">Duet</span><span class="c-info"><span class="c-artist">Duet with <span class="c-with">C S Chinmayi</span></span><span class="c-meta">SASTRA Satsangh &middot; 4 PM</span></span></div>
-        <div class="concert duet"><span class="c-date">Dec 28</span><span class="c-type">Duet</span><span class="c-info"><span class="c-artist">Duet with <span class="c-with">Charulatha Chandrashekar</span></span><span class="c-meta">BGS &middot; 3:30 PM</span></span></div>
-        <div class="concert duet"><span class="c-date">Dec 29</span><span class="c-type">Duet</span><span class="c-info"><span class="c-artist">Duet with <span class="c-with">Sai Govind (mandolin)</span></span><span class="c-meta">Bharat Kalachar &middot; 10:30 AM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 29</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">KS Vishnudev</span><span class="c-meta">GFA &middot; 5 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 30</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Sikkil Gurucharan</span><span class="c-meta">Rasika Fine Arts &middot; 6:30 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Dec 31</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Chitravina N Ravikiran</span><span class="c-meta">Velleeshwarar Kovil &middot; 6:30 AM</span></span></div>
-        <div class="concert duet"><span class="c-date">Dec 31</span><span class="c-type">Duet</span><span class="c-info"><span class="c-artist">Duet with <span class="c-with">Arjun Suresh (chitravina)</span></span><span class="c-meta">Nada Sudha &middot; 2:30&ndash;4 PM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Jan 1</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Sai Vignesh</span><span class="c-meta">Arkay (TTVT) &middot; 10:15 AM</span></span></div>
-        <div class="concert accomp"><span class="c-date">Jan 1</span><span class="c-type">Accompaniment</span><span class="c-info"><span class="c-artist">Dance programme</span><span class="c-meta">BGS &middot; 5 PM</span></span></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 23</span><span class="c-time">10:30 AM</span></div><div class="c-artist">Vid. Akshay Padmanabhan</div><div class="c-details"><span class="c-venue">Tattvaloka (TTVT)</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 23</span><span class="c-time">6:30 PM</span></div><div class="c-artist">Vid. Abhilash Giriprasad</div><div class="c-details"><span class="c-venue">Pammal</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 24</span><span class="c-time">5 PM</span></div><div class="c-artist">Vid. Bhargavi Balasubramaniam</div><div class="c-details"><span class="c-venue">GFA</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 24</span><span class="c-time">5 PM</span></div><div class="c-artist">Vid. Delhi Sunder Rajan</div><div class="c-details"><span class="c-venue">GFA</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 25</span><span class="c-time">9 AM</span></div><div class="c-artist">Vid. TN Seshagopalan</div><div class="c-details"><span class="c-venue">SASTRA</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 25</span><span class="c-time">4:15 PM</span></div><div class="c-artist">Vid. Carnatica Brothers</div><div class="c-details"><span class="c-venue">Chennaiyil Thiruvaiyaru</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 26</span><span class="c-time">2:30 PM</span></div><div class="c-artist">Arjun Suresh</div><div class="c-details"><span class="c-venue">Chennai Fine Arts</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 26</span><span class="c-time">6:30 PM</span></div><div class="c-artist">Vid. Chitravina N Ravikiran</div><div class="c-details"><span class="c-venue">Nada Sudha</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 27</span><span class="c-time">9 AM</span></div><div class="c-artist">Vid. TN Seshagopalan</div><div class="c-details"><span class="c-venue">Nada Sudha</span></div></div>
+        <div class="concert duet"><div class="c-when"><span class="c-date">Dec 27</span><span class="c-time">4 PM</span></div><div class="c-artist">Duet with <span class="c-with">Vid. C S Chinmayi</span></div><div class="c-details"><span class="c-venue">SASTRA Satsangh</span></div></div>
+        <div class="concert duet"><div class="c-when"><span class="c-date">Dec 28</span><span class="c-time">3:30 PM</span></div><div class="c-artist">Duet with <span class="c-with">Vid. Charulatha Chandrashekar</span></div><div class="c-details"><span class="c-venue">BGS</span></div></div>
+        <div class="concert duet"><div class="c-when"><span class="c-date">Dec 29</span><span class="c-time">10:30 AM</span></div><div class="c-artist">Duet with <span class="c-with">Vid. Sai Govind (mandolin)</span></div><div class="c-details"><span class="c-venue">Bharat Kalachar</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 29</span><span class="c-time">5 PM</span></div><div class="c-artist">Vid. KS Vishnudev</div><div class="c-details"><span class="c-venue">GFA</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 30</span><span class="c-time">6:30 PM</span></div><div class="c-artist">Vid. Sikkil Gurucharan</div><div class="c-details"><span class="c-venue">Rasika Fine Arts</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Dec 31</span><span class="c-time">6:30 AM</span></div><div class="c-artist">Vid. Chitravina N Ravikiran</div><div class="c-details"><span class="c-venue">Velleeshwarar Kovil</span></div></div>
+        <div class="concert duet"><div class="c-when"><span class="c-date">Dec 31</span><span class="c-time">2:30&ndash;4 PM</span></div><div class="c-artist">Duet with <span class="c-with">Arjun Suresh (chitravina)</span></div><div class="c-details"><span class="c-venue">Nada Sudha</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Jan 1</span><span class="c-time">10:15 AM</span></div><div class="c-artist">Vid. Sai Vignesh</div><div class="c-details"><span class="c-venue">Arkay (TTVT)</span></div></div>
+        <div class="concert accomp"><div class="c-when"><span class="c-date">Jan 1</span><span class="c-time">5 PM</span></div><div class="c-artist">Dance programme</div><div class="c-details"><span class="c-venue">BGS</span></div></div>
       </div>
     </section>
 
