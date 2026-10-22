@@ -56,7 +56,7 @@
 }
 
 /* ───── Base ───── */
-html { scroll-behavior: auto; font-size: 17.5px; overscroll-behavior-y: none; }
+html { scroll-behavior: auto; font-size: 17.5px; overscroll-behavior-y: none; background: var(--bg); }
 
 body {
   font-family: var(--font-display);
