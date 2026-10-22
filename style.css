@@ -807,3 +807,8 @@ html.nav-open .nav-toggle .nt-close { display: inline-flex; }
 @media (max-width: 768px) {
   main.page, main.project-page { padding-left: 1.1rem; padding-right: 1.1rem; }
 }
+
+/* YouTube channel icon (music Media header) */
+.yt-link { color: var(--link); display: inline-flex; align-items: center; transition: color var(--t); }
+.yt-link:hover { color: var(--link-hover); }
+.yt-link svg { display: block; }
