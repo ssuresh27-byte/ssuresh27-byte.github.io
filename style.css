@@ -312,9 +312,8 @@ main { flex: 1; min-width: 0; }
     padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border);
   }
   .nav-toggle { display: inline-flex; }
-  .sidebar .tree, .sidebar .theme-switch { display: none; }
-  .sidebar.nav-open .tree { display: block; margin-top: 0.75rem; }
-  .sidebar.nav-open .theme-switch { display: flex; margin-top: 0.75rem; }
+  .sidebar .tree { display: none; }
+  html.nav-open .sidebar .tree { display: block; margin-top: 0.75rem; }
 }
 
 /* Icon theme toggle */
@@ -699,11 +698,15 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
 
 /* ── Theme switch: "light / dark" text toggle, bottom of the sidebar ── */
 .theme-switch {
-  margin-top: auto;
-  padding-top: 1.5rem;
+  position: fixed;
+  top: 0.8rem;
+  right: 1.4rem;
+  z-index: 100;
   display: flex;
   align-items: baseline;
   gap: 0;
+  background: var(--bg);
+  padding: 0.25rem 0.5rem;
 }
 .ts-opt {
   font-family: var(--font-body);
@@ -720,9 +723,6 @@ body, .sidebar, .block, .box, .hero-photo, .music-photo, .panel-video {
 .ts-sep { color: var(--text-3); }
 [data-theme="light"] .ts-light { color: var(--text); font-weight: 700; }
 [data-theme="dark"]  .ts-dark  { color: var(--text); font-weight: 700; }
-@media (max-width: 820px) {
-  .theme-switch { margin-top: 0; padding-top: 0; margin-left: auto; }
-}
 
 
 /* ── Whole page content in a single card/sheet ── */
@@ -801,8 +801,8 @@ html.toc-collapsed .toc-head h2 { display: none; }
 
 /* mobile menu: hamburger -> X when open (icon only) */
 .nav-toggle .nt-close { display: none; }
-.sidebar.nav-open .nav-toggle .nt-open { display: none; }
-.sidebar.nav-open .nav-toggle .nt-close { display: inline-flex; }
+html.nav-open .nav-toggle .nt-open { display: none; }
+html.nav-open .nav-toggle .nt-close { display: inline-flex; }
 
 /* mobile: a touch more content width */
 @media (max-width: 768px) {
