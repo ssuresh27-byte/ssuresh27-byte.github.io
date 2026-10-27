@@ -835,3 +835,7 @@ html.nav-open .nav-toggle .nt-close { display: inline-flex; }
 /* project header icons (top-right of each project block) */
 .proj-icons { display: inline-flex; align-items: center; gap: 0.7rem; flex: none; }
 .proj-icons .icon-link svg { width: 20px; height: 20px; }
+
+/* project page: icons aligned with the h1 title */
+.page-header .header-row { align-items: center; }
+.page-header .proj-icons .icon-link svg { width: 22px; height: 22px; }
