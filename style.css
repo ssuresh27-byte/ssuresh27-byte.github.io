@@ -831,3 +831,7 @@ html.nav-open .nav-toggle .nt-close { display: inline-flex; }
 .block-links a:not(.icon-link), .hero-links a:not(.icon-link) { text-decoration: none; text-underline-offset: 2px; text-decoration-thickness: 1px; }
 .block-links a:not(.icon-link):hover, .hero-links a:not(.icon-link):hover { text-decoration: underline; }
 .yt-cta:hover span { text-decoration: underline; text-underline-offset: 2px; }
+
+/* project header icons (top-right of each project block) */
+.proj-icons { display: inline-flex; align-items: center; gap: 0.7rem; flex: none; }
+.proj-icons .icon-link svg { width: 20px; height: 20px; }
