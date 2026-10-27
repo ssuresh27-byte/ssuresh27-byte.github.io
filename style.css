@@ -638,6 +638,10 @@ footer p, .page footer p, .project-page footer p, .prose footer p { font-size: 0
 .c-accomp { display: block; font-size: 0.82rem; color: var(--text-3); font-style: italic; margin-top: 0.2rem; }
 @media (max-width: 768px) {
   .music-photo { float: none; display: block; width: 100%; max-width: 380px; margin: 0 0 1rem; }
+  .concert { grid-template-columns: 4.5rem minmax(0, 1fr); column-gap: 1rem; padding-left: 0.6rem; }
+  .c-when { grid-column: 1; grid-row: 1; }
+  .c-artist { grid-column: 2; grid-row: 1; overflow-wrap: anywhere; }
+  .c-details { grid-column: 2; grid-row: 2; margin-top: 0.15rem; overflow-wrap: anywhere; }
 }
 
 /* ── Publications as bordered boxes (research page) ── */
