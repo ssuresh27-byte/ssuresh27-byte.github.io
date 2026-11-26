@@ -21,6 +21,10 @@
 @font-face { font-family:'EB Garamond'; font-style:normal; font-weight:700; font-display:block; src:url(/fonts/garamond-bold.woff2) format('woff2'); }
 @font-face { font-family:'EB Garamond'; font-style:italic; font-weight:400; font-display:block; src:url(/fonts/garamond-italic.woff2) format('woff2'); }
 
+@font-face { font-family:'Cochineal'; font-style:normal; font-weight:400; font-display:block; src:url(/fonts/cochineal-regular.woff2) format('woff2'); }
+@font-face { font-family:'Cochineal'; font-style:normal; font-weight:700; font-display:block; src:url(/fonts/cochineal-bold.woff2) format('woff2'); }
+@font-face { font-family:'Cochineal'; font-style:italic; font-weight:400; font-display:block; src:url(/fonts/cochineal-italic.woff2) format('woff2'); }
+
 /* ───── Reset ───── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -29,9 +33,9 @@
 /* ───── Theme (light only) ───── */
 :root {
   color-scheme: light;
-  /* EB Garamond (the Sophie Wang serif) for body + headings + nav; Plex Mono accents */
-  --font-display: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
-  --font-body:    'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  /* Cochineal serif for body + headings + nav; Plex Mono accents */
+  --font-display: 'Cochineal', Garamond, Georgia, 'Times New Roman', serif;
+  --font-body:    'Cochineal', Garamond, Georgia, 'Times New Roman', serif;
   --font-mono:    'IBM Plex Mono', 'Courier New', Courier, monospace;
   --t:            0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
